@@ -5,12 +5,47 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top">
+      
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">로고 자리</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">찜하기</a></li>
+            <li><a href="#contact">학교별 </a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">학교별 구역 정보 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">서강대학교</a></li>
+                <li><a href="#">이화여자대학교</a></li>
+                <li><a href="#">연세대학교</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style="margin-right: 80px;">
+            <li><a href="../navbar-static-top/">방 등록하기</a></li>
+          <% if user_signed_in? %>  
+            <li><a>로그아웃</a></li>
+          <% else %>
+            <li><a>로그인</a></li>
+            <li><a>회원가입</a></li>
+          <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </nav>
 
-  <div class="container">
     <%= yield %>
-  </div>
+
 
 </body>
 </html>

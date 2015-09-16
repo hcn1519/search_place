@@ -1,6 +1,6 @@
-d>
+<head>
     <!--googlemap 넣기-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcrzqmVvJgOpIy23Dlw08MHrQN1C17Sg"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcrzqmVvJgOpIy23Dlw08MHrQN1C17Sg&libraries=geometry"></script>
     <!--jquery 넣기-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
@@ -261,7 +261,7 @@ d>
           
          
         ];
-        //서강대 후문- 대흥역 구역 시작
+        //서강대 후문 - 대흥역 구역 시작
         var set_sogang_zone_1 = new google.maps.Polygon({
           paths: sogang_zone_1,
           strokeColor: '#F75D59',
@@ -284,7 +284,22 @@ d>
         });
          set_sogang_zone_2.setMap(map);
         //이대역-서강대 후문 구역 끝
-      
+
+    $.get("/map/from_hasuk", function(data, status) {
+        for(var i=0; i<data.length; i++) {
+          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+          if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1)==true){
+            map.setCenter({ lat: 37.548734, lng: 126.944784},true);
+            map.setZoom(17);
+            var marker = new google.maps.Marker({
+              position: latlng,
+              title: data[i].price,
+              map: map
+          });
+          marker.setMap(map);
+          }
+        }
+    }); 
       
       //학교별 마커 띄우기 시작
     if( "<%= @kind %>" == "자취"){

@@ -287,14 +287,14 @@
       
       
       //학교별 마커 띄우기 시작
-      $.get("/map/getspot", function(data, status){
+      $.get("/map/from_oneroom", function(data, status){
             for (var i = 0; i < data.length; i++){
               //학교 찍히는 것 위도 경도로 찍는 것 생각
               //if("<%= @school %>" == data[i].univ) {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                     var marker = new google.maps.Marker({
                         position: latlng,
-                        //title:data[i].univ,
+                        title:data[i].kind,
                         map: map
                     });
                 marker.setMap(map);
@@ -302,7 +302,21 @@
             }
         }); //학교별 마커 띄우기 끝
       
-      
+       $.get("/map/from_hasuk", function(data, status){
+             for (var i = 0; i < data.length; i++){
+               //학교 찍히는 것 위도 경도로 찍는 것 생각
+               //if("<%= @school %>" == data[i].univ) {
+                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                     var marker = new google.maps.Marker({
+                         position: latlng,
+                         title:data[i].kind,
+                         map: map
+                     });
+                 marker.setMap(map);
+               //}
+             }
+         }); //학교별 마커 띄우기 끝
+
       //검색 버튼 누르기 효과 시작
       $(document).ready(function() {
         
@@ -389,10 +403,10 @@
     <div class="searchbox">
         <div class="panel panel-success" style="margin-bottom: 0px;">
           <div class="panel-body">
-            <form action="/map/refresh" method="POST">
+            <form action="/map/map_detail" method="POST">
               
               <!--학교별 input 생각-->
-              <input type="hidden" value="<%= @school %>" name="univ">
+             <!-- <input type="hidden" value="<%= @school %>" name="univ">-->
               
               
               

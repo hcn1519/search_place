@@ -28,7 +28,7 @@ class MapController < ApplicationController
     render json: @places
   end
   def from_hasuk
-    @places = HasukHouse.all()
+    @places = HasukRoom.all()
 
     render json: @places
   end

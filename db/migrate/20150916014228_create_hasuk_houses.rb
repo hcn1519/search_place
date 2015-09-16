@@ -5,7 +5,6 @@ class CreateHasukHouses < ActiveRecord::Migration
       t.integer :bdg_floor
       t.string :common
       t.string :meal
-      t.integer :deposit
       t.integer :admin_fee
       t.text :description
       t.string :common_img

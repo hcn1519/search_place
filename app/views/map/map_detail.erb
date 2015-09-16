@@ -287,21 +287,91 @@ d>
       
       
       //학교별 마커 띄우기 시작
-      $.get("/map/getspot", function(data, status){
+    if( "<%= @kind %>" == "자취"){
+      $.get("/map/from_oneroom", function(data, status){
             for (var i = 0; i < data.length; i++){
               //학교 찍히는 것 위도 경도로 찍는 것 생각
-              //if("<%= @school %>" == data[i].univ) {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    var marker = new google.maps.Marker({
-                        position: latlng,
-                        //title:data[i].univ,
-                        map: map
+              if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                  var marker = new google.maps.Marker({
+                    position: latlng,
+                    title:data[i].kind,
+                    map: map
                     });
                 marker.setMap(map);
-              //}
+                }
+              }
             }
-        }); //학교별 마커 띄우기 끝
+      });         
+     }//원룸으로 가는 if 끝
+
+    else if( "<%= @kind %>" == "하숙") {
+      $.get("/map/from_hasuk", function(data, status){
+        for (var i = 0; i < data.length; i++){
+               //학교 찍히는 것 위도 경도로 찍는 것 생각
+          if(data[i].deposit == null){
+            data[i].deposit = 0;
+          }
+          if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+            if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+              var marker = new google.maps.Marker({
+                position: latlng,
+                title:data[i].kind,
+                map: map
+                });
+              marker.setMap(map);
+            }
+          } 
+        }
+      });
       
+    } //하숙으로 가는 else if 끝
+
+    else {
+
+//원룸 조건 없을 때 출력
+      $.get("/map/from_oneroom", function(data, status){
+        for (var i = 0; i < data.length; i++){
+        //학교 찍히는 것 위도 경도로 찍는 것 생각
+          if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+            if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+              var marker = new google.maps.Marker({
+                position: latlng,
+                title:data[i].kind,
+                map: map
+                });
+              marker.setMap(map);
+            }
+          }
+        }
+      });
+
+//하숙 조건 없을 때 출력
+      $.get("/map/from_hasuk", function(data, status){
+        for (var i = 0; i < data.length; i++){
+        //학교 찍히는 것 위도 경도로 찍는 것 생각
+          if(data[i].deposit == null){
+            data[i].deposit = 0;
+          }
+          if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+            if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+              var marker = new google.maps.Marker({
+                 position: latlng,
+                 title:data[i].kind,
+                 map: map
+              });
+             marker.setMap(map);
+            }
+          }  
+        }
+
+      });
+} //자취 하숙 모두 나올 수 있는 검색 조건 끝
+     
       
       //검색 버튼 누르기 효과 시작
       $(document).ready(function() {
@@ -389,7 +459,7 @@ d>
     <div class="searchbox">
         <div class="panel panel-success" style="margin-bottom: 0px;">
           <div class="panel-body">
-            <form action="/map/refresh" method="POST">
+            <form action="/map/map_detail" method="POST">
               
               <!--학교별 input 생각-->
               <input type="hidden" value="<%= @school %>" name="univ">

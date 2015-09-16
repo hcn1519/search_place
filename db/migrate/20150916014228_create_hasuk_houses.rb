@@ -2,7 +2,6 @@ class CreateHasukHouses < ActiveRecord::Migration
   def change
     create_table :hasuk_houses do |t|
       t.string :address
-      t.string :img
       t.string :bdg_floor
       t.string :common
       t.string :option

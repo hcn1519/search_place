@@ -11,13 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908115318) do
+ActiveRecord::Schema.define(version: 20150916014344) do
 
-  create_table "search_mains", force: :cascade do |t|
-    t.string   "school"
-    t.string   "place"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "hasuk_houses", force: :cascade do |t|
+    t.string   "address"
+    t.string   "bdg_floor"
+    t.string   "common"
+    t.string   "option"
+    t.string   "common_img"
+    t.string   "deposit"
+    t.integer  "admin_fee"
+    t.string   "kind"
+    t.string   "distance"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "house_title"
+    t.text     "description"
+    t.string   "meal"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "hasuk_rooms", force: :cascade do |t|
+    t.integer  "price"
+    t.string   "img"
+    t.integer  "size"
+    t.string   "sunlight"
+    t.string   "private_option"
+    t.string   "room_title"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "onerooms", force: :cascade do |t|
+    t.string   "address"
+    t.string   "img"
+    t.string   "kind"
+    t.integer  "deposit"
+    t.integer  "price"
+    t.integer  "admin_fee"
+    t.integer  "size"
+    t.integer  "bdg_floor"
+    t.integer  "room_floor"
+    t.string   "sunlight"
+    t.string   "option"
+    t.string   "pet"
+    t.string   "schedule"
+    t.string   "distance"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "room_title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

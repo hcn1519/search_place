@@ -1,2 +1,563 @@
-<h1>Map#mappage</h1>
-<p>Find me in app/views/map/mappage.html.erb</p>
+<head>
+    <!--googlemap 넣기-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcrzqmVvJgOpIy23Dlw08MHrQN1C17Sg"></script>
+    <!--jquery 넣기-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    var map = null;
+    //구글맵 기본 설정 시작
+      function initialize() {
+        //학교별 지도 view 다르게 시작
+        if("<%= @school %>" == "서강대학교"){
+          var mapOptions = {
+            center: { lat: 37.551445, lng: 126.940793},
+            zoom: 16
+          };
+        } else if ("<%= @school %>" == "이화여자대학교") {
+          var mapOptions = {
+            center: { lat: 37.561803, lng: 126.946909},
+            zoom: 16
+          };  
+        
+        } else if("<%= @school %>" == "연세대학교") {
+          var mapOptions = {
+            center: { lat: 37.561257, lng: 126.936974},
+            zoom: 16
+          };  
+        } else {
+          var mapOptions = {
+            center: { lat: 37.557102, lng: 126.940806},
+            zoom: 15
+          }; 
+        } //학교별 지도 view 다르게하기 끝
+      map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+      
+      //학교별 문 이미지 삽입
+      var image1 = {
+        url: '/images/jung.png',
+        size: new google.maps.Size(40, 25),
+        
+        };
+        
+        //후문 이미지
+        var image2 = {
+        url: '/images/who.png',
+        size: new google.maps.Size(40, 25),
+        
+        };
+        
+        //남문 이미지
+        var image3 = {
+        url: '/images/nam.png',
+        size: new google.maps.Size(40, 25),
+        
+        };
+        
+        //북문 이미지
+        var image4 = {
+        url: '/images/book.png',
+        size: new google.maps.Size(40, 25),
+        
+        };
+        
+        //서문 이미지
+        var image5 = {
+        url: '/images/seo.png',
+        size: new google.maps.Size(40, 25),
+        
+        };
+        
+        //서강대 문
+        //정문
+      var doorMarker1 = new google.maps.Marker({
+        position: {lat: 37.551405, lng: 126.937727},
+        map: map,
+        icon: image1
+      });
+          
+          
+      //후문
+      var doorMarker3 = new google.maps.Marker({
+        position: {lat: 37.550660, lng: 126.943936},
+        map: map,
+        icon: image2
+      }); 
+      
+        //남문
+      var doorMarker2 = new google.maps.Marker({
+        position: {lat: 37.549376, lng: 126.938918},
+        map: map,
+        icon: image3
+      });
+      
+      
+      
+      //이화여대 문
+      
+      //정문
+      var doorMarker4 = new google.maps.Marker({
+        position: {lat: 37.559727, lng: 126.945536},
+        map: map,
+        icon: image1
+      });
+      
+      //후문
+      var doorMarker5 = new google.maps.Marker({
+        position: {lat: 37.563548, lng: 126.944605},
+        map: map,
+        icon: image2
+      });
+      
+      
+      //북문
+      var doorMarker6 = new google.maps.Marker({
+        position: {lat: 37.568269, lng: 126.949951},
+        map: map,
+        icon: image4
+      });
+      
+      
+      //서문
+      var doorMarker7 = new google.maps.Marker({
+        position: {lat: 37.560564, lng: 126.943427},
+        map: map,
+        icon: image5
+      });
+      
+      //서강대 후문-대흥역 구역
+        var sogang_zone_1 = [
+          {lat:37.550138, lng:126.943970},
+          {lat:37.549508, lng:126.940748},
+          {lat:37.548904, lng:126.940769},
+          {lat:37.548113, lng:126.942121},
+          {lat:37.547858, lng:126.941900}, //대흥역
+          {lat:37.547449, lng:126.942818},
+          {lat:37.547117, lng:126.942413},
+          {lat:37.546652, lng:126.942075}, //국철길
+          {lat:37.546001, lng:126.944256},
+          {lat:37.545459, lng:126.945747},
+          {lat:37.545369, lng:126.945978},
+          {lat:37.545931, lng:126.946364},
+          {lat:37.546041, lng:126.946101},
+          {lat:37.546552, lng:126.946646},
+          {lat:37.546947, lng:126.947005},
+          {lat:37.547464, lng:126.947276},
+          {lat:37.548125, lng:126.947346},
+          {lat:37.548607, lng:126.947495},
+          {lat:37.548958, lng:126.947643},
+          {lat:37.549887, lng:126.948203},
+          {lat:37.549996, lng:126.948230},
+          {lat:37.550287, lng:126.948243},
+          {lat:37.550372, lng:126.948262},
+          {lat:37.550748, lng:126.948552},
+          {lat:37.550857, lng:126.948670},
+          {lat:37.551486, lng:126.948702},
+          {lat:37.551673, lng:126.948536},
+          {lat:37.551875, lng:126.948627},     
+          {lat:37.551944, lng:126.948713},
+          {lat:37.552130, lng:126.949156},  
+          {lat:37.552224, lng:126.949404},
+          {lat:37.552311, lng:126.949407},//여기서부터 중복 좌표
+          {lat:37.552418, lng:126.948994},
+          {lat:37.552461, lng:126.948951},
+          {lat:37.552404, lng:126.948810},  
+          {lat:37.552292, lng:126.948584},
+          {lat:37.552190, lng:126.948195},
+          {lat:37.552066, lng:126.947814},
+          {lat:37.552027, lng:126.947469},
+          {lat:37.552087, lng:126.947246},
+          {lat:37.552244, lng:126.947006},
+          {lat:37.552249, lng:126.946839},
+          {lat:37.552029, lng:126.946718},
+          {lat:37.551980, lng:126.946635},
+          {lat:37.552401, lng:126.946594},
+          {lat:37.552390, lng:126.946471},
+          {lat:37.552555, lng:126.946451},
+          {lat:37.552599, lng:126.946384},
+          {lat:37.552656, lng:126.945778},
+          {lat:37.552573, lng:126.945719},
+          {lat:37.552473, lng:126.945641},
+          {lat:37.551982, lng:126.944938},
+          {lat:37.551490, lng:126.944473},
+          {lat:37.550938, lng:126.944175}, //공통
+          {lat:37.550138, lng:126.943970}
+        ];
+        //이대역-서강대 후문 사이
+        var sogang_zone_2 = [
+          {lat:37.552311, lng:126.949407},   
+          {lat:37.552418, lng:126.948994},
+          {lat:37.552461, lng:126.948951},
+          {lat:37.552404, lng:126.948810},  
+          {lat:37.552292, lng:126.948584},
+          {lat:37.552190, lng:126.948195},
+          {lat:37.552066, lng:126.947814},
+          {lat:37.552027, lng:126.947469},
+          {lat:37.552087, lng:126.947246},
+          {lat:37.552244, lng:126.947006},
+          {lat:37.552249, lng:126.946839},
+          {lat:37.552029, lng:126.946718},
+          {lat:37.551980, lng:126.946635},
+          {lat:37.552401, lng:126.946594},
+          {lat:37.552390, lng:126.946471},
+          {lat:37.552555, lng:126.946451},
+          {lat:37.552599, lng:126.946384},
+          {lat:37.552656, lng:126.945778},
+          {lat:37.552573, lng:126.945719},
+          {lat:37.552473, lng:126.945641},
+          {lat:37.551982, lng:126.944938},
+          {lat:37.551490, lng:126.944473},
+          {lat:37.550938, lng:126.944175},
+          {lat:37.550999, lng:126.943973},
+          {lat:37.551120, lng:126.943949},
+          {lat:37.551267, lng:126.943961},
+          {lat:37.551605, lng:126.944146},
+          {lat:37.552392, lng:126.943489},
+          {lat:37.552502, lng:126.943634},
+          {lat:37.552589, lng:126.943696},
+          {lat:37.552689, lng:126.943714},
+          {lat:37.552768, lng:126.943702},
+          {lat:37.552839, lng:126.943612},
+          {lat:37.552858, lng:126.943540},
+          {lat:37.552910, lng:126.943502},
+          {lat:37.552943, lng:126.943435},
+          {lat:37.552940, lng:126.943348},
+          {lat:37.552922, lng:126.943293},
+          {lat:37.552957, lng:126.942964},
+          {lat:37.553000, lng:126.942938},
+          {lat:37.553390, lng:126.943003},
+          {lat:37.553426, lng:126.943032},
+          {lat:37.553482, lng:126.943106},
+          {lat:37.553586, lng:126.943193},
+          {lat:37.553689, lng:126.943262},
+          {lat:37.554045, lng:126.943355},
+          {lat:37.554130, lng:126.943353},
+          {lat:37.554151, lng:126.943276},
+          {lat:37.554172, lng:126.943225},
+          {lat:37.554225, lng:126.943220},
+          {lat:37.554339, lng:126.943282},
+          {lat:37.554485, lng:126.943298},
+          {lat:37.554561, lng:126.943277},
+          {lat:37.554641, lng:126.943270},
+          {lat:37.554643, lng:126.943317},
+          {lat:37.554748, lng:126.943324},
+          {lat:37.554887, lng:126.943363},
+          {lat:37.554984, lng:126.943408},
+          {lat:37.555465, lng:126.943569},
+          {lat:37.555507, lng:126.943362},
+          {lat:37.555605, lng:126.943034},
+          {lat:37.555637, lng:126.942877},
+          {lat:37.555711, lng:126.942913},
+          {lat:37.556472, lng:126.942865},
+          {lat:37.556897, lng:126.949849},
+          {lat:37.555082, lng:126.949936},
+          {lat:37.554214, lng:126.950315},
+          {lat:37.553975, lng:126.950351},
+          {lat:37.553937, lng:126.950330},
+          {lat:37.553364, lng:126.950376},
+          {lat:37.553118, lng:126.949764},
+          {lat:37.552440, lng:126.950118},
+          {lat:37.552294, lng:126.949606},
+          {lat:37.552311, lng:126.949407}
+          
+         
+        ];
+        //서강대 후문- 대흥역 구역 시작
+        var set_sogang_zone_1 = new google.maps.Polygon({
+          paths: sogang_zone_1,
+          strokeColor: '#F75D59',
+          strokeOpacity: 0.5,
+          strokeWeight: 2.5,
+          fillColor: '#F75D59',
+          fillOpacity: 0.3
+        });
+        set_sogang_zone_1.setMap(map);
+        //서강대 후문- 대흥역 구역 끝
+        
+        //이대역-서강대 후문 구역 시작
+        var set_sogang_zone_2 = new google.maps.Polygon({
+          paths: sogang_zone_2,
+          strokeColor: '#5E59F7',
+          strokeOpacity: 0.5,
+          strokeWeight: 2.5,
+          fillColor: '#5E59F7',
+          fillOpacity: 0.3
+        });
+         set_sogang_zone_2.setMap(map);
+        //이대역-서강대 후문 구역 끝
+      
+      
+      //학교별 마커 띄우기 시작
+      $.get("/map/getspot", function(data, status){
+            for (var i = 0; i < data.length; i++){
+              //학교 찍히는 것 위도 경도로 찍는 것 생각
+              //if("<%= @school %>" == data[i].univ) {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    var marker = new google.maps.Marker({
+                        position: latlng,
+                        //title:data[i].univ,
+                        map: map
+                    });
+                marker.setMap(map);
+              //}
+            }
+        }); //학교별 마커 띄우기 끝
+      
+      
+      //검색 버튼 누르기 효과 시작
+      $(document).ready(function() {
+        
+        $("#bt1").click(function(){
+          $(this).addClass("active");
+          $("#bt2").removeClass("active");
+        });
+         $("#bt2").click(function(){
+          $(this).addClass("active");
+          $("#bt1").removeClass("active");
+        });
+        $("#bt3").click(function(){
+          $(this).addClass("active");
+          $("#bt4").removeClass("active");
+          $("#bt5").removeClass("active");
+          $("#bt6").removeClass("active");
+          $("#bt7").removeClass("active");
+        });
+        $("#bt4").click(function(){
+          $(this).addClass("active");
+          $("#bt3").removeClass("active");
+          $("#bt5").removeClass("active");
+          $("#bt6").removeClass("active");
+          $("#bt7").removeClass("active");
+        });
+        $("#bt5").click(function(){
+          $(this).addClass("active");
+          $("#bt3").removeClass("active");
+          $("#bt4").removeClass("active");
+          $("#bt6").removeClass("active");
+          $("#bt7").removeClass("active");
+        });
+        $("#bt6").click(function(){
+          $(this).addClass("active");
+          $("#bt3").removeClass("active");
+          $("#bt4").removeClass("active");
+          $("#bt5").removeClass("active");
+          $("#bt7").removeClass("active");
+        });
+        $("#bt7").click(function(){
+          $(this).addClass("active");
+          $("#bt3").removeClass("active");
+          $("#bt4").removeClass("active");
+          $("#bt5").removeClass("active");
+          $("#bt6").removeClass("active");
+        });
+        $("#bt8").click(function(){
+          $(this).addClass("active");
+          $("#bt9").removeClass("active");
+          $("#bt10").removeClass("active");
+        });
+        $("#bt9").click(function(){
+          $(this).addClass("active");
+          $("#bt8").removeClass("active");
+          $("#bt10").removeClass("active");
+        });
+        $("#bt10").click(function(){
+          $(this).addClass("active");
+          $("#bt8").removeClass("active");
+          $("#bt9").removeClass("active");
+        });
+      }); //검색버튼 누르기 효과 끝
+      
+        
+        
+      } //구글맵 기본 설정 끝
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+  <!--지도부분 시작-->
+  <div class="col-md-8 map_container" style="padding-left:0px; padding-right:0px;">         
+    <!-- head에서 설정한 id로 map이 들어온다. -->
+    <div id="map-canvas">
+    </div>  
+  </div><!--지도부분 끝-->
+  
+  
+  
+  <!--오른쪽 박스 시작-->
+  <div class="col-md-4 mainbox">
+   
+    <!--검색박스 부분 시작-->
+    <div class="searchbox">
+        <div class="panel panel-success" style="margin-bottom: 0px;">
+          <div class="panel-body">
+            <form action="/map/refresh" method="POST">
+              
+              <!--학교별 input 생각-->
+              <input type="hidden" value="<%= @school %>" name="univ">
+              
+              
+              
+              <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
+                <label class="btn btn-default">
+                    <input type="radio" id="bt1" name="kind" value="자취" /> 자취
+                </label> 
+                <label class="btn btn-default">
+                    <input type="radio" id="bt2" name="kind" value="하숙" /> 하숙
+                </label>   
+              </div>
+              <div class="row">
+                <div class="col-md-6" style="padding-right: 0px;">
+                  <label>보증금</label>
+                  <div class="form-group">
+                    <div class="btn-group">
+                      <select class="form-control" name="deposit_min">
+                        <option value=0>없음</option>
+                        <option value=100>100</option>
+                        <option value=300>300</option>
+                        <option value=500>500</option>
+                        <option value=1000>1,000</option>
+                        <option value=2000>2,000</option>
+                      </select>
+                    </div>
+                    ~
+                    <div class="btn-group">
+                       <select class="form-control deposit2" name="deposit_max">
+                        <option value=0>없음</option>
+                        <option value=100>100</option>
+                        <option value=300>300</option>
+                        <option value=500>500</option>
+                        <option value=1000>1,000</option>
+                        <option value=2000>2,000</option>
+                      </select>
+                    </div>
+              </div>
+                </div>
+                <div class="col-md-6">
+                  <label>월세</label>
+                  <div class="form-group">
+                    <div class="btn-group">
+                      <select class="form-control month1" name="price_min">
+                        <option value=0>없음</option>
+                        <option value=20>20</option>
+                        <option value=30>30</option>
+                        <option value=40>40</option>
+                        <option value=50>50</option>
+                        <option value=60>60</option>
+                        <option value=70>70</option>
+                        <option value=80>80</option>
+                      </select>
+                    </div>
+                    ~
+                    <div class="btn-group">
+                       <select class="form-control month2" name="price_max">
+                        <option value=0>없음</option>
+                        <option value=20>20</option>
+                        <option value=30>30</option>
+                        <option value=40>40</option>
+                        <option value=50>50</option>
+                        <option value=60>60</option>
+                        <option value=70>70</option>
+                        <option value=80>80</option>
+                      </select>
+                    </div>
+              </div>
+                </div>
+              </div>
+              
+
+            
+          <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
+                  <label class="btn btn-default">
+                      <input type="radio" id="bt3" name="section" value="c구역" /> A구역
+                  </label> 
+                  <label class="btn btn-default">
+                      <input type="radio" id="bt4" name="section" value="B구역" /> B구역
+                  </label> 
+                  <label class="btn btn-default">
+                      <input type="radio" id="bt5" name="section" value="C구역" /> C구역
+                  </label> 
+                  <label class="btn btn-default">
+                      <input type="radio" id="bt6" name="section" value="D구역" /> D구역
+                  </label> 
+                  <label class="btn btn-default">
+                      <input type="radio" id="bt7" name="section" value="E구역" /> E구역
+                  </label>
+              </div>
+          
+              <div class="col-md-12 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
+                <label class="btn btn-default">
+                    <input class="btn btn-default" type="radio" id="bt8" name="distance" value="0분 거리" /> 5분 거리
+                 </label>
+                <label class="btn btn-default">
+                    <input type="radio" id="bt9" name="distance" value="10분 거리" /> 10분 거리
+                </label> 
+                <label class="btn btn-default">
+                    <input type="radio" id="bt10" name="distance" value="15분 거리" /> 15분 거리
+                </label>   
+              </div>
+              
+              <input id="search" type="submit" value="검색하기" class="btn btn-primary">
+              
+            </form>
+                  
+          </div>
+        </div>   
+    </div> <!--검색 박스 끝 -->
+    
+    <!--방 리스트 박스-->
+    <div class="listbox">
+      <div class="panel panel-default" style="margin-bottom: 0px;">
+        <div class="panel-body">
+          최근에 올라온 방 목록
+        </div>
+      </div>
+      <br/>
+      <!--개별 방 박스1 시작-->
+      <div id="room" style="margin-bottom:5px;">        
+        <div class="col-md-4">
+          <div class="img-thumbnail">
+              <img src="http://cdn.home-designing.com/wp-content/uploads/2009/10/minimal-furniture-in-the-room1.jpg" width="90px;" height="70px;">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h4 style="margin-bottom:5px;">500/40</h4>
+          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
+          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
+        </div>
+      </div> <!-- 개별 방 박스1 끝-->
+                  
+               
+                
+      <!--개별 방 박스2 시작-->
+      <div id="room" style="margin-bottom:5px;">
+        <div class="col-md-4">
+          <div class="img-thumbnail">
+              <img src="http://lunar.thegamez.net/interiordesignspot/hgtv-small-living-room-designs/jul-small-jul-small-spaces-and-more-people-select-high-590x535.jpg" width="90px;" height="70px;">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h4 style="margin-bottom:5px;">500/40</h4>
+          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
+          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
+        </div>
+      </div><!-- 개별 방 박스 끝-->
+   
+      <!--개별 방 박스3 시작-->
+      <div id="room" style="margin-bottom:5px;">
+        <div class="col-md-4">
+          <div class="img-thumbnail">
+              <img src="http://rexohome.com/wp-content/uploads/2012/04/Gray-Yellow-White-Bedroom-Suspended-Beds-570x414.jpg" width="90px;" height="70px;">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h4 style="margin-bottom:5px;">500/40</h4>
+          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
+          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
+        </div>
+      </div><!-- 개별 방 박스 끝-->
+    </div><!--방 리스트 박스 끝-->
+       
+  
+  </div><!--오른쪽 박스 끝 -->
+
+
+</body>

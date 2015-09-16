@@ -1,2 +1,22 @@
-<h1>Map#index</h1>
-<p>Find me in app/views/map/index.html.erb</p>
+
+<style type="text/css">
+body {
+    padding-top:80px;
+}
+</style>
+
+<div class="container">
+    <form action="/map/mappage" method="POST">
+        <p>
+            <div class="btn-group">
+               <select class="form-control" name="school">
+                <option selected>학교선택</option>
+                <option>서강대학교</option>
+                <option>이화여자대학교</option>
+                <option>연세대학교</option>
+              </select>
+            </div>
+            <input class="btn btn-default" type="submit" value="검색하기">
+        </p>
+    </form>
+</div>

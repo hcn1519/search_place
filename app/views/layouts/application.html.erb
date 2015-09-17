@@ -49,10 +49,10 @@
           <ul class="nav navbar-nav navbar-right" style="margin-right: 80px;">
             <li><a href="../navbar-static-top/">방 등록하기</a></li>
           <% if user_signed_in? %>  
-            <li><a>로그아웃</a></li>
+            <li><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
           <% else %>
-            <li><a>로그인</a></li>
-            <li><a>회원가입</a></li>
+            <li><a href="/users/sign_in">로그인</a></li>
+            <li><a href="/users/sign_up">회원가입</a></li>
           <% end %>
           </ul>
         </div><!--/.nav-collapse -->

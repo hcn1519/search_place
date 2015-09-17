@@ -21,6 +21,7 @@ class MapController < ApplicationController
     @deposit_max = params[:deposit_max]
     @price_min = params[:price_min]
     @price_max = params[:price_max]
+    @section = params[:section]
     @distance = params[:distance]
 
   end

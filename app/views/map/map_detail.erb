@@ -8,18 +8,18 @@
     //구글맵 기본 설정 시작
       function initialize() {
         //학교별 지도 view 다르게 시작
-        if("<%= @school %>" == "서강대학교"){
+        if("<%= @univ %>" == "서강대학교"){
           var mapOptions = {
             center: { lat: 37.551445, lng: 126.940793},
             zoom: 16
           };
-        } else if ("<%= @school %>" == "이화여자대학교") {
+        } else if ("<%= @univ %>" == "이화여자대학교") {
           var mapOptions = {
             center: { lat: 37.561803, lng: 126.946909},
             zoom: 16
           };  
         
-        } else if("<%= @school %>" == "연세대학교") {
+        } else if("<%= @univ %>" == "연세대학교") {
           var mapOptions = {
             center: { lat: 37.561257, lng: 126.936974},
             zoom: 16
@@ -123,9 +123,85 @@
         map: map,
         icon: image5
       });
-      
+//서강대 정문 구역
+  var sogang_zone_1 = [
+    {lat:37.549929, lng:126.932928}, //구역3이랑 겹치는 지점
+    {lat:37.549949, lng:126.933503},
+    {lat:37.549758, lng:126.937520},
+    {lat:37.549687, lng:126.937893},
+    {lat:37.549706, lng:126.938092},
+    {lat:37.549815, lng:126.938444}, //얘까지 구역3랑 겹침
+    {lat:37.550728, lng:126.937935},
+    {lat:37.551342, lng:126.937656},
+    {lat:37.551869, lng:126.937468},
+    {lat:37.552006, lng:126.938068},
+    {lat:37.552363, lng:126.938596},
+    {lat:37.552938, lng:126.939108},
+    {lat:37.553320, lng:126.939313},//여기부터 큰길구역이랑 겹침
+    {lat:37.553361, lng:126.939309},
+    {lat:37.553426, lng:126.939262},
+    {lat:37.553464, lng:126.939243},
+    {lat:37.553518, lng:126.939371},
+    {lat:37.553583, lng:126.939349},
+    {lat:37.553571, lng:126.939320},
+    {lat:37.553740, lng:126.939230},
+    {lat:37.553773, lng:126.939190},
+    {lat:37.553925, lng:126.939104},
+    {lat:37.553979, lng:126.939045},
+    {lat:37.555019, lng:126.938481},
+    {lat:37.555117, lng:126.938367},
+    {lat:37.555385, lng:126.938228},  //여기까지 큰길이랑 겹침
+    {lat:37.555070, lng:126.937191},
+    {lat:37.554747, lng:126.936397},
+    {lat:37.553346, lng:126.934091},
+    {lat:37.552870, lng:126.933512},
+    {lat:37.552570, lng:126.933265},
+    {lat:37.552285, lng:126.933101}
+    ];     
+ //서강대 남문 아래 구역
+          var sogang_zone_2 = [
+           {lat:37.549508, lng:126.940748},
+           {lat:37.548904, lng:126.940769},
+           {lat:37.548113, lng:126.942121},
+           {lat:37.547858, lng:126.941900}, //대흥역
+           {lat:37.547449, lng:126.942818},
+           {lat:37.547117, lng:126.942413},
+           {lat:37.546652, lng:126.942075}, //구역2랑 겹치는 부분 끝
+           {lat:37.546262, lng:126.941808}, //구역3 고유영역 테투리 시작
+           {lat:37.545784, lng:126.941408},
+           {lat:37.545359, lng:126.940807},
+           {lat:37.545306, lng:126.940685},
+           {lat:37.545098, lng:126.940363},//큰우물로
+           {lat:37.544827, lng:126.940108},
+           {lat:37.544743, lng:126.940075},
+           {lat:37.544715, lng:126.939670},
+           {lat:37.544726, lng:126.939085},
+           {lat:37.544423, lng:126.938802},
+           {lat:37.543902, lng:126.938349},
+           {lat:37.543910, lng:126.936523},
+           {lat:37.544631, lng:126.935581},
+           {lat:37.544935, lng:126.934836},
+           {lat:37.545046, lng:126.934231},
+           {lat:37.546772, lng:126.934292},
+           {lat:37.546776, lng:126.933673},
+           {lat:37.546865, lng:126.933370},
+           {lat:37.546910, lng:126.933151},
+           {lat:37.547038, lng:126.932827},
+           {lat:37.547188, lng:126.932521},
+           {lat:37.548816, lng:126.932796},
+           {lat:37.549929, lng:126.932928}, //구역3 독자영역 끝. 요 지점부터 정문구역 겹침)
+           {lat:37.549949, lng:126.933503},
+           {lat:37.549758, lng:126.937520},
+           {lat:37.549687, lng:126.937893},
+           {lat:37.549706, lng:126.938092},
+           {lat:37.549815, lng:126.938444},//얘까지 구역4랑 겹침
+           {lat:37.549394, lng:126.938764},
+           {lat:37.549177, lng:126.939053},
+           {lat:37.549508, lng:126.940748}
+           ];
+ 
       //서강대 후문-대흥역 구역
-        var sogang_zone_1 = [
+        var sogang_zone_3 = [
           {lat:37.550138, lng:126.943970},
           {lat:37.549508, lng:126.940748},
           {lat:37.548904, lng:126.940769},
@@ -182,8 +258,41 @@
           {lat:37.550938, lng:126.944175}, //공통
           {lat:37.550138, lng:126.943970}
         ];
-        //이대역-서강대 후문 사이
-        var sogang_zone_2 = [
+  //창천중학교 포함된 공통구역(서강 이화)
+    var sogang_ewha_zone_1 = [
+      {lat:37.553320, lng:126.939313},//여기부터 큰길구역이랑 겹침
+      {lat:37.553361, lng:126.939309},
+      {lat:37.553426, lng:126.939262},
+      {lat:37.553464, lng:126.939243},
+      {lat:37.553518, lng:126.939371},
+      {lat:37.553583, lng:126.939349},
+      {lat:37.553571, lng:126.939320},
+      {lat:37.553740, lng:126.939230},
+      {lat:37.553773, lng:126.939190},
+      {lat:37.553925, lng:126.939104},
+      {lat:37.553979, lng:126.939045},
+      {lat:37.555019, lng:126.938481},
+      {lat:37.555117, lng:126.938367},
+      {lat:37.555385, lng:126.938228},
+      {lat:37.556336, lng:126.941103},
+      {lat:37.556406, lng:126.941417},
+      {lat:37.556472, lng:126.942865},//구역2랑 겹침
+      {lat:37.555711, lng:126.942913},
+      {lat:37.555637, lng:126.942877},
+      {lat:37.555605, lng:126.943034},
+      {lat:37.555507, lng:126.943362},
+      {lat:37.555465, lng:126.943569},
+      {lat:37.554984, lng:126.943408},
+      {lat:37.554887, lng:126.943363},
+      {lat:37.554748, lng:126.943324},
+      {lat:37.554643, lng:126.943317},
+      {lat:37.554641, lng:126.943270},//구역2랑 겹침
+      {lat:37.553374, lng:126.940865},        
+      {lat:37.553320, lng:126.939313}      
+      ];
+   
+      //이대역-서강대 후문 사이(서강 이화)
+        var sogang_ewha_zone_2 = [
           {lat:37.552311, lng:126.949407},   
           {lat:37.552418, lng:126.948994},
           {lat:37.552461, lng:126.948951},
@@ -260,35 +369,117 @@
           {lat:37.552311, lng:126.949407}
           
          
-        ];
-        //서강대 후문 - 대흥역 구역 시작
-        var set_sogang_zone_1 = new google.maps.Polygon({
-          paths: sogang_zone_1,
+        ]; 
+    var ewha_yon_zone_1 = [             //이대후문-연대동문 구역
+    {lat:37.562777, lng:126.943213},//연대동문회관웨딩홀 옆
+    {lat:37.563996, lng:126.944737},
+    {lat:37.564362, lng:126.945107},
+    {lat:37.566943, lng:126.946975},
+    {lat:37.566913, lng:126.947406},
+    {lat:37.566832, lng:126.947586},
+    {lat:37.567125, lng:126.947889},
+    {lat:37.566981, lng:126.948396},
+    {lat:37.567104, lng:126.948498},
+    {lat:37.567276, lng:126.948916},
+    {lat:37.567393, lng:126.948882},
+    {lat:37.567601, lng:126.948954},
+    {lat:37.567733, lng:126.949420},
+    {lat:37.568013, lng:126.949434},
+    {lat:37.568188, lng:126.949329},
+    {lat:37.568298, lng:126.949150},
+    {lat:37.569115, lng:126.948040},
+    {lat:37.569301, lng:126.947577},
+    {lat:37.569189, lng:126.946146},
+    {lat:37.569062, lng:126.945272},
+    {lat:37.569065, lng:126.944933},
+    {lat:37.568970, lng:126.944677},
+    {lat:37.568506, lng:126.944824},
+    {lat:37.568007, lng:126.945011},
+    {lat:37.567569, lng:126.945156},
+    {lat:37.567115, lng:126.945471},
+    {lat:37.566486, lng:126.945841},
+    {lat:37.566542, lng:126.946132},//여기서부터 연대랑 닿아
+    {lat:37.566193, lng:126.946113},
+    {lat:37.565778, lng:126.945938},
+    {lat:37.565632, lng:126.945814},
+    {lat:37.565513, lng:126.945041},
+    {lat:37.564280, lng:126.943566},
+    {lat:37.564124, lng:126.943589},
+    {lat:37.563741, lng:126.943811},
+    {lat:37.563222, lng:126.943159},
+    {lat:37.563068, lng:126.942993},
+    {lat:37.562968, lng:126.943001},
+    {lat:37.562777, lng:126.943213}
+    ];
+    //서강대 정문 구역
+       var set_sogang_zone_1 = new google.maps.Polygon({
+         paths: sogang_zone_1,
+         strokeColor: '#3EA055',
+         strokeOpacity: 0.5,
+         strokeWeight: 4,
+         fillColor: '#3EA055',
+         fillOpacity: 0.15
+       });
+       set_sogang_zone_1.setMap(map);
+    //서강대 남문 구역
+       var set_sogang_zone_2 = new google.maps.Polygon({
+         paths: sogang_zone_2,
+         strokeColor: '#141414',
+         strokeOpacity: 0.5,
+         strokeWeight: 4,
+         fillColor: '#141414',
+         fillOpacity: 0.15
+       });
+       set_sogang_zone_2.setMap(map);
+    //서강대 후문- 대흥역 구역 시작
+        var set_sogang_zone_3 = new google.maps.Polygon({
+          paths: sogang_zone_3,
           strokeColor: '#F75D59',
           strokeOpacity: 0.5,
           strokeWeight: 2.5,
           fillColor: '#F75D59',
           fillOpacity: 0.3
         });
-        set_sogang_zone_1.setMap(map);
-        //서강대 후문- 대흥역 구역 끝
+        set_sogang_zone_3.setMap(map);
         
-        //이대역-서강대 후문 구역 시작
-        var set_sogang_zone_2 = new google.maps.Polygon({
-          paths: sogang_zone_2,
+      //창천중학교 포함한  구역(서강, 이화)
+      var set_sogang_ewha_zone_1 = new google.maps.Polygon({
+        paths: sogang_ewha_zone_1,
+        strokeColor: '#F87217',
+        strokeOpacity: 0.5,
+        strokeWeight: 4,
+        fillColor: '#F87217',
+        fillOpacity: 0.15
+      });
+      set_sogang_ewha_zone_1.setMap(map);
+  
+      //이대역-서강대 후문 구역
+        var set_sogang_ewha_zone_2 = new google.maps.Polygon({
+          paths: sogang_ewha_zone_2,
           strokeColor: '#5E59F7',
           strokeOpacity: 0.5,
           strokeWeight: 2.5,
           fillColor: '#5E59F7',
           fillOpacity: 0.3
         });
-         set_sogang_zone_2.setMap(map);
-        //이대역-서강대 후문 구역 끝
+         set_sogang_ewha_zone_2.setMap(map);
+      //이화여대 후문, 연세대 동문 구역(이화, 연세)
+      var set_ewha_yon_zone_1 = new google.maps.Polygon({
+        paths: ewha_yon_zone_1,
+        strokeColor: '#F75D59',
+        strokeOpacity: 0.5,
+        strokeWeight: 4,
+        fillColor: '#F75D59',
+        fillOpacity: 0.15
+      });
+      set_ewha_yon_zone_1.setMap(map);    
+ 
+
 
     $.get("/map/from_hasuk", function(data, status) {
-        for(var i=0; i<data.length; i++) {
+       for(var i=0; i<data.length; i++) {
           var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-          if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1)==true){
+         if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1)==true){
             map.setCenter({ lat: 37.548734, lng: 126.944784},true);
             map.setZoom(17);
             var marker = new google.maps.Marker({
@@ -477,7 +668,7 @@
             <form action="/map/map_detail" method="POST">
               
               <!--학교별 input 생각-->
-              <input type="hidden" value="<%= @school %>" name="univ">
+              <input type="hidden" value="<%= @univ %>" name="univ">
               
               
               
@@ -494,24 +685,24 @@
                   <label>보증금</label>
                   <div class="form-group">
                     <div class="btn-group">
-                      <select class="form-control" name="deposit_min">
+                      <select class="form-control" name="deposit_min" style="padding-left:10px; padding-right: 0px;">
                         <option value=0>없음</option>
-                        <option value=100>100</option>
-                        <option value=300>300</option>
-                        <option value=500>500</option>
-                        <option value=1000>1,000</option>
-                        <option value=2000>2,000</option>
+                        <option value=100>100만</option>
+                        <option value=300>300만</option>
+                        <option value=500>500만</option>
+                        <option value=1000>1,000만</option>
+                        <option value=2000>2,000만</option>
                       </select>
                     </div>
                     ~
                     <div class="btn-group">
-                       <select class="form-control deposit2" name="deposit_max">
-                        <option value=0>없음</option>
-                        <option value=100>100</option>
-                        <option value=300>300</option>
-                        <option value=500>500</option>
-                        <option value=1000>1,000</option>
-                        <option value=2000>2,000</option>
+                       <select class="form-control deposit2" name="deposit_max" style="padding-left:10px; padding-right: 0px;">
+                        <option value=1000000>무제한</option>
+                        <option value=100>100만</option>
+                        <option value=300>300만</option>
+                        <option value=500>500만</option>
+                        <option value=1000>1,000만</option>
+                        <option value=2000>2,000만</option>
                       </select>
                     </div>
               </div>
@@ -520,28 +711,28 @@
                   <label>월세</label>
                   <div class="form-group">
                     <div class="btn-group">
-                      <select class="form-control month1" name="price_min">
+                      <select class="form-control month1" name="price_min" style="padding-left:10px; padding-right: 0px;">
                         <option value=0>없음</option>
-                        <option value=20>20</option>
-                        <option value=30>30</option>
-                        <option value=40>40</option>
-                        <option value=50>50</option>
-                        <option value=60>60</option>
-                        <option value=70>70</option>
-                        <option value=80>80</option>
+                        <option value=20>20만</option>
+                        <option value=30>30만</option>
+                        <option value=40>40만</option>
+                        <option value=50>50만</option>
+                        <option value=60>60만</option>
+                        <option value=70>70만</option>
+                        <option value=80>80만</option>
                       </select>
                     </div>
                     ~
                     <div class="btn-group">
-                       <select class="form-control month2" name="price_max">
-                        <option value=0>없음</option>
-                        <option value=20>20</option>
-                        <option value=30>30</option>
-                        <option value=40>40</option>
-                        <option value=50>50</option>
-                        <option value=60>60</option>
-                        <option value=70>70</option>
-                        <option value=80>80</option>
+                       <select class="form-control month2" name="price_max" style="padding-left:10px; padding-right: 0px;">
+                        <option value=1000000>무제한</option>
+                        <option value=20>20만</option>
+                        <option value=30>30만</option>
+                        <option value=40>40만</option>
+                        <option value=50>50만</option>
+                        <option value=60>60만</option>
+                        <option value=70>70만</option>
+                        <option value=80>80만</option>
                       </select>
                     </div>
               </div>
@@ -552,25 +743,25 @@
             
           <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
                   <label class="btn btn-default">
-                      <input type="radio" id="bt3" name="section" value="c구역" /> A구역
+                      <input type="radio" id="bt3" name="section" value="A" /> A구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt4" name="section" value="B구역" /> B구역
+                      <input type="radio" id="bt4" name="section" value="B" /> B구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt5" name="section" value="C구역" /> C구역
+                      <input type="radio" id="bt5" name="section" value="C" /> C구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt6" name="section" value="D구역" /> D구역
+                      <input type="radio" id="bt6" name="section" value="D" /> D구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt7" name="section" value="E구역" /> E구역
+                      <input type="radio" id="bt7" name="section" value="E" /> E구역
                   </label>
               </div>
           
               <div class="col-md-12 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
                 <label class="btn btn-default">
-                    <input class="btn btn-default" type="radio" id="bt8" name="distance" value="0분 거리" /> 5분 거리
+                    <input class="btn btn-default" type="radio" id="bt8" name="distance" value="5분 거리" /> 5분 거리
                  </label>
                 <label class="btn btn-default">
                     <input type="radio" id="bt9" name="distance" value="10분 거리" /> 10분 거리

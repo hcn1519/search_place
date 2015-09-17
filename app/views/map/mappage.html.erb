@@ -8,18 +8,18 @@
     //구글맵 기본 설정 시작
       function initialize() {
         //학교별 지도 view 다르게 시작
-        if("<%= @school %>" == "서강대학교"){
+        if("<%= @univ %>" == "서강대학교"){
           var mapOptions = {
             center: { lat: 37.551445, lng: 126.940793},
             zoom: 16
           };
-        } else if ("<%= @school %>" == "이화여자대학교") {
+        } else if ("<%= @univ %>" == "이화여자대학교") {
           var mapOptions = {
             center: { lat: 37.561803, lng: 126.946909},
             zoom: 16
           };  
         
-        } else if("<%= @school %>" == "연세대학교") {
+        } else if("<%= @univ %>" == "연세대학교") {
           var mapOptions = {
             center: { lat: 37.561257, lng: 126.936974},
             zoom: 16
@@ -497,7 +497,7 @@
       $.get("/map/from_oneroom", function(data, status){
             for (var i = 0; i < data.length; i++){
               //학교 찍히는 것 위도 경도로 찍는 것 생각
-              if("<%= @school %>" == data[i].univ) {
+              if("<%= @univ %>" == data[i].univ) {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                     var marker = new google.maps.Marker({
                         position: latlng,
@@ -512,7 +512,7 @@
        $.get("/map/from_hasuk", function(data, status){
              for (var i = 0; i < data.length; i++){
                //학교 찍히는 것 위도 경도로 찍는 것 생각
-               if("<%= @school %>" == data[i].univ) {
+               if("<%= @univ %>" == data[i].univ) {
                      var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                      var marker = new google.maps.Marker({
                          position: latlng,
@@ -613,9 +613,7 @@
             <form action="/map/map_detail" method="POST">
               
               <!--학교별 input 생각-->
-             <!-- <input type="hidden" value="<%= @school %>" name="univ">-->
-              
-              
+              <input type="hidden" value="<%= @univ %>" name="univ">
               
               <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
                 <label class="btn btn-default">
@@ -630,24 +628,24 @@
                   <label>보증금</label>
                   <div class="form-group">
                     <div class="btn-group">
-                      <select class="form-control" name="deposit_min">
+                      <select class="form-control" name="deposit_min" style="padding-left:10px; padding-right: 0px;">
                         <option value=0>없음</option>
-                        <option value=100>100</option>
-                        <option value=300>300</option>
-                        <option value=500>500</option>
-                        <option value=1000>1,000</option>
-                        <option value=2000>2,000</option>
+                        <option value=100>100만</option>
+                        <option value=300>300만</option>
+                        <option value=500>500만</option>
+                        <option value=1000>1,000만</option>
+                        <option value=2000>2,000만</option>
                       </select>
                     </div>
                     ~
                     <div class="btn-group">
-                       <select class="form-control deposit2" name="deposit_max">
-                        <option value=0>없음</option>
-                        <option value=100>100</option>
-                        <option value=300>300</option>
-                        <option value=500>500</option>
-                        <option value=1000>1,000</option>
-                        <option value=2000>2,000</option>
+                       <select class="form-control deposit2" name="deposit_max" style="padding-left:10px; padding-right: 0px;">
+                        <option value=100000>무제한</option>
+                        <option value=100>100만</option>
+                        <option value=300>300만</option>
+                        <option value=500>500만</option>
+                        <option value=1000>1,000만</option>
+                        <option value=2000>2,000만</option>
                       </select>
                     </div>
               </div>
@@ -656,28 +654,28 @@
                   <label>월세</label>
                   <div class="form-group">
                     <div class="btn-group">
-                      <select class="form-control month1" name="price_min">
+                      <select class="form-control month1" name="price_min" style="padding-left:10px; padding-right: 0px;">
                         <option value=0>없음</option>
-                        <option value=20>20</option>
-                        <option value=30>30</option>
-                        <option value=40>40</option>
-                        <option value=50>50</option>
-                        <option value=60>60</option>
-                        <option value=70>70</option>
-                        <option value=80>80</option>
+                        <option value=20>20만</option>
+                        <option value=30>30만</option>
+                        <option value=40>40만</option>
+                        <option value=50>50만</option>
+                        <option value=60>60만</option>
+                        <option value=70>70만</option>
+                        <option value=80>80만</option>
                       </select>
                     </div>
                     ~
                     <div class="btn-group">
-                       <select class="form-control month2" name="price_max">
-                        <option value=0>없음</option>
-                        <option value=20>20</option>
-                        <option value=30>30</option>
-                        <option value=40>40</option>
-                        <option value=50>50</option>
-                        <option value=60>60</option>
-                        <option value=70>70</option>
-                        <option value=80>80</option>
+                       <select class="form-control month2" name="price_max" style="padding-left:10px; padding-right: 0px;">
+                        <option value=1000000>무제한</option>
+                        <option value=20>20만</option>
+                        <option value=30>30만</option>
+                        <option value=40>40만</option>
+                        <option value=50>50만</option>
+                        <option value=60>60만</option>
+                        <option value=70>70만</option>
+                        <option value=80>80만</option>
                       </select>
                     </div>
               </div>
@@ -688,19 +686,19 @@
             
           <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
                   <label class="btn btn-default">
-                      <input type="radio" id="bt3" name="section" value="c구역" /> A구역
+                      <input type="radio" id="bt3" name="section" value="A" /> A구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt4" name="section" value="B구역" /> B구역
+                      <input type="radio" id="bt4" name="section" value="B" /> B구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt5" name="section" value="C구역" /> C구역
+                      <input type="radio" id="bt5" name="section" value="C" /> C구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt6" name="section" value="D구역" /> D구역
+                      <input type="radio" id="bt6" name="section" value="D" /> D구역
                   </label> 
                   <label class="btn btn-default">
-                      <input type="radio" id="bt7" name="section" value="E구역" /> E구역
+                      <input type="radio" id="bt7" name="section" value="E" /> E구역
                   </label>
               </div>
           

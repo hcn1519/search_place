@@ -3,7 +3,7 @@ class MapController < ApplicationController
   end
 
   def mappage
-    @school = params[:school]
+    @univ = params[:univ]
   end
 
   def detail
@@ -15,6 +15,7 @@ class MapController < ApplicationController
   def register
   end
   def map_detail
+    @univ = params[:univ]
     @kind = params[:kind]
     @deposit_min = params[:deposit_min]
     @deposit_max = params[:deposit_max]
@@ -23,6 +24,7 @@ class MapController < ApplicationController
     @distance = params[:distance]
 
   end
+
   def from_oneroom
     @places = Oneroom.all()
     

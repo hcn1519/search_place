@@ -5,7 +5,8 @@ class CreateOnerooms < ActiveRecord::Migration
       t.string :address
       t.float :lat
       t.float :lng
-      t.integer :distance      
+      t.integer :distance
+      t.string :univ      
       t.string :img
       t.string :room_kind
       t.integer :deposit

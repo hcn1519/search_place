@@ -6,6 +6,7 @@ class CreateHasukRooms < ActiveRecord::Migration
       t.float :lat
       t.float :lng
       t.integer :distance
+      t.string :univ
       t.integer :deposit
       t.string :room_title    
       t.integer :price

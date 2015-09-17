@@ -3,6 +3,7 @@ class MapController < ApplicationController
   end
 
   def mappage
+    @school = params[:school]
   end
 
   def detail

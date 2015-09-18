@@ -398,7 +398,7 @@
             for (var i = 0; i < data.length; i++){
               if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.552682, lat:126.936651}, true);
+                  map.setCenter({lat:37.551987, lng:126.936129}, true);
                   map.setZoom(17);
                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
@@ -647,7 +647,7 @@
           }
               if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.552682, lat:126.936651}, true);
+                  map.setCenter({lat:37.551987, lng:126.936129}, true);
                   map.setZoom(17);
                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
@@ -896,7 +896,7 @@
         for (var i = 0; i < data.length; i++){
               if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.552682, lat:126.936651}, true);
+                  map.setCenter({lat:37.551987, lng:126.936129}, true);
                   map.setZoom(17);
                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
@@ -1143,7 +1143,7 @@
         for (var i = 0; i < data.length; i++){
               if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.552682, lat:126.936651}, true);
+                  map.setCenter({lat:37.551987, lng:126.936129}, true);
                   map.setZoom(17);
                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {

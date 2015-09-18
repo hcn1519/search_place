@@ -379,7 +379,7 @@
     $.get("/map/from_hasuk", function(data, status) {
        for(var i=0; i<data.length; i++) {
           var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-         if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1)==true){
+         if(google.maps.geometry.poly.containsLocation(latlng, sogang_a)==true){
             map.setCenter({ lat: 37.548734, lng: 126.944784},true);
             map.setZoom(17);
             var marker = new google.maps.Marker({
@@ -1570,7 +1570,7 @@
                   </label>
               </div>
           
-              <div class="col-md-12 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
+              <div class="col-md-9 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
                 <label class="btn btn-default">
                     <input class="btn btn-default" type="radio" id="bt8" name="distance" value="5분 거리" /> 5분 거리
                  </label>

@@ -1,0 +1,32 @@
+<style type="text/css">
+  body {
+    padding-top:50px;
+  }
+</style>
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Onerooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @onerooms.each do |oneroom| %>
+      <tr>
+        <td><%= link_to 'Show', oneroom %></td>
+        <td><%= link_to 'Edit', edit_oneroom_path(oneroom) %></td>
+        <td><%= link_to 'Destroy', oneroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Oneroom', new_oneroom_path %>
+</div>

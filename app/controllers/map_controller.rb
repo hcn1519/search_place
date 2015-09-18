@@ -6,8 +6,6 @@ class MapController < ApplicationController
     @univ = params[:univ]
   end
 
-  def detail
-  end
 
   def like
   end
@@ -35,5 +33,7 @@ class MapController < ApplicationController
     @places = HasukRoom.all()
 
     render json: @places
+  end
+  def select
   end
 end

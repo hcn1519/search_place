@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hasuk Houses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hasuk_houses.each do |hasuk_house| %>
+      <tr>
+        <td><%= link_to 'Show', hasuk_house %></td>
+        <td><%= link_to 'Edit', edit_hasuk_house_path(hasuk_house) %></td>
+        <td><%= link_to 'Destroy', hasuk_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hasuk house', new_hasuk_house_path %>

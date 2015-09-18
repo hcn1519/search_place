@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150916014344) do
   end
 
   create_table "hasuk_rooms", force: :cascade do |t|
+    t.integer  "hasuk_house_id"
     t.string   "kind"
     t.string   "address"
     t.float    "lat"

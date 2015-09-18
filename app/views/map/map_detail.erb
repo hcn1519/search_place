@@ -123,357 +123,257 @@
         map: map,
         icon: image5
       });
-//서강대 정문 구역
-  var sogang_zone_1 = [
-    {lat:37.549929, lng:126.932928}, //구역3이랑 겹치는 지점
-    {lat:37.549949, lng:126.933503},
-    {lat:37.549758, lng:126.937520},
-    {lat:37.549687, lng:126.937893},
-    {lat:37.549706, lng:126.938092},
-    {lat:37.549815, lng:126.938444}, //얘까지 구역3랑 겹침
-    {lat:37.550728, lng:126.937935},
-    {lat:37.551342, lng:126.937656},
-    {lat:37.551869, lng:126.937468},
-    {lat:37.552006, lng:126.938068},
-    {lat:37.552363, lng:126.938596},
-    {lat:37.552938, lng:126.939108},
-    {lat:37.553320, lng:126.939313},//여기부터 큰길구역이랑 겹침
-    {lat:37.553361, lng:126.939309},
-    {lat:37.553426, lng:126.939262},
-    {lat:37.553464, lng:126.939243},
-    {lat:37.553518, lng:126.939371},
-    {lat:37.553583, lng:126.939349},
-    {lat:37.553571, lng:126.939320},
-    {lat:37.553740, lng:126.939230},
-    {lat:37.553773, lng:126.939190},
-    {lat:37.553925, lng:126.939104},
-    {lat:37.553979, lng:126.939045},
-    {lat:37.555019, lng:126.938481},
-    {lat:37.555117, lng:126.938367},
-    {lat:37.555385, lng:126.938228},  //여기까지 큰길이랑 겹침
-    {lat:37.555070, lng:126.937191},
-    {lat:37.554747, lng:126.936397},
-    {lat:37.553346, lng:126.934091},
-    {lat:37.552870, lng:126.933512},
-    {lat:37.552570, lng:126.933265},
-    {lat:37.552285, lng:126.933101}
-    ];     
- //서강대 남문 아래 구역
-          var sogang_zone_2 = [
-           {lat:37.549508, lng:126.940748},
-           {lat:37.548904, lng:126.940769},
-           {lat:37.548113, lng:126.942121},
-           {lat:37.547858, lng:126.941900}, //대흥역
-           {lat:37.547449, lng:126.942818},
-           {lat:37.547117, lng:126.942413},
-           {lat:37.546652, lng:126.942075}, //구역2랑 겹치는 부분 끝
-           {lat:37.546262, lng:126.941808}, //구역3 고유영역 테투리 시작
-           {lat:37.545784, lng:126.941408},
-           {lat:37.545359, lng:126.940807},
-           {lat:37.545306, lng:126.940685},
-           {lat:37.545098, lng:126.940363},//큰우물로
-           {lat:37.544827, lng:126.940108},
-           {lat:37.544743, lng:126.940075},
-           {lat:37.544715, lng:126.939670},
-           {lat:37.544726, lng:126.939085},
-           {lat:37.544423, lng:126.938802},
-           {lat:37.543902, lng:126.938349},
-           {lat:37.543910, lng:126.936523},
-           {lat:37.544631, lng:126.935581},
-           {lat:37.544935, lng:126.934836},
-           {lat:37.545046, lng:126.934231},
-           {lat:37.546772, lng:126.934292},
-           {lat:37.546776, lng:126.933673},
-           {lat:37.546865, lng:126.933370},
-           {lat:37.546910, lng:126.933151},
-           {lat:37.547038, lng:126.932827},
-           {lat:37.547188, lng:126.932521},
-           {lat:37.548816, lng:126.932796},
-           {lat:37.549929, lng:126.932928}, //구역3 독자영역 끝. 요 지점부터 정문구역 겹침)
-           {lat:37.549949, lng:126.933503},
-           {lat:37.549758, lng:126.937520},
-           {lat:37.549687, lng:126.937893},
-           {lat:37.549706, lng:126.938092},
-           {lat:37.549815, lng:126.938444},//얘까지 구역4랑 겹침
-           {lat:37.549394, lng:126.938764},
-           {lat:37.549177, lng:126.939053},
-           {lat:37.549508, lng:126.940748}
-           ];
- 
-      //서강대 후문-대흥역 구역
-        var sogang_zone_3 = [
-          {lat:37.550138, lng:126.943970},
-          {lat:37.549508, lng:126.940748},
-          {lat:37.548904, lng:126.940769},
-          {lat:37.548113, lng:126.942121},
-          {lat:37.547858, lng:126.941900}, //대흥역
-          {lat:37.547449, lng:126.942818},
-          {lat:37.547117, lng:126.942413},
-          {lat:37.546652, lng:126.942075}, //국철길
-          {lat:37.546001, lng:126.944256},
-          {lat:37.545459, lng:126.945747},
-          {lat:37.545369, lng:126.945978},
-          {lat:37.545931, lng:126.946364},
-          {lat:37.546041, lng:126.946101},
-          {lat:37.546552, lng:126.946646},
-          {lat:37.546947, lng:126.947005},
-          {lat:37.547464, lng:126.947276},
-          {lat:37.548125, lng:126.947346},
-          {lat:37.548607, lng:126.947495},
-          {lat:37.548958, lng:126.947643},
-          {lat:37.549887, lng:126.948203},
-          {lat:37.549996, lng:126.948230},
-          {lat:37.550287, lng:126.948243},
-          {lat:37.550372, lng:126.948262},
-          {lat:37.550748, lng:126.948552},
-          {lat:37.550857, lng:126.948670},
-          {lat:37.551486, lng:126.948702},
-          {lat:37.551673, lng:126.948536},
-          {lat:37.551875, lng:126.948627},     
-          {lat:37.551944, lng:126.948713},
-          {lat:37.552130, lng:126.949156},  
-          {lat:37.552224, lng:126.949404},
-          {lat:37.552311, lng:126.949407},//여기서부터 중복 좌표
-          {lat:37.552418, lng:126.948994},
-          {lat:37.552461, lng:126.948951},
-          {lat:37.552404, lng:126.948810},  
-          {lat:37.552292, lng:126.948584},
-          {lat:37.552190, lng:126.948195},
-          {lat:37.552066, lng:126.947814},
-          {lat:37.552027, lng:126.947469},
-          {lat:37.552087, lng:126.947246},
-          {lat:37.552244, lng:126.947006},
-          {lat:37.552249, lng:126.946839},
-          {lat:37.552029, lng:126.946718},
-          {lat:37.551980, lng:126.946635},
-          {lat:37.552401, lng:126.946594},
-          {lat:37.552390, lng:126.946471},
-          {lat:37.552555, lng:126.946451},
-          {lat:37.552599, lng:126.946384},
-          {lat:37.552656, lng:126.945778},
-          {lat:37.552573, lng:126.945719},
-          {lat:37.552473, lng:126.945641},
-          {lat:37.551982, lng:126.944938},
-          {lat:37.551490, lng:126.944473},
-          {lat:37.550938, lng:126.944175}, //공통
-          {lat:37.550138, lng:126.943970}
-        ];
-  //창천중학교 포함된 공통구역(서강 이화)
-    var sogang_ewha_yon_zone_1 = [
-      {lat:37.553320, lng:126.939313},//여기부터 큰길구역이랑 겹침
-      {lat:37.553361, lng:126.939309},
-      {lat:37.553426, lng:126.939262},
-      {lat:37.553464, lng:126.939243},
-      {lat:37.553518, lng:126.939371},
-      {lat:37.553583, lng:126.939349},
-      {lat:37.553571, lng:126.939320},
-      {lat:37.553740, lng:126.939230},
-      {lat:37.553773, lng:126.939190},
-      {lat:37.553925, lng:126.939104},
-      {lat:37.553979, lng:126.939045},
-      {lat:37.555019, lng:126.938481},
-      {lat:37.555117, lng:126.938367},
-      {lat:37.555385, lng:126.938228},
-      {lat:37.556336, lng:126.941103},
-      {lat:37.556406, lng:126.941417},
-      {lat:37.556472, lng:126.942865},//구역2랑 겹침
-      {lat:37.555711, lng:126.942913},
-      {lat:37.555637, lng:126.942877},
-      {lat:37.555605, lng:126.943034},
-      {lat:37.555507, lng:126.943362},
-      {lat:37.555465, lng:126.943569},
-      {lat:37.554984, lng:126.943408},
-      {lat:37.554887, lng:126.943363},
-      {lat:37.554748, lng:126.943324},
-      {lat:37.554643, lng:126.943317},
-      {lat:37.554641, lng:126.943270},//구역2랑 겹침
-      {lat:37.553374, lng:126.940865},        
-      {lat:37.553320, lng:126.939313}      
-      ];
-   
-      //이대역-서강대 후문 사이(서강 이화)
-        var sogang_ewha_zone_1 = [
-          {lat:37.552311, lng:126.949407},   
-          {lat:37.552418, lng:126.948994},
-          {lat:37.552461, lng:126.948951},
-          {lat:37.552404, lng:126.948810},  
-          {lat:37.552292, lng:126.948584},
-          {lat:37.552190, lng:126.948195},
-          {lat:37.552066, lng:126.947814},
-          {lat:37.552027, lng:126.947469},
-          {lat:37.552087, lng:126.947246},
-          {lat:37.552244, lng:126.947006},
-          {lat:37.552249, lng:126.946839},
-          {lat:37.552029, lng:126.946718},
-          {lat:37.551980, lng:126.946635},
-          {lat:37.552401, lng:126.946594},
-          {lat:37.552390, lng:126.946471},
-          {lat:37.552555, lng:126.946451},
-          {lat:37.552599, lng:126.946384},
-          {lat:37.552656, lng:126.945778},
-          {lat:37.552573, lng:126.945719},
-          {lat:37.552473, lng:126.945641},
-          {lat:37.551982, lng:126.944938},
-          {lat:37.551490, lng:126.944473},
-          {lat:37.550938, lng:126.944175},
-          {lat:37.550999, lng:126.943973},
-          {lat:37.551120, lng:126.943949},
-          {lat:37.551267, lng:126.943961},
-          {lat:37.551605, lng:126.944146},
-          {lat:37.552392, lng:126.943489},
-          {lat:37.552502, lng:126.943634},
-          {lat:37.552589, lng:126.943696},
-          {lat:37.552689, lng:126.943714},
-          {lat:37.552768, lng:126.943702},
-          {lat:37.552839, lng:126.943612},
-          {lat:37.552858, lng:126.943540},
-          {lat:37.552910, lng:126.943502},
-          {lat:37.552943, lng:126.943435},
-          {lat:37.552940, lng:126.943348},
-          {lat:37.552922, lng:126.943293},
-          {lat:37.552957, lng:126.942964},
-          {lat:37.553000, lng:126.942938},
-          {lat:37.553390, lng:126.943003},
-          {lat:37.553426, lng:126.943032},
-          {lat:37.553482, lng:126.943106},
-          {lat:37.553586, lng:126.943193},
-          {lat:37.553689, lng:126.943262},
-          {lat:37.554045, lng:126.943355},
-          {lat:37.554130, lng:126.943353},
-          {lat:37.554151, lng:126.943276},
-          {lat:37.554172, lng:126.943225},
-          {lat:37.554225, lng:126.943220},
-          {lat:37.554339, lng:126.943282},
-          {lat:37.554485, lng:126.943298},
-          {lat:37.554561, lng:126.943277},
-          {lat:37.554641, lng:126.943270},
-          {lat:37.554643, lng:126.943317},
-          {lat:37.554748, lng:126.943324},
-          {lat:37.554887, lng:126.943363},
-          {lat:37.554984, lng:126.943408},
-          {lat:37.555465, lng:126.943569},
-          {lat:37.555507, lng:126.943362},
-          {lat:37.555605, lng:126.943034},
-          {lat:37.555637, lng:126.942877},
-          {lat:37.555711, lng:126.942913},
-          {lat:37.556472, lng:126.942865},
-          {lat:37.556897, lng:126.949849},
-          {lat:37.555082, lng:126.949936},
-          {lat:37.554214, lng:126.950315},
-          {lat:37.553975, lng:126.950351},
-          {lat:37.553937, lng:126.950330},
-          {lat:37.553364, lng:126.950376},
-          {lat:37.553118, lng:126.949764},
-          {lat:37.552440, lng:126.950118},
-          {lat:37.552294, lng:126.949606},
-          {lat:37.552311, lng:126.949407}
-          
-         
-        ]; 
-    var ewha_yon_zone_1 = [             //이대후문-연대동문 구역
-    {lat:37.562777, lng:126.943213},//연대동문회관웨딩홀 옆
-    {lat:37.563996, lng:126.944737},
-    {lat:37.564362, lng:126.945107},
-    {lat:37.566943, lng:126.946975},
-    {lat:37.566913, lng:126.947406},
-    {lat:37.566832, lng:126.947586},
-    {lat:37.567125, lng:126.947889},
-    {lat:37.566981, lng:126.948396},
-    {lat:37.567104, lng:126.948498},
-    {lat:37.567276, lng:126.948916},
-    {lat:37.567393, lng:126.948882},
-    {lat:37.567601, lng:126.948954},
-    {lat:37.567733, lng:126.949420},
-    {lat:37.568013, lng:126.949434},
-    {lat:37.568188, lng:126.949329},
-    {lat:37.568298, lng:126.949150},
-    {lat:37.569115, lng:126.948040},
-    {lat:37.569301, lng:126.947577},
-    {lat:37.569189, lng:126.946146},
-    {lat:37.569062, lng:126.945272},
-    {lat:37.569065, lng:126.944933},
-    {lat:37.568970, lng:126.944677},
-    {lat:37.568506, lng:126.944824},
-    {lat:37.568007, lng:126.945011},
-    {lat:37.567569, lng:126.945156},
-    {lat:37.567115, lng:126.945471},
-    {lat:37.566486, lng:126.945841},
-    {lat:37.566542, lng:126.946132},//여기서부터 연대랑 닿아
-    {lat:37.566193, lng:126.946113},
-    {lat:37.565778, lng:126.945938},
-    {lat:37.565632, lng:126.945814},
-    {lat:37.565513, lng:126.945041},
-    {lat:37.564280, lng:126.943566},
-    {lat:37.564124, lng:126.943589},
-    {lat:37.563741, lng:126.943811},
-    {lat:37.563222, lng:126.943159},
-    {lat:37.563068, lng:126.942993},
-    {lat:37.562968, lng:126.943001},
-    {lat:37.562777, lng:126.943213}
+//서강A(서강대 정문)
+  var sogang_a = [
+    {lat:37.549929, lng:126.932928},{lat:37.549949, lng:126.933503},{lat:37.549758, lng:126.937520},
+    {lat:37.549687, lng:126.937893},{lat:37.549706, lng:126.938092},{lat:37.549815, lng:126.938444}, //얘까지 구역3랑 겹침
+    {lat:37.550728, lng:126.937935},{lat:37.551342, lng:126.937656},{lat:37.551869, lng:126.937468},
+    {lat:37.552006, lng:126.938068},{lat:37.552363, lng:126.938596},{lat:37.552938, lng:126.939108},
+    {lat:37.553320, lng:126.939313},{lat:37.553361, lng:126.939309},{lat:37.553426, lng:126.939262},
+    {lat:37.553464, lng:126.939243},{lat:37.553518, lng:126.939371},{lat:37.553583, lng:126.939349},
+    {lat:37.553571, lng:126.939320},{lat:37.553740, lng:126.939230},{lat:37.553773, lng:126.939190},
+    {lat:37.553925, lng:126.939104},{lat:37.553979, lng:126.939045},{lat:37.555019, lng:126.938481},
+    {lat:37.555117, lng:126.938367},{lat:37.555385, lng:126.938228},{lat:37.555070, lng:126.937191},
+    {lat:37.554747, lng:126.936397},{lat:37.553346, lng:126.934091},{lat:37.552870, lng:126.933512},
+    {lat:37.552570, lng:126.933265},{lat:37.552285, lng:126.933101}
     ];
-    //서강대 정문 구역
-       var set_sogang_zone_1 = new google.maps.Polygon({
-         paths: sogang_zone_1,
-         strokeColor: '#3EA055',
-         strokeOpacity: 0.5,
-         strokeWeight: 4,
-         fillColor: '#3EA055',
-         fillOpacity: 0.15
-       });
-       set_sogang_zone_1.setMap(map);
-    //서강대 남문 구역
-       var set_sogang_zone_2 = new google.maps.Polygon({
-         paths: sogang_zone_2,
-         strokeColor: '#141414',
-         strokeOpacity: 0.5,
-         strokeWeight: 4,
-         fillColor: '#141414',
-         fillOpacity: 0.15
-       });
-       set_sogang_zone_2.setMap(map);
-    //서강대 후문- 대흥역 구역 시작
-        var set_sogang_zone_3 = new google.maps.Polygon({
-          paths: sogang_zone_3,
-          strokeColor: '#F75D59',
-          strokeOpacity: 0.5,
-          strokeWeight: 2.5,
-          fillColor: '#F75D59',
-          fillOpacity: 0.3
-        });
-        set_sogang_zone_3.setMap(map);
-        
-      //창천중학교 포함한  구역(서강, 이화)
-      var set_sogang_ewha_yon_zone_1 = new google.maps.Polygon({
-        paths: sogang_ewha_yon_zone_1,
-        strokeColor: '#F87217',
-        strokeOpacity: 0.5,
-        strokeWeight: 4,
-        fillColor: '#F87217',
-        fillOpacity: 0.15
-      });
-      set_sogang_ewha_yon_zone_1.setMap(map);
   
-      //이대역-서강대 후문 구역
-        var set_sogang_ewha_zone_1 = new google.maps.Polygon({
-          paths: sogang_ewha_zone_1,
-          strokeColor: '#5E59F7',
-          strokeOpacity: 0.5,
-          strokeWeight: 2.5,
-          fillColor: '#5E59F7',
-          fillOpacity: 0.3
-        });
-         set_sogang_ewha_zone_1.setMap(map);
-      //이화여대 후문, 연세대 동문 구역(이화, 연세)
-      var set_ewha_yon_zone_1 = new google.maps.Polygon({
-        paths: ewha_yon_zone_1,
-        strokeColor: '#F75D59',
-        strokeOpacity: 0.5,
-        strokeWeight: 4,
-        fillColor: '#F75D59',
-        fillOpacity: 0.15
-      });
-      set_ewha_yon_zone_1.setMap(map);    
- 
+   //공통B(서강-이화-연대)  
+   var sogang_ewha_yonsei_b = [
+    {lat:37.553320, lng:126.939313},{lat:37.553361, lng:126.939309},{lat:37.553426, lng:126.939262},
+    {lat:37.553464, lng:126.939243},{lat:37.553518, lng:126.939371},{lat:37.553583, lng:126.939349},
+    {lat:37.553571, lng:126.939320},{lat:37.553740, lng:126.939230},{lat:37.553773, lng:126.939190},
+    {lat:37.553925, lng:126.939104},{lat:37.553979, lng:126.939045},{lat:37.555019, lng:126.938481},
+    {lat:37.555117, lng:126.938367},{lat:37.555385, lng:126.938228},{lat:37.555458, lng:126.937795},
+    {lat:37.555890, lng:126.937567},{lat:37.555941, lng:126.937473},{lat:37.556957, lng:126.937492},
+    {lat:37.557570, lng:126.937447},{lat:37.559014, lng:126.939414},//연대 정문(A)시작 지점
+    {lat:37.559068, lng:126.939704},{lat:37.559112, lng:126.942823},//신촌기차역. 이대정문구역이랑 겹침
+    {lat:37.558547, lng:126.942733},{lat:37.556472, lng:126.942865},//구역2랑 겹침
+    {lat:37.555711, lng:126.942913},{lat:37.555637, lng:126.942877},{lat:37.555605, lng:126.943034},
+    {lat:37.555507, lng:126.943362},{lat:37.555465, lng:126.943569},{lat:37.554984, lng:126.943408},
+    {lat:37.554887, lng:126.943363},{lat:37.554748, lng:126.943324},{lat:37.554643, lng:126.943317},
+    {lat:37.554641, lng:126.943270},{lat:37.553374, lng:126.940865},{lat:37.553320, lng:126.939313}
+    ];
+    
+  //서강이화C(서강대 후문-이대역)
+  var sogang_ewha_c = [
+    {lat:37.552311, lng:126.949407},{lat:37.552419, lng:126.948938},{lat:37.552292, lng:126.948584},
+    {lat:37.552190, lng:126.948195},{lat:37.552066, lng:126.947814},{lat:37.552027, lng:126.947469},
+    {lat:37.552087, lng:126.947246},{lat:37.552223, lng:126.947029},{lat:37.552233, lng:126.946906},
+    {lat:37.552162, lng:126.946747},{lat:37.552157, lng:126.945189},{lat:37.551982, lng:126.944938},
+    {lat:37.551490, lng:126.944473},{lat:37.550938, lng:126.944175},{lat:37.550999, lng:126.943973},
+    {lat:37.551120, lng:126.943949},{lat:37.551267, lng:126.943961},{lat:37.551605, lng:126.944146},
+    {lat:37.552392, lng:126.943489},{lat:37.552502, lng:126.943634},{lat:37.552589, lng:126.943696},
+    {lat:37.552689, lng:126.943714},{lat:37.552768, lng:126.943702},{lat:37.552839, lng:126.943612},
+    {lat:37.552858, lng:126.943540},{lat:37.552910, lng:126.943502},{lat:37.552943, lng:126.943435},
+    {lat:37.552940, lng:126.943348},{lat:37.552922, lng:126.943293},{lat:37.552957, lng:126.942964},
+    {lat:37.553000, lng:126.942938},{lat:37.553390, lng:126.943003},{lat:37.553426, lng:126.943032},
+    {lat:37.553482, lng:126.943106},{lat:37.553586, lng:126.943193},{lat:37.553689, lng:126.943262},
+    {lat:37.554045, lng:126.943355},{lat:37.554130, lng:126.943353},{lat:37.554151, lng:126.943276},
+    {lat:37.554172, lng:126.943225},{lat:37.554225, lng:126.943220},{lat:37.554339, lng:126.943282},
+    {lat:37.554485, lng:126.943298},{lat:37.554561, lng:126.943277},{lat:37.554641, lng:126.943270},//구역5랑 겹치는 부분
+    {lat:37.554643, lng:126.943317},{lat:37.554748, lng:126.943324},{lat:37.554887, lng:126.943363},
+    {lat:37.554984, lng:126.943408},{lat:37.555465, lng:126.943569},{lat:37.555507, lng:126.943362},
+    {lat:37.555605, lng:126.943034},{lat:37.555637, lng:126.942877},{lat:37.555711, lng:126.942913},
+    {lat:37.556472, lng:126.942865},{lat:37.556897, lng:126.949849},{lat:37.555082, lng:126.949936},
+    {lat:37.554214, lng:126.950315},{lat:37.552440, lng:126.950118},{lat:37.552294, lng:126.949606},
+    {lat:37.552311, lng:126.949407}
+    ];
+    
+  //서강D(서강대 후문-대흥역)
+  var sogang_d = [
+    {lat:37.550138, lng:126.943970},{lat:37.549508, lng:126.940748},{lat:37.548904, lng:126.940769},
+    {lat:37.548113, lng:126.942121},{lat:37.547858, lng:126.941900},{lat:37.547449, lng:126.942818},
+    {lat:37.547117, lng:126.942413},{lat:37.546652, lng:126.942075},{lat:37.546001, lng:126.944256},
+    {lat:37.546041, lng:126.946101},{lat:37.546552, lng:126.946646},{lat:37.546947, lng:126.947005},
+    {lat:37.547464, lng:126.947276},{lat:37.548125, lng:126.947346},{lat:37.548607, lng:126.947495},
+    {lat:37.548958, lng:126.947643},{lat:37.549887, lng:126.948203},{lat:37.549996, lng:126.948230},
+    {lat:37.550287, lng:126.948243},{lat:37.550372, lng:126.948262},{lat:37.550459, lng:126.948326},
+    {lat:37.550857, lng:126.948670},{lat:37.551469, lng:126.948703},{lat:37.552130, lng:126.949156}, 
+    {lat:37.552311, lng:126.949407},{lat:37.552419, lng:126.948938},{lat:37.552292, lng:126.948584},
+    {lat:37.552190, lng:126.948195},{lat:37.552066, lng:126.947814},{lat:37.552027, lng:126.947469},
+    {lat:37.552087, lng:126.947246},{lat:37.552223, lng:126.947029},{lat:37.552233, lng:126.946906},
+    {lat:37.552162, lng:126.946747},{lat:37.552157, lng:126.945189},{lat:37.551982, lng:126.944938},
+    {lat:37.551490, lng:126.944473},{lat:37.550938, lng:126.944175},{lat:37.550138, lng:126.943970}
+  ];
+
+  //서강E(서강대 남문)
+  var sogang_e = [
+    {lat:37.549508, lng:126.940748},{lat:37.548904, lng:126.940769},{lat:37.548113, lng:126.942121},
+    {lat:37.547858, lng:126.941900},{lat:37.547449, lng:126.942818},{lat:37.547117, lng:126.942413},
+    {lat:37.546652, lng:126.942075},{lat:37.546796, lng:126.940575},{lat:37.547223, lng:126.937988},
+    {lat:37.547384, lng:126.934301},{lat:37.548816, lng:126.932796},{lat:37.549929, lng:126.932928}, //구역3 독자영역 끝. 요 지점부터 정문구역 겹침) 
+    {lat:37.549949, lng:126.933503},{lat:37.549758, lng:126.937520},{lat:37.549687, lng:126.937893},
+    {lat:37.549706, lng:126.938092},{lat:37.549815, lng:126.938444},{lat:37.549394, lng:126.938764},
+    {lat:37.549177, lng:126.939053},{lat:37.549508, lng:126.940748}
+    ];
+    
+  //이화A(이대 정문)
+  var ewha_a = [ //이대 정문 구역 //신촌기차역에서 시작. 이대정문구역이랑 겹침
+    {lat:37.559112, lng:126.942823},{lat:37.558547, lng:126.942733},{lat:37.556472, lng:126.942865},//구역5, 공통구역이랑 만나는 꼭지점
+    {lat:37.556897, lng:126.949849},//서강 구역2랑 겹침
+    {lat:37.557547, lng:126.949815},{lat:37.558178, lng:126.948429},{lat:37.558574, lng:126.947969},
+    {lat:37.558796, lng:126.947918},{lat:37.558752, lng:126.946537},{lat:37.559181, lng:126.946352},
+    {lat:37.559162, lng:126.945679},{lat:37.559112, lng:126.942823}
+    ];
+    
+  //이화-연세D(이대후문/연대동문) (B,C는 겹치는 구역)
+  var ewha_yonsei_d = [             
+    {lat:37.562777, lng:126.943213},{lat:37.563996, lng:126.944737},{lat:37.564362, lng:126.945107},
+    {lat:37.566943, lng:126.946975},{lat:37.566913, lng:126.947406},{lat:37.566832, lng:126.947586},
+    {lat:37.567125, lng:126.947889},{lat:37.566981, lng:126.948396},{lat:37.567104, lng:126.948498},
+    {lat:37.567276, lng:126.948916},{lat:37.567393, lng:126.948882},{lat:37.567601, lng:126.948954},
+    {lat:37.567733, lng:126.949420},{lat:37.568013, lng:126.949434},{lat:37.568188, lng:126.949329},
+    {lat:37.568298, lng:126.949150},{lat:37.569115, lng:126.948040},{lat:37.569301, lng:126.947577},
+    {lat:37.569189, lng:126.946146},{lat:37.569062, lng:126.945272},{lat:37.569065, lng:126.944933},
+    {lat:37.568970, lng:126.944677},{lat:37.568506, lng:126.944824},{lat:37.568007, lng:126.945011},
+    {lat:37.567569, lng:126.945156},{lat:37.567115, lng:126.945471},{lat:37.566486, lng:126.945841},
+    {lat:37.566542, lng:126.946132},{lat:37.566193, lng:126.946113},{lat:37.565778, lng:126.945938},
+    {lat:37.565632, lng:126.945814},{lat:37.565513, lng:126.945041},{lat:37.564280, lng:126.943566},
+    {lat:37.564124, lng:126.943589},{lat:37.563741, lng:126.943811},{lat:37.563222, lng:126.943159},
+    {lat:37.563068, lng:126.942993},{lat:37.562968, lng:126.943001},{lat:37.562777, lng:126.943213}
+    ];
+    
+  //연세A(연대 정문) (B는 겹치는 구역)
+  var yonsei_a = [  //명물길 예림고시원 앞에서 시작
+    {lat:37.559068, lng:126.939704},{lat:37.559282, lng:126.939681},{lat:37.559358, lng:126.936327},
+    {lat:37.559218, lng:126.934372},{lat:37.558977, lng:126.933753},{lat:37.558419, lng:126.932926},
+    {lat:37.557389, lng:126.932107},{lat:37.556987, lng:126.931930},{lat:37.556154, lng:126.931892},
+    {lat:37.555437, lng:126.932023},{lat:37.555075, lng:126.932181},{lat:37.554292, lng:126.932674},
+    {lat:37.553346, lng:126.934091},{lat:37.554747, lng:126.936397},{lat:37.555070, lng:126.937191},
+    {lat:37.555385, lng:126.938228},{lat:37.555458, lng:126.937795},{lat:37.555890, lng:126.937567},
+    {lat:37.555941, lng:126.937473},{lat:37.556957, lng:126.937492},{lat:37.557570, lng:126.937447},
+    {lat:37.559014, lng:126.939414},{lat:37.559068, lng:126.939704}
+    ];
+     
+  //연세C(연대 남문) 
+  var yonsei_c = [ 
+    {lat:37.559218, lng:126.934372},{lat:37.559830, lng:126.934185},{lat:37.562716, lng:126.931055},{lat:37.564505, lng:126.929139},//연희교차로
+    {lat:37.560915, lng:126.926766},{lat:37.559668, lng:126.926766},{lat:37.559598, lng:126.927887},
+    {lat:37.559265, lng:126.928693},{lat:37.559191, lng:126.929309},{lat:37.558960, lng:126.929542},
+    {lat:37.558817, lng:126.930105},{lat:37.557610, lng:126.931322},{lat:37.557389, lng:126.932107},//연대 정문구역과 만나는 지점  
+    {lat:37.558419, lng:126.932926},{lat:37.558977, lng:126.933753},{lat:37.559218, lng:126.934372}
+    ];
+    
+  //연세E(연대 서문)  
+  var yonsei_e = [
+    {lat:37.564505, lng:126.929139},{lat:37.569866, lng:126.933306},{lat:37.569403, lng:126.934577},
+    {lat:37.569258, lng:126.934612},{lat:37.567914, lng:126.934999},{lat:37.567919, lng:126.935547},
+    {lat:37.567540, lng:126.935828},{lat:37.566556, lng:126.935190},{lat:37.566350, lng:126.934866},
+    {lat:37.566198, lng:126.934404},{lat:37.563799, lng:126.933859},{lat:37.563453, lng:126.933630},
+    {lat:37.563158, lng:126.932769},{lat:37.563256, lng:126.932042},{lat:37.562716, lng:126.931055},{lat:37.564505, lng:126.929139}
+    ];
+    
+    
+  //서강A(서강대 정문)
+  var sogang_a = new google.maps.Polygon({
+    paths: sogang_a,
+    strokeColor: '#8C001A',
+    strokeOpacity: 0.8,
+    strokeWeight: 3,
+    fillColor: '#8C001A',
+    fillOpacity: 0
+  });
+  sogang_a.setMap(map);
+  
+  //공통B(서강-이화-연대)
+  var sogang_ewha_yonsei_b = new google.maps.Polygon({
+    paths: sogang_ewha_yonsei_b,
+    strokeColor: '#254117',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#254117',
+    fillOpacity: 0.15
+  });
+  sogang_ewha_yonsei_b.setMap(map);
+  
+  //서강이화C(서강대 후문-이대역)
+  var sogang_ewha_c = new google.maps.Polygon({
+    paths: sogang_ewha_c,
+    strokeColor: '#69FAAA',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#69FAAA',
+    fillOpacity: 0.15
+  });
+  sogang_ewha_c.setMap(map);
+  
+  //서강D(서강대 후문-대흥역)
+  var sogang_d = new google.maps.Polygon({
+    paths: sogang_d,
+    strokeColor: '#008080',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#008080',
+    fillOpacity: 0.15
+  });
+  sogang_d.setMap(map);
+  
+  //서강E(서강대 남문)
+  var sogang_e = new google.maps.Polygon({
+    paths: sogang_e,
+    strokeColor: '#7D0552',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#FFFFFF',
+    fillOpacity: 0.1
+  });
+  sogang_e.setMap(map);
+
+  //이화A(이대 정문)
+  var ewha_a = new google.maps.Polygon({
+    paths: ewha_a,
+    strokeColor: '#F75D59',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#F75D59',
+    fillOpacity: 0.15
+  });
+  ewha_a.setMap(map);
+
+  //이화-연세D(이대후문/연대동문)
+  var ewha_yonsei_d = new google.maps.Polygon({
+    paths: ewha_yonsei_d,
+    strokeColor: '#9269FA',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#9269FA',
+    fillOpacity: 0.15
+  });
+  ewha_yonsei_d.setMap(map);
+  
+  //연세A(연대 정문)
+  var yonsei_a = new google.maps.Polygon({
+    paths: yonsei_a,
+    strokeColor: '#FF9A3F',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#FF9A3F',
+    fillOpacity: 0.15
+   });
+  yonsei_a.setMap(map);
+   
+  //연세C(연대 남문) 
+  var yonsei_c = new google.maps.Polygon({
+    paths: yonsei_c,
+    strokeColor: '#69FAAA',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#69FAAA',
+    fillOpacity: 0.15
+  });
+  yonsei_c.setMap(map);
+  
+  //연세E(연대 서문) 
+  var yonsei_e = new google.maps.Polygon({
+    paths: yonsei_e,
+    strokeColor: '#A74AC7',
+    strokeOpacity: 0.5,
+    strokeWeight: 4,
+    fillColor: '#A74AC7',
+    fillOpacity: 0.15
+  });
+   yonsei_e.setMap(map); 
 
 
     $.get("/map/from_hasuk", function(data, status) {
@@ -498,9 +398,9 @@
             for (var i = 0; i < data.length; i++){
               if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.556585, lng:126.939962}, true);
+                  map.setCenter({lat:37.552682, lat:126.936651}, true);
                   map.setZoom(17);
-                 if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
+                 if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                     if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                       var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -515,9 +415,9 @@
                 }
               } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "B") {
                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.554361, lng:126.946539}, true);
+                    map.setCenter({lat:37.556506, lng:126.940562}, true);
                     map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -532,9 +432,9 @@
                  }
                 } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "C") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.552252, lng:126.936247}, true);
+                    map.setCenter({lat:37.554431, lng:126.946720}, true);
                     map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1) == true){
+                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -549,9 +449,9 @@
                   }
                  }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "D") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.547310, lng:126.937172}, true);
+                    map.setCenter({lat:37.549298, lng:126.945738}, true);
                     map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_2) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_d) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -566,9 +466,9 @@
                   }
                  }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "E") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.548901, lng:126.945002}, true);
+                    map.setCenter({lat:37.548455, lng:126.937960}, true);
                     map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_3) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_e) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -581,11 +481,11 @@
                       }
                     }
                   }
-                 }  else if("<%= @univ %>" == "이화여자대대학교" && "<%= @section %>" == "A") {
+                 }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "A") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                     map.setCenter({lat:37.556585, lng:126.939962}, true);
+                     map.setCenter({lat:37.557854, lng:126.946183}, true);
                      map.setZoom(17);
-                    if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
+                    if(google.maps.geometry.poly.containsLocation(latlng, ewha_a) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -598,11 +498,11 @@
                       }
                     }
                   }
-                 }   else if("<%= @univ %>" == "이화여자대대학교" && "<%= @section %>" == "B") {
+                 }   else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "B") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.554361, lng:126.946539}, true);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
                       map.setZoom(17);
-                    if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){
+                    if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
                       if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -615,11 +515,11 @@
                        }
                      }
                    }
-                  }  else if("<%= @univ %>" == "이화여자대대학교" && "<%= @section %>" == "C") {
+                  }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "C") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.565900, lng:126.945440}, true);
+                      map.setCenter({lat:37.554431, lng:126.946720}, true);
                       map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_yon_zone_1) == true){
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
                       if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -632,10 +532,12 @@
                        }
                      }
                    }
-                  }/*  else if("<%= @univ %>" == "이화여자대대학교" && "<%= @section %>" == "D") {
+                  } else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "D") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_zone_1) == true){
-                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                          var marker = new google.maps.Marker({
@@ -647,8 +549,92 @@
                        }
                      }
                    }
-                  }*/
-
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "A") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.557126, lng:126.935696}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_a) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "B") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "C") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.560699, lng:126.930645}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_c) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "D") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "E") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566869, lng:126.932381}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_e) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } 
             } //for roop
       });         
     }//원룸으로 가는 if 끝
@@ -656,149 +642,248 @@
     else if( "<%= @kind %>" == "하숙") {
       $.get("/map/from_hasuk", function(data, status){
         for (var i = 0; i < data.length; i++){
-               //학교 찍히는 것 위도 경도로 찍는 것 생각
           if(data[i].deposit == null){
             data[i].deposit = 0;
           }
-         if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
-          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-              map.setCenter({lat:37.556585, lng:126.939962}, true);
-              map.setZoom(17);
-             if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
-              if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+              if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
+                var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                  map.setCenter({lat:37.552682, lat:126.936651}, true);
+                  map.setZoom(17);
+                 if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
+                  if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                    if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                      var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      var marker = new google.maps.Marker({
+                        position: latlng,
+                        title:data[i].kind,
+                        map: map
+                      });
+                    marker.setMap(map);
+                    }
+                  }
+                }
+              } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "B") {
                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  var marker = new google.maps.Marker({
-                    position: latlng,
-                    title:data[i].kind,
-                    map: map
-                    });
-                    marker.setMap(map);
-                 }
-               }
-            }
-         } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "B") {
-             var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                map.setCenter({lat:37.554361, lng:126.946539}, true);
-                map.setZoom(17);
-               if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                   if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
-                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                     var marker = new google.maps.Marker({
-                       position: latlng,
-                       title:data[i].kind,
-                       map: map
-                     });
-                    marker.setMap(map);
+                    map.setCenter({lat:37.556506, lng:126.940562}, true);
+                    map.setZoom(17);
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
+                    if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                     if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                       var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                       var marker = new google.maps.Marker({
+                         position: latlng,
+                         title:data[i].kind,
+                         map: map
+                       });
+                     marker.setMap(map);
+                     }
                    }
                  }
-               }
-         } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "C") {
-              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                map.setCenter({lat:37.552252, lng:126.936247}, true);
-                map.setZoom(17);
-              if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1) == true){
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                 if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "C") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                   var marker = new google.maps.Marker({
-                     position: latlng,
-                     title:data[i].kind,
-                     map: map
-                   });
-                 marker.setMap(map);
-                 }
-               }
-             }
-         }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "D") {
-              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-               map.setCenter({lat:37.547310, lng:126.937172}, true);
-               map.setZoom(17);
-               if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_2) == true){
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                 if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
-                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                   var marker = new google.maps.Marker({
-                     position: latlng,
-                     title:data[i].kind,
-                     map: map
-                   });
-                 marker.setMap(map);
-                 }
-               }
-             }
-         }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "E") {
-              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                map.setCenter({lat:37.548901, lng:126.945002}, true);
-                map.setZoom(17);
-              if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_3) == true){
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                 if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
-                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                   var marker = new google.maps.Marker({
-                     position: latlng,
-                     title:data[i].kind,
-                     map: map
-                   });
-                 marker.setMap(map);
-                 }
-               }
-             }
-         }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "A") {
-              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                map.setCenter({lat:37.556585, lng:126.939962}, true);
-                map.setZoom(17);
-              if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){      
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                 if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
-                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                   var marker = new google.maps.Marker({
-                     position: latlng,
-                     title:data[i].kind,
-                     map: map
-                   });
-                 marker.setMap(map);
-                 }
-               }
-             }
-         }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "B") {
-              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                map.setCenter({lat:37.554361, lng:126.946539}, true);
-                map.setZoom(17);
-              if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){  
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                  if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    var marker = new google.maps.Marker({
-                      position: latlng,
-                      title:data[i].kind,
-                      map: map
-                    });
-                  marker.setMap(map);
+                    map.setCenter({lat:37.554431, lng:126.946720}, true);
+                    map.setZoom(17);
+                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
+                    if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var marker = new google.maps.Marker({
+                          position: latlng,
+                          title:data[i].kind,
+                          map: map
+                        });
+                      marker.setMap(map);
+                      }
+                    }
                   }
-                }
-              }
-         }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "C") {
-              var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                map.setCenter({lat:37.565900, lng:126.945440}, true);
-                map.setZoom(17);
-               if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_yon_zone_1) == true){
-                if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
-                  if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    var marker = new google.maps.Marker({
-                      position: latlng,
-                      title:data[i].kind,
-                      map: map
-                    });
-                  marker.setMap(map);
+                 }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "D") {
+                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({lat:37.549298, lng:126.945738}, true);
+                    map.setZoom(17);
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_d) == true){
+                    if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var marker = new google.maps.Marker({
+                          position: latlng,
+                          title:data[i].kind,
+                          map: map
+                        });
+                      marker.setMap(map);
+                      }
+                    }
                   }
-                }
-              }
-         }
-
-
+                 }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "E") {
+                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({lat:37.548455, lng:126.937960}, true);
+                    map.setZoom(17);
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_e) == true){
+                    if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var marker = new google.maps.Marker({
+                          position: latlng,
+                          title:data[i].kind,
+                          map: map
+                        });
+                      marker.setMap(map);
+                      }
+                    }
+                  }
+                 }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "A") {
+                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                     map.setCenter({lat:37.557854, lng:126.946183}, true);
+                     map.setZoom(17);
+                    if(google.maps.geometry.poly.containsLocation(latlng, ewha_a) == true){
+                    if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                        var marker = new google.maps.Marker({
+                          position: latlng,
+                          title:data[i].kind,
+                          map: map
+                        });
+                      marker.setMap(map);
+                      }
+                    }
+                  }
+                 }   else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "B") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
+                      map.setZoom(17);
+                    if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "C") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.554431, lng:126.946720}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "D") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "A") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.557126, lng:126.935696}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_a) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "B") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "C") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.560699, lng:126.930645}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_c) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "D") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "E") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566869, lng:126.932381}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_e) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } 
         }//for loop
       });
       
@@ -809,11 +894,11 @@
 //원룸 조건 없을 때 출력
       $.get("/map/from_oneroom", function(data, status){
         for (var i = 0; i < data.length; i++){
-          if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
+              if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.556585, lng:126.939962}, true);
+                  map.setCenter({lat:37.552682, lat:126.936651}, true);
                   map.setZoom(17);
-                if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
+                 if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                     if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                       var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -828,9 +913,9 @@
                 }
               } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "B") {
                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.554361, lng:126.946539}, true);
+                    map.setCenter({lat:37.556506, lng:126.940562}, true);
                     map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -845,9 +930,9 @@
                  }
                 } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "C") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.552252, lng:126.936247}, true);
+                    map.setCenter({lat:37.554431, lng:126.946720}, true);
                     map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1) == true){
+                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -862,9 +947,9 @@
                   }
                  }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "D") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.547310, lng:126.937172}, true);
+                    map.setCenter({lat:37.549298, lng:126.945738}, true);
                     map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_2) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_d) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -879,9 +964,9 @@
                   }
                  }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "E") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.548901, lng:126.945002}, true);
+                    map.setCenter({lat:37.548455, lng:126.937960}, true);
                     map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_3) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_e) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -896,9 +981,9 @@
                   }
                  }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "A") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                     map.setCenter({lat:37.556585, lng:126.939962}, true);
+                     map.setCenter({lat:37.557854, lng:126.946183}, true);
                      map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
+                    if(google.maps.geometry.poly.containsLocation(latlng, ewha_a) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -913,9 +998,9 @@
                   }
                  }   else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "B") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.554361, lng:126.946539}, true);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
                       map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){
+                    if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
                       if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -930,9 +1015,9 @@
                    }
                   }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "C") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.565900, lng:126.945440}, true);
+                      map.setCenter({lat:37.554431, lng:126.946720}, true);
                       map.setZoom(17);
-                    if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_yon_zone_1) == true){
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
                       if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -945,10 +1030,12 @@
                        }
                      }
                    }
-                  }/*  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "D") {
+                  } else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "D") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_zone_1) == true){
-                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                          var marker = new google.maps.Marker({
@@ -960,7 +1047,93 @@
                        }
                      }
                    }
-                  }*/
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "A") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.557126, lng:126.935696}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_a) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "B") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "C") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.560699, lng:126.930645}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_c) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "D") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "E") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566869, lng:126.932381}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_e) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } 
+
 
         }//for roop 끝
       });
@@ -968,11 +1141,11 @@
 //하숙 조건 없을 때 출력
       $.get("/map/from_hasuk", function(data, status){
         for (var i = 0; i < data.length; i++){
-          if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
+              if( "<%= @univ %>" == "서강대학교" && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                  map.setCenter({lat:37.556585, lng:126.939962}, true);
+                  map.setCenter({lat:37.552682, lat:126.936651}, true);
                   map.setZoom(17);
-                 if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
+                 if(google.maps.geometry.poly.containsLocation(latlng, sogang_a) == true){
                   if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                     if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                       var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -987,9 +1160,9 @@
                 }
               } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "B") {
                   var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.554361, lng:126.946539}, true);
+                    map.setCenter({lat:37.556506, lng:126.940562}, true);
                     map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                      if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                        var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1004,9 +1177,9 @@
                  }
                 } else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "C") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.552252, lng:126.936247}, true);
+                    map.setCenter({lat:37.554431, lng:126.946720}, true);
                     map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_1) == true){
+                  if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1021,9 +1194,9 @@
                   }
                  }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "D") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.547310, lng:126.937172}, true);
+                    map.setCenter({lat:37.549298, lng:126.945738}, true);
                     map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_2) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_d) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1038,9 +1211,9 @@
                   }
                  }  else if("<%= @univ %>" == "서강대학교" && "<%= @section %>" == "E") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    map.setCenter({lat:37.548901, lng:126.945002}, true);
+                    map.setCenter({lat:37.548455, lng:126.937960}, true);
                     map.setZoom(17);
-                   if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_zone_3) == true){
+                   if(google.maps.geometry.poly.containsLocation(latlng, sogang_e) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1055,9 +1228,9 @@
                   }
                  }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "A") {
                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                     map.setCenter({lat:37.556585, lng:126.939962}, true);
+                     map.setCenter({lat:37.557854, lng:126.946183}, true);
                      map.setZoom(17);
-                  if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_yon_zone_1) == true){
+                    if(google.maps.geometry.poly.containsLocation(latlng, ewha_a) == true){
                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1072,9 +1245,9 @@
                   }
                  }   else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "B") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.554361, lng:126.946539}, true);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
                       map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, set_sogang_ewha_zone_1) == true){  
+                    if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
                       if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1089,9 +1262,9 @@
                    }
                   }  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "C") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.565900, lng:126.945440}, true);
+                      map.setCenter({lat:37.554431, lng:126.946720}, true);
                       map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_yon_zone_1) == true){
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
                       if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -1104,10 +1277,12 @@
                        }
                      }
                    }
-                  }/*  else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "D") {
+                  } else if("<%= @univ %>" == "이화여자대학교" && "<%= @section %>" == "D") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                    if(google.maps.geometry.poly.containsLocation(latlng, set_ewha_zone_1) == true){
-                     if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
                        if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
                          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                          var marker = new google.maps.Marker({
@@ -1119,7 +1294,93 @@
                        }
                      }
                    }
-                  }*/
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "A") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.557126, lng:126.935696}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_a) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "B") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.556506, lng:126.940562}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "C") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.560699, lng:126.930645}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_c) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "D") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566394, lng:126.946544}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  }  else if("<%= @univ %>" == "연세대학교" && "<%= @section %>" == "E") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                      map.setCenter({lat:37.566869, lng:126.932381}, true);
+                      map.setZoom(17);
+                     if(google.maps.geometry.poly.containsLocation(latlng, yonsei_e) == true){
+                      if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                       if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                         var marker = new google.maps.Marker({
+                           position: latlng,
+                           title:data[i].kind,
+                           map: map
+                         });
+                       marker.setMap(map);
+                       }
+                     }
+                   }
+                  } 
+
 
         }//for roop 끝
 

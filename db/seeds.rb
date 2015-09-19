@@ -14,7 +14,7 @@ t.lat = 37.547742
 t.lng = 126.938091      
 t.room_kind = "원룸"
 t.univ = "서강 대학교"
-t.img = "http://cdn.home-designing.com/wp-content/uploads/2010/12/cozy-small-kids-room.jpg"
+t.img = "/images/bang1.jpg"
 t.deposit = 500
 t.price = 45
 t.admin_fee = 5
@@ -35,7 +35,7 @@ a.lat = 37.552997
 a.lng = 126.944573
 a.room_kind = "투룸"
 a.univ = "서강 대학교"
-a.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-ikea-small-bedroom-ideas-big-living-small-space-bedroom-ideas-ikea-bed-26136-1024x768.jpg"
+a.img = "/images/bang2.jpg"
 a.deposit = 1000
 a.price = 50
 a.admin_fee = 5
@@ -56,7 +56,7 @@ z.lat = 37.554641
 z.lng = 126.946933
 z.room_kind = "원룸"
 z.univ = "서강 이화"
-z.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-teen-room-design-idea-10-26136.jpg"
+z.img = "/images/bang3.jpg"
 z.deposit = 1000
 z.price = 55
 z.admin_fee = 5
@@ -77,7 +77,7 @@ y.lat = 37.557826
 y.lng = 126.943811
 y.room_kind = "원룸"
 y.univ = "이화 여자대학교"
-y.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-living-room-decorating-ideas-26136-1024x725.jpg"
+y.img = "/images/bang4.jpg"
 y.deposit = 1000
 y.price = 55
 y.admin_fee = 5
@@ -98,7 +98,7 @@ x.lat = 37.557464
 x.lng = 126.939816
 x.room_kind = "원룸"
 x.univ = "서강 이화 연세"
-x.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-modern-small-spaces-dining-room-ideas-by-ikea-26136-1024x768.jpg"
+x.img = "/images/bang5.jpg"
 x.deposit = 1000
 x.price = 55
 x.admin_fee = 5
@@ -119,7 +119,7 @@ w.lat = 37.558353
 w.lng = 126.934452
 w.room_kind = "원룸"
 w.univ = "연세 대학교"
-w.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-kids-room-design-for-shared-with-small-space-saving-ideas-26136-1024x602.jpg"
+w.img = "/images/bang6.jpg"
 w.deposit = 1000
 w.size =4
 w.price = 55
@@ -147,7 +147,7 @@ b.room_floor = 3
 b.size =5
 b.private_option="와이파이"
 b.sunlight = "북향"
-b.img = "http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout14-590x535.jpg"
+b.img="/images/bang7.jpg"
 b.save
 
 c=HasukRoom.new
@@ -162,7 +162,7 @@ c.room_title = "사랑의 집"
 c.room_floor =2
 c.size = 4
 c.private_option ="주방 사용 가능"
-c.img = "http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout-590x442.jpg"
+c.img ="/images/bang8.jpg"
 c.save
 
 v=HasukRoom.new
@@ -177,7 +177,7 @@ v.room_title = "사랑의 집"
 v.room_floor =2
 v.size = 4
 v.private_option ="주방 사용 가능"
-v.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout3-590x491.jpg"
+v.img = "/images/bang9.jpg"
 v.save
 
 u=HasukRoom.new
@@ -192,7 +192,7 @@ u.room_title = "사랑의 집"
 u.room_floor =2
 u.size = 4
 u.private_option ="주방 사용 가능"
-u.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout10.jpg"
+u.img = "/images/bang9.jpg"
 u.save
 
 s=HasukRoom.new
@@ -207,7 +207,7 @@ s.room_title = "사랑의 집"
 s.room_floor =2
 s.size = 4
 s.private_option ="주방 사용 가능"
-s.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout15.jpg"
+s.img = "/images/bang10.jpg"
 s.save
 
 k=HasukRoom.new
@@ -222,7 +222,7 @@ k.room_title = "사랑의 집"
 k.room_floor =2
 k.size = 4
 k.private_option ="주방 사용 가능"
-k.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout10.jpg"
+k.img ="/images/bang11.jpg"
 k.save
 
 l=HasukRoom.new
@@ -237,7 +237,7 @@ l.room_title = "사랑의 집"
 l.room_floor =2
 l.size = 4
 l.private_option ="주방 사용 가능"
-l.img="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout12.jpg"
+l.img = "/images/bang12.jpg"
 l.save
 
 m=HasukRoom.new
@@ -252,7 +252,7 @@ m.room_title = "사랑의 집"
 m.room_floor =2
 m.size = 4
 m.private_option ="주방 사용 가능"
-m.img="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout12.jpg"
+m.img ="/images/bang13.jpg"
 m.save
 
 
@@ -264,7 +264,7 @@ n.lat = 37.567922
 n.lng = 126.946109
 n.room_kind = "원룸"
 n.univ = "이화 연세"
-n.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-kids-room-design-for-shared-with-small-space-saving-ideas-26136-1024x602.jpg"
+n.img ="/images/bang14.jpg"
 n.deposit = 1000
 n.size =4
 n.price = 55

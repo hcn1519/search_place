@@ -276,8 +276,9 @@
     fillColor: '#8C001A',
     fillOpacity: 0
   });
-  sogang_a.setMap(map);
-  
+  <% if @univ.include? "서강" %>
+    sogang_a.setMap(map);
+  <% end %>
   //공통B(서강-이화-연대)
   var sogang_ewha_yonsei_b = new google.maps.Polygon({
     paths: sogang_ewha_yonsei_b,
@@ -297,8 +298,9 @@
     fillColor: '#69FAAA',
     fillOpacity: 0.15
   });
-  sogang_ewha_c.setMap(map);
-  
+<% unless @univ.include? "연세" %>
+    sogang_ewha_c.setMap(map);
+<% end %>
   //서강D(서강대 후문-대흥역)
   var sogang_d = new google.maps.Polygon({
     paths: sogang_d,
@@ -308,8 +310,9 @@
     fillColor: '#008080',
     fillOpacity: 0.15
   });
+  <% if @univ.include? "서강" %>
   sogang_d.setMap(map);
-  
+  <% end %>
   //서강E(서강대 남문)
   var sogang_e = new google.maps.Polygon({
     paths: sogang_e,
@@ -319,7 +322,9 @@
     fillColor: '#FFFFFF',
     fillOpacity: 0.1
   });
+  <% if @univ.include? "서강" %>
   sogang_e.setMap(map);
+  <% end %>
   //이화A(이대 정문)
   var ewha_a = new google.maps.Polygon({
     paths: ewha_a,
@@ -329,7 +334,9 @@
     fillColor: '#F75D59',
     fillOpacity: 0.15
   });
+  <% if @univ.include? "이화" %>
   ewha_a.setMap(map);
+  <% end %>
   //이화-연세D(이대후문/연대동문)
   var ewha_yonsei_d = new google.maps.Polygon({
     paths: ewha_yonsei_d,
@@ -339,8 +346,9 @@
     fillColor: '#9269FA',
     fillOpacity: 0.15
   });
+<% unless @univ.include? "서강" %>
   ewha_yonsei_d.setMap(map);
-  
+<% end %>
   //연세A(연대 정문)
   var yonsei_a = new google.maps.Polygon({
     paths: yonsei_a,
@@ -350,8 +358,9 @@
     fillColor: '#FF9A3F',
     fillOpacity: 0.15
    });
+<% if @univ.include? "연세" %>
   yonsei_a.setMap(map);
-   
+   <% end %>
   //연세C(연대 남문) 
   var yonsei_c = new google.maps.Polygon({
     paths: yonsei_c,
@@ -361,8 +370,9 @@
     fillColor: '#69FAAA',
     fillOpacity: 0.15
   });
+<% if @univ.include? "연세" %>
   yonsei_c.setMap(map);
-  
+  <% end %>
   //연세E(연대 서문) 
   var yonsei_e = new google.maps.Polygon({
     paths: yonsei_e,
@@ -372,8 +382,9 @@
     fillColor: '#A74AC7',
     fillOpacity: 0.15
   });
+  <% if @univ.include? "연세" %>
    yonsei_e.setMap(map); 
- 
+ <% end %>
 
 
       //학교별 마커 띄우기 시작
@@ -619,36 +630,63 @@
     <div class="listbox">
       <div class="panel panel-default">
         <div class="panel-heading" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
-        <div class="panel-body" style="overflow-y:auto; height:310px">
+        <div class="panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:310px">
       
-<!--개별 방 박스1 시작-->
-      <%# @all.each do |c| %>
-        <%# if @all.univ.include "@univ"? %>
-          <%# cnt = 0 %>
-            <div id='room' style='margin-bottom:5px'>        
-              <div class='col-md-4'>
-                <div class='img-thumbnail'>
-                  <img src='<%#= @all.img%>' width='90px;' height='70px;'>
+      <% @all.each do |c| %>
+        <% if c.univ.include? @univ %>
+          <% cnt = 0 %>
+          <% if c.kind == "자취" %>
+              <div id='room' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
+                <div class='col-md-4' style="width: 100px; padding-left:5px; padding-right:0px">
+                   <img src='<%= c.img%>' height="80px"  width='100px'>
+                </div><!-- 왼쪽 -->
+              
+               <div class='col-md-8' style="padding-right: 0px;">
+                   <div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">
+                     <div class="col-md-5" style="padding-left:0px; padding-right:0px width:95px">
+                       <p style="font-size: 24px; margin-top:5px"><%= c.deposit %>/<%= c.price %></p>
+                     </div>
+                     <div class="col-md-7" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
+                       <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
+                    </div>
+                <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
+                <p style='color:#eb9088; margin-bottom:5px; font-size:14px'>#<%= c.univ %> #관리비: <%= c.admin_fee %>만원 #<%= c.size%>평</p>
+                  </div>
+              </div><!-- 오른쪽 -->
+            <p style="border-bottom: 1px solid black"></p>
+            </div> <!-- 개별 방 박스1 끝-->
+          <% elsif c.kind == "하숙" %>
+            <div id='room' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->        
+              <div class='col-md-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
+                  <img src='<%= c.img%>' height="80px" width='100px'>
                 </div>
-              </div>
-              <div class='col-md-8'>
-                <h4 style='margin-bottom:5px;'><%#= @all.deposit %>/<%#= @all.price %></h4>
-                <p style='margin-bottom:5px;'>#으아 #더는 못하겠다 #태그 #태그!</p>
-                <p style='margin-bottom:5px; font-size:12px'>실제 거리 : 600km</p>
+              
+              <div class='col-md-8' style="padding-right: 0px;">
+                  <div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">
+                    <div class="col-md-2" style="padding-left:0px; padding-right:0px">
+                      <p style="font-size: 24px; margin-top:5px"><%= c.price %></p>
+                    </div>
+                    <div class="col-md-10" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
+                     (예치금: <%= c.deposit%>만원)&nbsp;
+                      <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
+                    </div>
+                 </div>
+                <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
+                <p style='color:#eb9088; margin-bottom:5px; font-size:15px'>#<%= c.univ %> #아침,저녁</p>
               </div>
             </div> <!-- 개별 방 박스1 끝-->
-        <%# cnt+=1 %>
-          <%# if cnt == 5 %>
-            <%# break %>
-          <%# end %>
-        <%# end %>
-      <%# end %>
-      </div>
+        <% end %>
+        
+        <% cnt+=1 %>
+          <% if cnt == 5 %>
+            <% break %>
+          <% end %>
+      <% end %>
+    <% end %>
     </div>
-  </div><!--방 리스트 박스 끝-->
-       
+  </div>
+  </div><!--방 리스트 박스 끝--> 
   
   </div><!--오른쪽 박스 끝 -->
-
 
 </body>

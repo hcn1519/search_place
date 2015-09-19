@@ -6,7 +6,7 @@ class MapController < ApplicationController
     @univ = params[:univ]
     @ja = Oneroom.all()
     @all = HasukRoom.all()
-    @all.push(@ja)
+    @ja.each {|j| @all.push(j)}
 
   end
 

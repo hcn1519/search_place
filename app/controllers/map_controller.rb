@@ -25,6 +25,9 @@ class MapController < ApplicationController
     @price_max = params[:price_max]
     @section = params[:section]
     @distance = params[:distance]
+    @ja = Oneroom.all()
+    @all = HasukRoom.all()
+    @ja.each {|j| @all.push(j)}
 
   end
 

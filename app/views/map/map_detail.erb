@@ -1585,63 +1585,71 @@
               <input id="search" type="submit" value="검색하기" class="btn btn-primary">
               
             </form>
-                  
-          </div>
+                    
+            </div>
         </div>   
     </div> <!--검색 박스 끝 -->
-    
-    <!--방 리스트 박스-->
+
+
+   <!--방 리스트 박스-->
     <div class="listbox">
-      <div class="panel panel-default" style="margin-bottom: 0px;">
-        <div class="panel-body">
-          검색에 맞는 방 목록
-        </div>
-      </div>
-      <br/>
-      <!--개별 방 박스1 시작-->
-      <div id="room" style="margin-bottom:5px;">        
-        <div class="col-md-4">
-          <div class="img-thumbnail">
-              <img src="http://cdn.home-designing.com/wp-content/uploads/2009/10/minimal-furniture-in-the-room1.jpg" width="90px;" height="70px;">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <h4 style="margin-bottom:5px;">500/40</h4>
-          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
-          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
-        </div>
-      </div> <!-- 개별 방 박스1 끝-->
-                  
-               
-                
-      <!--개별 방 박스2 시작-->
-      <div id="room" style="margin-bottom:5px;">
-        <div class="col-md-4">
-          <div class="img-thumbnail">
-              <img src="http://lunar.thegamez.net/interiordesignspot/hgtv-small-living-room-designs/jul-small-jul-small-spaces-and-more-people-select-high-590x535.jpg" width="90px;" height="70px;">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <h4 style="margin-bottom:5px;">500/40</h4>
-          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
-          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
-        </div>
-      </div><!-- 개별 방 박스 끝-->
-   
-      <!--개별 방 박스3 시작-->
-      <div id="room" style="margin-bottom:5px;">
-        <div class="col-md-4">
-          <div class="img-thumbnail">
-              <img src="http://rexohome.com/wp-content/uploads/2012/04/Gray-Yellow-White-Bedroom-Suspended-Beds-570x414.jpg" width="90px;" height="70px;">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <h4 style="margin-bottom:5px;">500/40</h4>
-          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
-          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
-        </div>
-      </div><!-- 개별 방 박스 끝-->
-    </div><!--방 리스트 박스 끝-->
+      <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
+        <div class="panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:310px">
+      
+      <% @all.each do |c| %>
+        <% if c.univ.include? @univ %>
+          <% cnt = 0 %>
+          <% if c.kind == "자취" %>
+              <div id='room' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
+                <div class='col-md-4' style="width: 100px; padding-left:5px; padding-right:0px">
+                   <img src='<%= c.img%>' height="80px"  width='100px'>
+                </div><!-- 왼쪽 -->
+              
+               <div class='col-md-8' style="padding-right: 0px;">
+                   <div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">
+                     <div class="col-md-5" style="padding-left:0px; padding-right:0px width:95px">
+                       <p style="font-size: 24px; margin-top:5px"><%= c.deposit %>/<%= c.price %></p>
+                     </div>
+                     <div class="col-md-7" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
+                       <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
+                    </div>
+                <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
+                <p style='color:#eb9088; margin-bottom:5px; font-size:14px'>#<%= c.univ %> #관리비: <%= c.admin_fee %>만원 #<%= c.size%>평</p>
+                  </div>
+              </div><!-- 오른쪽 -->
+            </div> <!-- 개별 방 박스1 끝-->
+          <% elsif c.kind == "하숙" %>
+            <div id='room' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->        
+              <div class='col-md-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
+                  <img src='<%= c.img%>' height="80px" width='100px'>
+                </div>
+              
+              <div class='col-md-8' style="padding-right: 0px;">
+                  <div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">
+                    <div class="col-md-2" style="padding-left:0px; padding-right:0px">
+                      <p style="font-size: 24px; margin-top:5px"><%= c.price %></p>
+                    </div>
+                    <div class="col-md-10" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
+                     (예치금: <%= c.deposit%>만원)&nbsp;
+                      <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
+                    </div>
+                 </div>
+                <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
+                <p style='color:#eb9088; margin-bottom:5px; font-size:15px'>#<%= c.univ %> #아침,저녁</p>
+              </div>
+            </div> <!-- 개별 방 박스1 끝-->
+        <% end %>
+        
+        <% cnt+=1 %>
+          <% if cnt == 5 %>
+            <% break %>
+          <% end %>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+  </div><!--방 리스트 박스 끝-->  
        
   
   </div><!--오른쪽 박스 끝 -->

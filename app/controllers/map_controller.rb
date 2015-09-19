@@ -25,10 +25,12 @@ class MapController < ApplicationController
   end
 
   def from_oneroom
-    @places = Oneroom.all()
-    
-    render json: @places
+    @place1 = Oneroom.all()
+    @place2 = HasukRoom.all() 
+    @response = { :onerooms => @place1, :hasukrooms => @place2 }
+    render json: @response
   end
+
   def from_hasuk
     @places = HasukRoom.all()
 

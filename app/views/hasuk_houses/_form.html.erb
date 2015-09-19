@@ -1,7 +1,144 @@
+<style type="text/css">
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+</style>
+<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
+<script>
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>
+
 <%= simple_form_for(@hasuk_house) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+<%= check_box_tag 'rock', 'rock music' %>
+  <div class="form-group">
+    <label for="a">하숙집(고시원)명</label>
+    <input type="text" class="form-control" id="a" placeholder="이름" name="house_title">
+  </div>
+  <div class="form-group">
+    <label for="b">건물 층수</label>
+    <input type="number" class="form-control" id="b" min=0 name="bdg_floor">
+  </div>
+  <div class="checkbox">
+    <strong>공동시설</strong><br/>
+    <label><input type="checkbox" name="common[]" value="식당">식당</label>
+    <label><input type="checkbox" name="common[]" value="에어컨">에어컨</label>
+    <label><input type="checkbox" name="common[]" value="세탁기">세탁기</label>
+    <label><input type="checkbox" name="common[]" value="화장실">화장실</label>
+    <label><input type="checkbox" name="common[]" value="샤워실">샤워실</label>
+    <label><input type="checkbox" name="common[]" value="거실">거실</label>
+    <label><input type="checkbox" name="common[]" value="신발장">신발장</label>
+  </div>
+  <br/>
+  <div class="checkbox">
+    <strong>식사제공</strong><br/>
+    <label><input type="checkbox" name="meal[]" value="아침">아침</label>
+    <label><input type="checkbox" name="meal[]" value="점심">점심</label>
+    <label><input type="checkbox" name="meal[]" value="저녁">저녁</label>
+    <label><input type="checkbox" name="meal[]" value="제공 안함">제공안함</label>
+    <label><input type="checkbox" name="meal[]" value="선택 가능">선택가능</label>
+  </div>
+  <br/>
+  <div class="checkbox">
+    <strong>식사제공</strong><br/>
+    <label><input type="checkbox" name="option[]" value="와이파이">와이파이</label>
+    <label><input type="checkbox" name="option[]" value="주방사용가능">주방사용가능</label>
+    <label><input type="checkbox" name="option[]" value="옥상사용가능">옥상사용가능</label>
+  </div>
+  
+  <div class="form-group">
+    <label for="c" class="control-label">예치금</label>
+      <input type="number" class="form-control" id="c">만원 (없을 경우, 0을 입력하세요.)
+  </div>
+  <div class="form-group">
+  <div class="row">
+    <label for="c" class="col-md-1 control-label">관리비</label>
+    <div class="col-md-6">
+      <input type="number" class="form-control" id="c">만원 (없을 경우, 0을 입력하세요.)
+    </div>
+    </div>
+  </div>
+  
+  상세 설명<br>
+  <textarea class="form-control" rows="6"></textarea><br><br>
+
+  공동시설 사진<br>
+<form id="form1" runat="server">
+        <input type='file' id="imgInp" />
+        <img id="blah" src="#" alt="your image" />
+    </form>
+
+<span class="btn btn-default btn-file">
+    식당 사진 <input type="file" id="upload" name="common_img[]">
+</span>
+<div class="img"></div>
+
+<span class="btn btn-default btn-file">
+    주방 사진 <input type="file" id="upload" name="common_img[]">
+</span>
+<div class="img"></div>
+
+<span class="btn btn-default btn-file">
+    화장실 사진 <input type="file" id="upload" name="common_img[]">
+</span>
+<div class="img"></div>
+<span class="btn btn-default btn-file">
+    샤워실 사진 <input type="file" name="common_img[]">
+</span>
+
+<span class="btn btn-default btn-file">
+    거실 사진 <input type="file" name="common_img[]">
+</span>
+
+  <input type="file" name="common_img[]" value="식당">
+  <input type="file" name="common_img[]" value="주방"><br>
+  <input type="file" name="common_img[]" value="화장실"><br>
+  <input type="file" name="common_img[]" value="샤워실"><br>
+  <input type="file" name="common_img[]" value="거실"><br><br>
+
+  하숙방:
+  <ul>
+    <%= f.fields_for :hasuk_rooms do |a| %>
+      <li>
+      <input type="text">
+      <textarea></textarea>
+      </li>
+  
+    <% end %>
+
+  </ul>
   </div>
 
   <div class="form-actions">

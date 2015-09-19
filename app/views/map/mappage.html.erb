@@ -1,5 +1,6 @@
 <head>
-    <!--googlemap 넣기-->
+    
+<!--googlemap 넣기-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcrzqmVvJgOpIy23Dlw08MHrQN1C17Sg"></script>
     <!--jquery 넣기-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -8,18 +9,18 @@
     //구글맵 기본 설정 시작
       function initialize() {
         //학교별 지도 view 다르게 시작
-        if("<%= @univ %>" == "서강대학교"){
+        if("<%= @univ %>" == "서강"){
           var mapOptions = {
             center: { lat: 37.551445, lng: 126.940793},
             zoom: 16
           };
-        } else if ("<%= @univ %>" == "이화여자대학교") {
+        } else if ("<%= @univ %>" == "이화") {
           var mapOptions = {
             center: { lat: 37.561803, lng: 126.946909},
             zoom: 16
           };  
         
-        } else if("<%= @univ %>" == "연세대학교") {
+        } else if("<%= @univ %>" == "연세") {
           var mapOptions = {
             center: { lat: 37.561257, lng: 126.936974},
             zoom: 16
@@ -126,6 +127,7 @@
 
 //서강A(서강대 정문)
   var sogang_a = [
+    {lat:37.549929, lng:126.932928},{lat:37.549949, lng:126.933503},{lat:37.549758, lng:126.937520},
     {lat:37.549929, lng:126.932928},{lat:37.549949, lng:126.933503},{lat:37.549758, lng:126.937520},
     {lat:37.549687, lng:126.937893},{lat:37.549706, lng:126.938092},{lat:37.549815, lng:126.938444}, //얘까지 구역3랑 겹침
     {lat:37.550728, lng:126.937935},{lat:37.551342, lng:126.937656},{lat:37.551869, lng:126.937468},
@@ -280,7 +282,6 @@
   var sogang_ewha_yonsei_b = new google.maps.Polygon({
     paths: sogang_ewha_yonsei_b,
     strokeColor: '#254117',
-    strokeOpacity: 0.5,
     strokeWeight: 4,
     fillColor: '#254117',
     fillOpacity: 0.15
@@ -379,14 +380,15 @@
       $.get("/map/from_oneroom", function(data, status){
             for (var i = 0; i < data.length; i++){
               //학교 찍히는 것 위도 경도로 찍는 것 생각
-              if("<%= @univ %>" == data[i].univ) {
+              var univs = data[i].univ;
+               if (univs.indexOf("<%= @univ %>") !== -1) {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                     var marker = new google.maps.Marker({
                         position: latlng,
                         title:data[i].kind,
                         map: map
                     });
-                marker.setMap(map);
+                    marker.setMap(map);
               }
             }
         }); //학교별 마커 띄우기 끝
@@ -394,7 +396,8 @@
        $.get("/map/from_hasuk", function(data, status){
              for (var i = 0; i < data.length; i++){
                //학교 찍히는 것 위도 경도로 찍는 것 생각
-               if("<%= @univ %>" == data[i].univ) {
+              var univs = data[i].univ;
+              if (univs.indexOf("<%= @univ %>") !== -1) {
                      var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                      var marker = new google.maps.Marker({
                          position: latlng,
@@ -406,6 +409,7 @@
              }
          }); //학교별 마커 띄우기 끝
 
+      //검색 버튼 누르기 효과 시작
       //검색 버튼 누르기 효과 시작
       $(document).ready(function() {
         
@@ -583,7 +587,6 @@
                       <input type="radio" id="bt7" name="section" value="E" /> E구역
                   </label>
               </div>
-          
               <div class="col-md-9 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
                 <label class="btn btn-default">
                     <input class="btn btn-default" type="radio" id="bt8" name="distance" value="0분 거리" /> 5분 거리

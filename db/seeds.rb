@@ -13,7 +13,7 @@ t.address = "서울특별시 마포구 독막로 221-7"
 t.lat = 37.547742
 t.lng = 126.938091      
 t.room_kind = "원룸"
-t.univ = "서강대학교"
+t.univ = "서강 대학교"
 t.img = "http://cdn.home-designing.com/wp-content/uploads/2010/12/cozy-small-kids-room.jpg"
 t.deposit = 500
 t.price = 45
@@ -34,7 +34,7 @@ a.address = "서울특별시 마포구 대흥동 20-28"
 a.lat = 37.552997
 a.lng = 126.944573
 a.room_kind = "투룸"
-a.univ = "서강대학교"
+a.univ = "서강 대학교"
 a.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-ikea-small-bedroom-ideas-big-living-small-space-bedroom-ideas-ikea-bed-26136-1024x768.jpg"
 a.deposit = 1000
 a.price = 50
@@ -55,7 +55,7 @@ z.address = "서울특별시 마포구 대흥동 20-28"
 z.lat = 37.554641
 z.lng = 126.946933
 z.room_kind = "원룸"
-z.univ = "서강이화"
+z.univ = "서강 이화"
 z.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-teen-room-design-idea-10-26136.jpg"
 z.deposit = 1000
 z.price = 55
@@ -76,7 +76,7 @@ y.address = "서울특별시 서대문구 대현동 90-28"
 y.lat = 37.557826
 y.lng = 126.943811
 y.room_kind = "원룸"
-y.univ = "이화여자대학교"
+y.univ = "이화 여자대학교"
 y.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-living-room-decorating-ideas-26136-1024x725.jpg"
 y.deposit = 1000
 y.price = 55
@@ -97,7 +97,7 @@ x.address = "서울특별시 서대문구 창천동 4-126"
 x.lat = 37.557464
 x.lng = 126.939816
 x.room_kind = "원룸"
-x.univ = "서강이화연세"
+x.univ = "서강 이화 연세"
 x.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-modern-small-spaces-dining-room-ideas-by-ikea-26136-1024x768.jpg"
 x.deposit = 1000
 x.price = 55
@@ -118,7 +118,7 @@ w.address = "서울특별시 서대문구 4-126"
 w.lat = 37.558353
 w.lng = 126.934452
 w.room_kind = "원룸"
-w.univ = "연세대학교"
+w.univ = "연세 대학교"
 w.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-kids-room-design-for-shared-with-small-space-saving-ideas-26136-1024x602.jpg"
 w.deposit = 1000
 w.size =4
@@ -140,69 +140,141 @@ b.address = "서울특별시 마포구 염리동 81-70"
 b.lat = 37.548831
 b.lng = 126.944680
 b.price = 35
-b.univ = "서강대학교"
+b.univ = "서강 대학교"
 b.deposit = 0
 b.room_title = "스위트 원룸텔"
-b.size = 5
+b.room_floor = 3
+b.size =5
+b.private_option="와이파이"
+b.sunlight = "북향"
+b.img = "http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout14-590x535.jpg"
 b.save
 
 c=HasukRoom.new
 c.kind = "하숙"
 c.address = "서울특별시 마포구 대흥동 17-20"
-c.lat = 37.554931
-c.lng = 126.945250
+c.lat = 37.555942
+c.lng = 126.944988
 c.price = 30
 c.deposit = 20
-c.univ = "서강이화"
+c.univ = "서강 이화"
+c.room_title = "사랑의 집"
+c.room_floor =2
 c.size = 4
+c.private_option ="주방 사용 가능"
+c.img = "http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout-590x442.jpg"
 c.save
-#서강대학교 끝
 
-#이화여자대학교 시작
-d=Oneroom.new
-d.kind = "자취"      
-d.address = "서울특별시 대현동"
-d.lat = 37.563839
-d.lng = 126.944312      
-d.room_kind = "원룸"
-d.deposit = 500
-d.univ ="이화여자대학교"
-d.price = 45
-d.admin_fee = 5
-d.save
+v=HasukRoom.new
+v.kind = "하숙"
+v.address = "서울특별시 마포구 대흥동 17-20"
+v.lat = 37.558124
+v.lng = 126.941877
+v.price = 30
+v.deposit = 20
+v.univ = "서강 이화 연세"
+v.room_title = "사랑의 집"
+v.room_floor =2
+v.size = 4
+v.private_option ="주방 사용 가능"
+v.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout3-590x491.jpg"
+v.save
 
-e=Oneroom.new
-e.kind = "자취"
-e.address = "서울특별시 아현동"
-e.lat = 37.558959
-e.lng = 126.946672
-e.room_kind = "원룸"
-e.deposit = 1000
-e.price = 50
-e.univ ="이화여자대학교"
-e.admin_fee = 5
-e.save
+u=HasukRoom.new
+u.kind = "하숙"
+u.address = "서울특별시 마포구 대흥동 17-20"
+u.lat = 37.558124
+u.lng = 126.941877
+u.price = 30
+u.deposit = 20
+u.univ = "서강 이화 연세"
+u.room_title = "사랑의 집"
+u.room_floor =2
+u.size = 4
+u.private_option ="주방 사용 가능"
+u.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout10.jpg"
+u.save
 
-f=HasukRoom.new
-f.kind = "하숙"
-f.address = "서울특별시 대현동"
-f.lat = 37.557798
-f.lng = 126.944172
-f.price = 35
-f.univ ="이화여자대학교"
-f.distance = 500
-f.save
+s=HasukRoom.new
+s.kind = "하숙"
+s.address = "서울특별시 마포구 대흥동 17-20"
+s.lat = 37.558018
+s.lng = 126.944785
+s.price = 30
+s.deposit = 20
+s.univ = "이화 여자대학교"
+s.room_title = "사랑의 집"
+s.room_floor =2
+s.size = 4
+s.private_option ="주방 사용 가능"
+s.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout15.jpg"
+s.save
 
-g=HasukRoom.new
-g.kind = "하숙"
-g.address = "서울특별시 대현동"
-g.lat = 37.558551
-g.lng = 126.943657
-g.price = 30
-g.deposit = 20
-g.univ ="이화여자대학교"
-g.distance = 300
-g.save
+k=HasukRoom.new
+k.kind = "하숙"
+k.address = "서울특별시 마포구 대흥동 17-20"
+k.lat = 37.560475
+k.lng = 126.930395
+k.price = 30
+k.deposit = 20
+k.univ = "연세 대학교"
+k.room_title = "사랑의 집"
+k.room_floor =2
+k.size = 4
+k.private_option ="주방 사용 가능"
+k.img ="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout10.jpg"
+k.save
+
+l=HasukRoom.new
+l.kind = "하숙"
+l.address = "서울특별시 마포구 대흥동 17-20"
+l.lat = 37.564732
+l.lng = 126.932230
+l.price = 30
+l.deposit = 20
+l.univ = "연세 대학교"
+l.room_title = "사랑의 집"
+l.room_floor =2
+l.size = 4
+l.private_option ="주방 사용 가능"
+l.img="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout12.jpg"
+l.save
+
+m=HasukRoom.new
+m.kind = "하숙"
+m.address = "서울특별시 마포구 대흥동 17-20"
+m.lat = 37.564661
+m.lng = 126.944532
+m.price = 30
+m.deposit = 20
+m.univ = "이화 연세"
+m.room_title = "사랑의 집"
+m.room_floor =2
+m.size = 4
+m.private_option ="주방 사용 가능"
+m.img="http://www.apartmentholic.com/wp-content/uploads/2011/05/small-teen-room-layout12.jpg"
+m.save
 
 
+
+n=Oneroom.new
+n.kind = "자취"
+n.address = "서울특별시 서대문구 4-126"
+n.lat = 37.567922
+n.lng = 126.946109
+n.room_kind = "원룸"
+n.univ = "이화 연세"
+n.img = "http://lodi411.com/wp-content/uploads/2015/09/small-room-idea-with-small-kids-room-design-for-shared-with-small-space-saving-ideas-26136-1024x602.jpg"
+n.deposit = 1000
+n.size =4
+n.price = 55
+n.admin_fee = 5
+n.admin_list = "없음"
+n.bdg_floor = 3
+n.room_floor = 2
+n.sunlight = "남동향"
+n.schedule= "2015년 9월 19일"
+n.room_title = "살던 방 내놓습니다"
+n.description = "1. 채광 굿 2. 다 좋음 3. 쓰기가 귀찮다"
+n.save
 

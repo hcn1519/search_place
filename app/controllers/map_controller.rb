@@ -4,6 +4,10 @@ class MapController < ApplicationController
 
   def mappage
     @univ = params[:univ]
+    @ja = Oneroom.all()
+    @all = HasukRoom.all()
+    @all.push(@ja)
+
   end
 
 
@@ -36,6 +40,13 @@ class MapController < ApplicationController
     @places = HasukRoom.all()
 
     render json: @places
+  end
+  def from_all
+   @place1 = Oneroom.all()
+   @place2 = HasukRoom.all()
+   @response = { :onerooms => @place1, :hasukrooms => @place2 }
+   render json: @response
+
   end
   def select
   end

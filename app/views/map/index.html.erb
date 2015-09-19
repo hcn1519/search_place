@@ -1,22 +1,99 @@
 
 <style type="text/css">
+html,
 body {
-    padding-top:80px;
+  height: 100%;
 }
-</style>
+body {
+  text-align: center;
+}
+a:hover {
+background-color:#fff;
+}
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 50%; /* For at least Firefox */
+  min-height: 50%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  background-color:#39b347;
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 
-<div class="container">
-    <form action="/map/mappage" method="POST">
-        <p>
-            <div class="btn-group">
-               <select class="form-control" name="univ">
-                <option selected>학교선택</option>
-                <option value="서강">서강대학교</option>
-                <option value="이화">이화여자대학교</option>
-                <option value="연세">연세대학교</option>
-              </select>
-            </div>
-            <input class="btn btn-default" type="submit" value="검색하기">
-        </p>
-    </form>
-</div>
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+</style>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+
+          <div class="inner cover">
+      //여기<br/><br/><br/><br/>
+       <h2 style="color:#fff"><strong>우리학교 근처 매물정보</strong></h2>
+         <form action="/map/mappage" method="POST">
+          <br/>
+           <p>
+             <div class="btn-group">
+                <select class="form-control" name="univ">
+                 <option selected>학교선택</option>
+                 <option value="서강">서강대학교</option>
+                 <option value="이화">이화여자대학교</option>
+                 <option value="연세">연세대학교</option>
+               </select>
+             </div>
+             <input class="btn btn-default" type="submit" value="검색" style="color:#fff; border-color:#262626; background-color:#262626">
+           </p>
+         </form>
+
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  <div class="container">
+      <center>
+      <div class="row">
+        <br/><br/>
+        <h2><strong>우리학교 방 구하기 팁</strong></h2>
+        <br/>
+        <div class="col-md-4">
+         <a href="/univ/univinfo1"><img style="height:100px; width:100px" src="/images/sog.jpg"/></a>
+      <br/><br/> 
+        <p><a class="btn btn-default" href="/univ/univinfo1" role="button"><strong>서강대</strong></a></p>
+        </div>
+        <div class="col-md-4">
+          <a href="/univ/univinfo2"><img style="height:100px; width:100px" src="/images/yon.jpg"/></a>
+          <br/><br/>
+          <p><a class="btn btn-default" href="/univ/univinfo2" role="button"><strong>연세대</strong></a></p>
+       </div>
+        <div class="col-md-4">
+          <a href="/univ/univinfo3"><img style="height:100px; width:100px"  src="/images/ewha.jpg"/></a>
+          <br/><br/>
+          <p><a class="btn btn-default" href="/univ/univinfo3" role="button"><strong>이화여대</strong></a></p>
+        </div>
+      </div>
+
+    </center>
+  </div>

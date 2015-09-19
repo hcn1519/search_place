@@ -17,13 +17,13 @@
         } else if ("<%= @univ %>" == "이화") {
           var mapOptions = {
             center: { lat: 37.561803, lng: 126.946909},
-            zoom: 16
+            zoom: 15
           };  
         
         } else if("<%= @univ %>" == "연세") {
           var mapOptions = {
             center: { lat: 37.561257, lng: 126.936974},
-            zoom: 16
+            zoom: 15
           };  
         } else {
           var mapOptions = {
@@ -381,6 +381,10 @@
             for (var i = 0; i < data.length; i++){
               //학교 찍히는 것 위도 경도로 찍는 것 생각
               var univs = data[i].univ;
+              var infowindow = null;
+              var imageurl = data[i].img;
+              var contentString = '<div id="content">' + '<div class="col-md-4" style="padding:0px;">'+'<img style="height:75px; width:100px"src='+ 'imageurl' +'>' + '</div>'+'<div class="col-md-8" style="padding:0px;">'+'<h3>'+ data[i].deposit +'/'+ data[i].price +'</h3>' +'</div>' + '</div>';
+              infowindow = new google.maps.InfoWindow({content:contentString});
                if (univs.indexOf("<%= @univ %>") !== -1) {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                     var marker = new google.maps.Marker({
@@ -388,10 +392,15 @@
                         title:data[i].kind,
                         map: map
                     });
+                    google.maps.event.addListener(marker, 'click', function () {
+                      //infowindow.setContent(this.html);
+                      infowindow.open(map, this);
+                   });
+
                     marker.setMap(map);
               }
             }
-        }); //학교별 마커 띄우기 끝
+        });
       
        $.get("/map/from_hasuk", function(data, status){
              for (var i = 0; i < data.length; i++){
@@ -405,11 +414,10 @@
                          map: map
                      });
                  marker.setMap(map);
-               }
+                }
              }
          }); //학교별 마커 띄우기 끝
 
-      //검색 버튼 누르기 효과 시작
       //검색 버튼 누르기 효과 시작
       $(document).ready(function() {
         
@@ -609,56 +617,35 @@
     
     <!--방 리스트 박스-->
     <div class="listbox">
-      <div class="panel panel-default" style="margin-bottom: 0px;">
-        <div class="panel-body">
-          최근에 올라온 방 목록
-        </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
+        <div class="panel-body" style="overflow-y:auto; height:310px">
+      
+<!--개별 방 박스1 시작-->
+      <%# @all.each do |c| %>
+        <%# if @all.univ.include "@univ"? %>
+          <%# cnt = 0 %>
+            <div id='room' style='margin-bottom:5px'>        
+              <div class='col-md-4'>
+                <div class='img-thumbnail'>
+                  <img src='<%#= @all.img%>' width='90px;' height='70px;'>
+                </div>
+              </div>
+              <div class='col-md-8'>
+                <h4 style='margin-bottom:5px;'><%#= @all.deposit %>/<%#= @all.price %></h4>
+                <p style='margin-bottom:5px;'>#으아 #더는 못하겠다 #태그 #태그!</p>
+                <p style='margin-bottom:5px; font-size:12px'>실제 거리 : 600km</p>
+              </div>
+            </div> <!-- 개별 방 박스1 끝-->
+        <%# cnt+=1 %>
+          <%# if cnt == 5 %>
+            <%# break %>
+          <%# end %>
+        <%# end %>
+      <%# end %>
       </div>
-      <br/>
-      <!--개별 방 박스1 시작-->
-      <div id="room" style="margin-bottom:5px;">        
-        <div class="col-md-4">
-          <div class="img-thumbnail">
-              <img src="http://cdn.home-designing.com/wp-content/uploads/2009/10/minimal-furniture-in-the-room1.jpg" width="90px;" height="70px;">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <h4 style="margin-bottom:5px;">500/40</h4>
-          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
-          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
-        </div>
-      </div> <!-- 개별 방 박스1 끝-->
-                  
-               
-                
-      <!--개별 방 박스2 시작-->
-      <div id="room" style="margin-bottom:5px;">
-        <div class="col-md-4">
-          <div class="img-thumbnail">
-              <img src="http://lunar.thegamez.net/interiordesignspot/hgtv-small-living-room-designs/jul-small-jul-small-spaces-and-more-people-select-high-590x535.jpg" width="90px;" height="70px;">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <h4 style="margin-bottom:5px;">500/40</h4>
-          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
-          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
-        </div>
-      </div><!-- 개별 방 박스 끝-->
-   
-      <!--개별 방 박스3 시작-->
-      <div id="room" style="margin-bottom:5px;">
-        <div class="col-md-4">
-          <div class="img-thumbnail">
-              <img src="http://rexohome.com/wp-content/uploads/2012/04/Gray-Yellow-White-Bedroom-Suspended-Beds-570x414.jpg" width="90px;" height="70px;">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <h4 style="margin-bottom:5px;">500/40</h4>
-          <p style="margin-bottom:5px;">#으아 #더는 못하겠다 #태그 #태그!</p>
-          <p style="margin-bottom:5px; font-size:12px">실제 거리 : 600km</p>
-        </div>
-      </div><!-- 개별 방 박스 끝-->
-    </div><!--방 리스트 박스 끝-->
+    </div>
+  </div><!--방 리스트 박스 끝-->
        
   
   </div><!--오른쪽 박스 끝 -->

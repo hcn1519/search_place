@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'univ/univinfo'
+
   resources :hasuk_houses
   resources :onerooms
   root :to => 'map#index'

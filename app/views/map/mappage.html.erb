@@ -124,7 +124,34 @@
         map: map,
         icon: image5
       });
+      
+      var a = {
+        url: '/images/a.jpg',
+        size: new google.maps.Size(100, 50),
+        };
+      
+       var b = {
+        url: '/images/b.jpg',
+        size: new google.maps.Size(100, 50),
+        };
+        
+        var c = {
+        url: '/images/c.jpg',
+        size: new google.maps.Size(100, 50),
+        };
+        
+        var d = {
+        url: '/images/d.jpg',
+        size: new google.maps.Size(100, 50),
+        };
+       
+        var e = {
+        url: '/images/e.jpg',
+        size: new google.maps.Size(100, 50),
+        };
 
+      
+      
 //서강A(서강대 정문)
   var sogang_a = [
     {lat:37.549929, lng:126.932928},{lat:37.549949, lng:126.933503},{lat:37.549758, lng:126.937520},
@@ -266,15 +293,14 @@
     {lat:37.563158, lng:126.932769},{lat:37.563256, lng:126.932042},{lat:37.562716, lng:126.931055},{lat:37.564505, lng:126.929139}
     ];
     
-    
   //서강A(서강대 정문)
   var sogang_a = new google.maps.Polygon({
     paths: sogang_a,
-    strokeColor: '#8C001A',
-    strokeOpacity: 0.8,
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
     strokeWeight: 3,
-    fillColor: '#8C001A',
-    fillOpacity: 0
+    fillColor: '#7FE817',
+    fillOpacity: 0.3
   });
   <% if @univ.include? "서강" %>
     sogang_a.setMap(map);
@@ -282,21 +308,22 @@
   //공통B(서강-이화-연대)
   var sogang_ewha_yonsei_b = new google.maps.Polygon({
     paths: sogang_ewha_yonsei_b,
-    strokeColor: '#254117',
-    strokeWeight: 4,
-    fillColor: '#254117',
-    fillOpacity: 0.15
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#8017E8',
+    fillOpacity: 0.25
   });
   sogang_ewha_yonsei_b.setMap(map);
   
   //서강이화C(서강대 후문-이대역)
-  var sogang_ewha_c = new google.maps.Polygon({
+ var sogang_ewha_c = new google.maps.Polygon({
     paths: sogang_ewha_c,
-    strokeColor: '#69FAAA',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
     fillColor: '#69FAAA',
-    fillOpacity: 0.15
+    fillOpacity: 0.3
   });
 <% unless @univ.include? "연세" %>
     sogang_ewha_c.setMap(map);
@@ -304,9 +331,9 @@
   //서강D(서강대 후문-대흥역)
   var sogang_d = new google.maps.Polygon({
     paths: sogang_d,
-    strokeColor: '#008080',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
     fillColor: '#008080',
     fillOpacity: 0.15
   });
@@ -316,23 +343,23 @@
   //서강E(서강대 남문)
   var sogang_e = new google.maps.Polygon({
     paths: sogang_e,
-    strokeColor: '#7D0552',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
-    fillColor: '#FFFFFF',
-    fillOpacity: 0.1
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#F75D59',
+    fillOpacity: 0.3
   });
   <% if @univ.include? "서강" %>
   sogang_e.setMap(map);
   <% end %>
   //이화A(이대 정문)
-  var ewha_a = new google.maps.Polygon({
+   var ewha_a = new google.maps.Polygon({
     paths: ewha_a,
-    strokeColor: '#F75D59',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
-    fillColor: '#F75D59',
-    fillOpacity: 0.15
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#F87217',
+    fillOpacity: 0.3
   });
   <% if @univ.include? "이화" %>
   ewha_a.setMap(map);
@@ -340,52 +367,54 @@
   //이화-연세D(이대후문/연대동문)
   var ewha_yonsei_d = new google.maps.Polygon({
     paths: ewha_yonsei_d,
-    strokeColor: '#9269FA',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
-    fillColor: '#9269FA',
-    fillOpacity: 0.15
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#7FE817',
+    fillOpacity: 0.3
   });
 <% unless @univ.include? "서강" %>
   ewha_yonsei_d.setMap(map);
 <% end %>
   //연세A(연대 정문)
-  var yonsei_a = new google.maps.Polygon({
+   var yonsei_a = new google.maps.Polygon({
     paths: yonsei_a,
-    strokeColor: '#FF9A3F',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
-    fillColor: '#FF9A3F',
-    fillOpacity: 0.15
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#B51414',
+    fillOpacity: 0.2
    });
 <% if @univ.include? "연세" %>
   yonsei_a.setMap(map);
    <% end %>
   //연세C(연대 남문) 
-  var yonsei_c = new google.maps.Polygon({
+ var yonsei_c = new google.maps.Polygon({
     paths: yonsei_c,
-    strokeColor: '#69FAAA',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
-    fillColor: '#69FAAA',
-    fillOpacity: 0.15
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#FFFF00',
+    fillOpacity: 0.2
   });
 <% if @univ.include? "연세" %>
   yonsei_c.setMap(map);
   <% end %>
   //연세E(연대 서문) 
-  var yonsei_e = new google.maps.Polygon({
+ var yonsei_e = new google.maps.Polygon({
     paths: yonsei_e,
-    strokeColor: '#A74AC7',
-    strokeOpacity: 0.5,
-    strokeWeight: 4,
-    fillColor: '#A74AC7',
-    fillOpacity: 0.15
+    strokeColor: '#594F4F',
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    fillColor: '#1414B4',
+    fillOpacity: 0.2
   });
   <% if @univ.include? "연세" %>
    yonsei_e.setMap(map); 
- <% end %>
-
+ <% end %>    
+    
+  
+  
 
       //학교별 마커 띄우기 시작
       $.get("/map/from_oneroom", function(data, status){

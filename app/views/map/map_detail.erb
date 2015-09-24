@@ -488,7 +488,65 @@
             for (var i = 0; i < data.length; i++){
                 var univs = data[i].univ;
                 
-                //서강대학교 A,B,C,D,E 구역
+                
+                //자취만 선택했을 때
+                if("<%= @univ %>" == "서강" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({ lat: 37.551445, lng: 126.940793}, true);
+                    map.setZoom(16);
+                    
+                            if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                                  var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        title:data[i].kind,
+                                        map: map
+                                  });
+                                marker.setMap(map);
+                                }
+                            }
+                        
+                     
+                }    else if("<%= @univ %>" == "이화" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({ lat: 37.561803, lng: 126.946909}, true);
+                    map.setZoom(15);
+                    
+                            if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                                  var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        title:data[i].kind,
+                                        map: map
+                                  });
+                                marker.setMap(map);
+                                }
+                            }
+                       
+                    
+                } else if("<%= @univ %>" == "연세" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({ lat: 37.561257, lng: 126.936974}, true);
+                    map.setZoom(15);
+                 
+                            if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                                  var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        title:data[i].kind,
+                                        map: map
+                                  });
+                                marker.setMap(map);
+                                }
+                            }
+                
+                }
+                
+                
+                //서강대학교 A,B,C,D,E 구역 검색
               if( "<%= @univ %>" == "서강" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                   map.setCenter({lat:37.551987, lng:126.936129}, true);
@@ -740,7 +798,65 @@
           if(data[i].deposit == null){
             data[i].deposit = 0;
           }
+          
           var univs = data[i].univ;
+          
+           //하숙만 선택했을 때
+                if("<%= @univ %>" == "서강" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({ lat: 37.551445, lng: 126.940793}, true);
+                    map.setZoom(16);
+                    
+                            if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                                  var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        title:data[i].kind,
+                                        map: map
+                                  });
+                                marker.setMap(map);
+                                }
+                            }
+                        
+                     
+                }    else if("<%= @univ %>" == "이화" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({ lat: 37.561803, lng: 126.946909}, true);
+                    map.setZoom(15);
+                    
+                            if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                                  var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        title:data[i].kind,
+                                        map: map
+                                  });
+                                marker.setMap(map);
+                                }
+                            }
+                       
+                    
+                } else if("<%= @univ %>" == "연세" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
+                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    map.setCenter({ lat: 37.561257, lng: 126.936974}, true);
+                    map.setZoom(15);
+                 
+                            if(data[i].deposit >= <%= @deposit_min %> && data[i].deposit <= <%= @deposit_max %>) {
+                                if(data[i].price >= <%= @price_min %> && data[i].price <= <%= @price_max %>) {
+                                  var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                                  var marker = new google.maps.Marker({
+                                        position: latlng,
+                                        title:data[i].kind,
+                                        map: map
+                                  });
+                                marker.setMap(map);
+                                }
+                            }
+                
+                }
+           
               if( "<%= @univ %>" == "서강" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                   map.setCenter({lat:37.551987, lng:126.936129}, true);
@@ -1564,7 +1680,7 @@
 </head>
 <body>
   <!--지도부분 시작-->
-  <div class="col-md-8 map_container" style="padding-left:0px; padding-right:0px;">         
+  <div class="col-md-8 col-sm-12 col-xs-12 map_container" style="padding-left:0px; padding-right:0px;">         
     <!-- head에서 설정한 id로 map이 들어온다. -->
     <div id="map-canvas">
     </div>  
@@ -1573,18 +1689,16 @@
   
   
   <!--오른쪽 박스 시작-->
-  <div class="col-md-4 mainbox">
+  <div class="col-md-4 col-sm-12 col-xs-12 mainbox" style="padding-left: 0px; padding-right: 0px;">
    
     <!--검색박스 부분 시작-->
-    <div class="searchbox">
-        <div class="panel panel-success" style="margin-bottom: 0px;">
+    <div class="searchbox col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 0px;padding-left: 0px;padding-right: 0px;">
           <div class="panel-body">
             <form action="/map/map_detail" method="POST">
               
               <!--학교별 input 생각-->
               <input type="hidden" value="<%= @univ %>" name="univ">
-              
-              
               
               <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
                 <label class="btn btn-default">
@@ -1595,7 +1709,7 @@
                 </label>   
               </div>
               <div class="row">
-                <div class="col-md-6" style="padding-right: 0px;">
+                <div class="col-md-6 col-sm-6 col-xs-6" style="padding-right: 0px;">
                   <label>보증금</label>
                   <div class="form-group">
                     <div class="btn-group">
@@ -1611,7 +1725,7 @@
                     ~
                     <div class="btn-group">
                        <select class="form-control deposit2" name="deposit_max" style="padding-left:10px; padding-right: 0px;">
-                        <option value=1000000>무제한</option>
+                        <option value=100000>무제한</option>
                         <option value=100>100만</option>
                         <option value=300>300만</option>
                         <option value=500>500만</option>
@@ -1621,7 +1735,7 @@
                     </div>
               </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6 col-xs-6">
                   <label>월세</label>
                   <div class="form-group">
                     <div class="btn-group">
@@ -1655,7 +1769,7 @@
               
 
             
-          <div class="btn-group" data-toggle="buttons" style="margin-bottom:10px;">
+          <div class="btn-group col-md-12 col-sm-12 col-xs-12" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;">
                   <label class="btn btn-default">
                       <input type="radio" id="bt3" name="section" value="A" /> A구역
                   </label> 
@@ -1672,10 +1786,10 @@
                       <input type="radio" id="bt7" name="section" value="E" /> E구역
                   </label>
               </div>
-          
-              <div class="col-md-9 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
+              
+              <div class="col-md-9 col-sm-9 col-xs-9 btn-group" data-toggle="buttons" style="margin-bottom:10px; padding-left:0px;padding-right: 0px;">
                 <label class="btn btn-default">
-                    <input class="btn btn-default" type="radio" id="bt8" name="distance" value="5분 거리" /> 5분 거리
+                    <input class="btn btn-default" type="radio" id="bt8" name="distance" value="0분 거리" /> 5분 거리
                  </label>
                 <label class="btn btn-default">
                     <input type="radio" id="bt9" name="distance" value="10분 거리" /> 10분 거리
@@ -1685,19 +1799,18 @@
                 </label>   
               </div>
               
-              <input id="search" type="submit" value="검색하기" class="btn btn-primary">
-              
+              <input id="search" type="submit" value="검색하기" class="btn btn-primary col-md-3 col-sm-3 col-xs-3">
+             
             </form>
-                    
-            </div>
+                  
+          </div>
         </div>   
     </div> <!--검색 박스 끝 -->
-
-
-   <!--방 리스트 박스-->
-    <div class="listbox">
+    
+    <!--방 리스트 박스-->
+    <div class="listbox col-md-12 col-sm-12 col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-heading" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
+        <div class="panel-heading col-md-12 col-xs-12 col-sm-12" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
         <div class="panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:310px">
       
       <% @all.each do |c| %>
@@ -1705,41 +1818,45 @@
           <% cnt = 0 %>
           <% if c.kind == "자취" %>
               <div id='room' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
-                <div class='col-md-4' style="width: 100px; padding-left:5px; padding-right:0px">
+              <div class="row">
+                <div class='col-md-4 col-xs-4 col-sm-4' style="width: 100px; padding-left:5px; padding-right:0px">
                    <img src='<%= c.img%>' height="80px"  width='100px'>
                 </div><!-- 왼쪽 -->
               
-               <div class='col-md-8' style="padding-right: 0px;">
+               <div class='col-md-8 col-xs-8 col-sm-8' style="padding-right: 0px;">
                    <div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">
-                     <div class="col-md-5" style="padding-left:0px; padding-right:0px width:95px">
+                     <div class="col-md-5 col-sm-5 col-xs-5" style="padding-left:0px; padding-right:0px width:95px">
                        <p style="font-size: 24px; margin-top:5px"><%= c.deposit %>/<%= c.price %></p>
                      </div>
-                     <div class="col-md-7" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
+                     <div class="col-md-7 col-sm-7 col-xs-7" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
                        <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
                     </div>
                 <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
                 <p style='color:#eb9088; margin-bottom:5px; font-size:14px'>#<%= c.univ %> #관리비: <%= c.admin_fee %>만원 #<%= c.size%>평</p>
                   </div>
               </div><!-- 오른쪽 -->
+              </div>
             </div> <!-- 개별 방 박스1 끝-->
           <% elsif c.kind == "하숙" %>
-            <div id='room' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->        
-              <div class='col-md-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
+            <div id='room' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->
+            <div class="row">
+              <div class='col-md-4 col-sm-4 col-xs-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
                   <img src='<%= c.img%>' height="80px" width='100px'>
                 </div>
               
-              <div class='col-md-8' style="padding-right: 0px;">
+              <div class='col-md-8 col-sm-8 col-xs-8' style="padding-right: 0px;">
                   <div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">
-                    <div class="col-md-2" style="padding-left:0px; padding-right:0px">
+                    <div class="col-md-2 col-sm-2 col-xs-2" style="padding-left:0px; padding-right:0px">
                       <p style="font-size: 24px; margin-top:5px"><%= c.price %></p>
                     </div>
-                    <div class="col-md-10" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
+                    <div class="col-md-10 col-sm-10 col-xs-10" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
                      (예치금: <%= c.deposit%>만원)&nbsp;
                       <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
                     </div>
                  </div>
                 <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
                 <p style='color:#eb9088; margin-bottom:5px; font-size:15px'>#<%= c.univ %> #아침,저녁</p>
+              </div>
               </div>
             </div> <!-- 개별 방 박스1 끝-->
         <% end %>
@@ -1752,7 +1869,6 @@
     <% end %>
     </div>
   </div>
-  </div><!--방 리스트 박스 끝-->  
-       
+  </div><!--방 리스트 박스 끝--> 
   
   </div><!--오른쪽 박스 끝 -->

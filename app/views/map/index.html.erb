@@ -13,8 +13,8 @@ background-color:#fff;
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 50%; /* For at least Firefox */
-  min-height: 50%;
+
+
   -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
   background-color:#39b347;
@@ -43,9 +43,9 @@ background-color:#fff;
         <div class="cover-container">
 
 
-          <div class="inner cover">
-      //여기<br/><br/><br/><br/>
-       <h2 style="color:#fff"><strong>우리학교 근처 매물정보</strong></h2>
+         <div class="inner cover" class="col-md-12 col-sm-12 col-xs-12">
+      <br/><br/><br/>
+       <h2 style="color:#fff" ><strong>우리학교 근처 매물정보</strong></h2>
          <form action="/map/mappage" method="POST">
           <br/>
            <p>
@@ -60,7 +60,7 @@ background-color:#fff;
              <input class="btn btn-default" type="submit" value="검색" style="color:#fff; border-color:#262626; background-color:#262626">
            </p>
          </form>
-
+            <br/><br/>
           </div>
 
           </div>
@@ -78,17 +78,17 @@ background-color:#fff;
         <br/><br/>
         <h2><strong>우리학교 방 구하기 팁</strong></h2>
         <br/>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-4 col-sm-4">
          <a href="/univ/univinfo1"><img style="height:100px; width:100px" src="/images/sog.jpg"/></a>
       <br/><br/> 
         <p><a class="btn btn-default" href="/univ/univinfo1" role="button"><strong>서강대</strong></a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-4 col-sm-4">
           <a href="/univ/univinfo2"><img style="height:100px; width:100px" src="/images/yon.jpg"/></a>
           <br/><br/>
           <p><a class="btn btn-default" href="/univ/univinfo2" role="button"><strong>연세대</strong></a></p>
        </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-4 col-sm-4">
           <a href="/univ/univinfo3"><img style="height:100px; width:100px"  src="/images/ewha.jpg"/></a>
           <br/><br/>
           <p><a class="btn btn-default" href="/univ/univinfo3" role="button"><strong>이화여대</strong></a></p>

@@ -304,6 +304,11 @@
   });
   <% if @univ.include? "서강" %>
     sogang_a.setMap(map);
+    var sogang_a_mark = new google.maps.Marker({
+        position: {lat: 37.552330, lng:126.936627},
+        map: map,
+        icon: a
+      });
   <% end %>
   //공통B(서강-이화-연대)
   var sogang_ewha_yonsei_b = new google.maps.Polygon({
@@ -315,6 +320,11 @@
     fillOpacity: 0.25
   });
   sogang_ewha_yonsei_b.setMap(map);
+  var sogang_b_mark = new google.maps.Marker({
+        position: {lat:37.556045, lng:126.940645},
+        map: map,
+        icon: b
+      });
   
   //서강이화C(서강대 후문-이대역)
  var sogang_ewha_c = new google.maps.Polygon({
@@ -327,6 +337,11 @@
   });
 <% unless @univ.include? "연세" %>
     sogang_ewha_c.setMap(map);
+    var sogang_c_mark = new google.maps.Marker({
+        position: {lat:37.554180, lng:126.946500},
+        map: map,
+        icon: c
+      });
 <% end %>
   //서강D(서강대 후문-대흥역)
   var sogang_d = new google.maps.Polygon({
@@ -339,6 +354,11 @@
   });
   <% if @univ.include? "서강" %>
   sogang_d.setMap(map);
+  var sogang_d_mark = new google.maps.Marker({
+        position: {lat:37.548951, lng:126.945549},
+        map: map,
+        icon: d
+      });
   <% end %>
   //서강E(서강대 남문)
   var sogang_e = new google.maps.Polygon({
@@ -351,6 +371,11 @@
   });
   <% if @univ.include? "서강" %>
   sogang_e.setMap(map);
+  var sogang_e_mark = new google.maps.Marker({
+        position: {lat:37.548084, lng:126.936736},
+        map: map,
+        icon: e
+      });
   <% end %>
   //이화A(이대 정문)
    var ewha_a = new google.maps.Polygon({
@@ -363,6 +388,11 @@
   });
   <% if @univ.include? "이화" %>
   ewha_a.setMap(map);
+  var ewha_a_mark = new google.maps.Marker({
+        position: {lat: 37.557620, lng:126.946500},
+        map: map,
+        icon: a
+      });
   <% end %>
   //이화-연세D(이대후문/연대동문)
   var ewha_yonsei_d = new google.maps.Polygon({
@@ -375,6 +405,11 @@
   });
 <% unless @univ.include? "서강" %>
   ewha_yonsei_d.setMap(map);
+  var ewha_d_mark = new google.maps.Marker({
+        position: {lat: 37.567826, lng:126.947576},
+        map: map,
+        icon: d
+      });
 <% end %>
   //연세A(연대 정문)
    var yonsei_a = new google.maps.Polygon({
@@ -387,6 +422,11 @@
    });
 <% if @univ.include? "연세" %>
   yonsei_a.setMap(map);
+  var yonsei_a_mark = new google.maps.Marker({
+        position: {lat: 37.556029, lng:126.935924},
+        map: map,
+        icon: a
+      });
    <% end %>
   //연세C(연대 남문) 
  var yonsei_c = new google.maps.Polygon({
@@ -399,6 +439,11 @@
   });
 <% if @univ.include? "연세" %>
   yonsei_c.setMap(map);
+  var yonsei_c_mark = new google.maps.Marker({
+        position: {lat:37.559828, lng:126.931001},
+        map: map,
+        icon: c
+      });
   <% end %>
   //연세E(연대 서문) 
  var yonsei_e = new google.maps.Polygon({
@@ -411,6 +456,11 @@
   });
   <% if @univ.include? "연세" %>
    yonsei_e.setMap(map); 
+   var yonsei_e_mark = new google.maps.Marker({
+        position: {lat: 37.565674, lng:126.933008},
+        map: map,
+        icon: e
+      });
  <% end %>    
     
   

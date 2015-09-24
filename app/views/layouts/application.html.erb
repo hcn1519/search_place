@@ -5,7 +5,36 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
+  
+  <script>
+  $(document).ready(function(){
+    
+    $("#univcolor1").mouseover(function() {
+      $(this).addClass("selectDrop");
+    });
+    $("#univcolor1").mouseout(function() {
+      $(this).removeClass("selectDrop");
+      
+    });
+    
+    $("#univcolor2").mouseover(function() {
+      $(this).addClass("selectDrop");
+    });
+    $("#univcolor2").mouseout(function() {
+      $(this).removeClass("selectDrop");
+      
+    });
+    
+    
+  });
+  </script>
+  <style type="text/css">
+    .selectDrop {
+      background-color: #e7e7e7;
+      
+      
+    }
+  </style>
 </head>
 <body>
      <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,30 +50,78 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+          
+          <% if user_signed_in? %>
             <li><a href="#about">찜하기</a></li>
-            <li><a href="#contact">학교별 </a></li>
+          <% end %>
             
-            <!--<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">학교별 구역 정보 <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              <%# if "@univ"== "서강" %>
-                <li><a href="/map/mappage" id="ewha">이화여자대학교</a></li>
-                <li><a href="/map/mappage" id="yonsei">연세대학교</a></li>
-              <%# elsif "@univ" == "이화" %>
-                <li><a href="/map/refresh" id="sogang">서강대학교</a></li>
-                <li><a href="/map/refresh" id="yonsei">연세대학교</a></li>
-              <%# elsif "@univ" == "연세" %>
-                <li><a href="/map/refresh" id="sogang">서강대학교</a></li>
-                <li><a href="/map/refresh" id="ewha">이화여자대학교</a></li>
-              <%# else %>
-                <li><a href="/map/mappage" id="sogang">서강대학교</a></li>
-                <li><a href="/map/mappage" id="ewha">이화여자대학교</a></li>
-                <li><a href="/map/mappage" id="yonsei">연세대학교</a></li>
-              <%# end %>
+          <% unless @univ.nil? %>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">학교 변경하기 <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="min-width:130px;">
+              <% if  @univ == "서강" %>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="이화" name="univ">
+                    <input id="univcolor1" type="submit" value="이화여자대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="연세" name="univ">
+                    <input id="univcolor2" type="submit" value="연세대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+              <% elsif @univ == "이화" %>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="서강" name="univ">
+                    <input id="univcolor1" type="submit" value="서강대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="연세" name="univ">
+                    <input id="univcolor2" type="submit" value="연세대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+              <% elsif @univ == "연세" %>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="서강" name="univ">
+                    <input id="univcolor1" type="submit" value="서강대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="이화" name="univ">
+                    <input id="univcolor2" type="submit" value="이화여자대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+              <% else %>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="서강" name="univ">
+                    <input id="univcolor1" type="submit" value="서강대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="이화" name="univ">
+                    <input id="univcolor2" type="submit" value="이화여자대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+                <li>
+                  <form action="/map/mappage" method="POST">
+                    <input type="hidden" value="연세" name="univ">
+                    <input id="univcolor3" type="submit" value="연세대학교" class="form-control" style="border:0">
+                  </form>
+                </li>
+              <% end %>
               </ul>
-              
-            </li>-->
-            
+            </li>
+          <% end %>
+          
           </ul>
           <ul class="nav navbar-nav navbar-right" style="margin-right: 80px;">
             <li><a href="/map/select">방 등록하기</a></li>

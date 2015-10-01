@@ -1,5 +1,5 @@
 <head>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--googlemap 넣기-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcrzqmVvJgOpIy23Dlw08MHrQN1C17Sg"></script>
     <!--jquery 넣기-->
@@ -576,6 +576,7 @@
       } //구글맵 기본 설정 끝
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+    
 </head>
 <body>
   <!--지도부분 시작-->
@@ -712,7 +713,7 @@
         <div class="panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:310px">
       
       <% @all.each do |c| %>
-        <% if c.univ.include? @univ %>
+        <% if (c.univ || '').include? @univ %>
           <% cnt = 0 %>
           <% if c.kind == "자취" %>
               <div id='room' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
@@ -763,6 +764,8 @@
           <% if cnt == 5 %>
             <% break %>
           <% end %>
+      <% else %>
+          
       <% end %>
     <% end %>
     </div>

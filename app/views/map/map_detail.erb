@@ -1670,6 +1670,22 @@
           $("#bt9").removeClass("active");
         });
         
+        $("#fold").click(function(){
+          $(".searchbox").slideToggle("slow"); //접기
+          $(".roomList").css("height", "470px");
+          if($("#open").text() == '접어두기'){
+          
+            $("#open").text('펼치기');
+            $("#menu-icon").removeClass("glyphicon-menu-up");
+            $("#menu-icon").addClass("glyphicon-menu-down");
+          
+          } else  {
+            $("#open").text("접어두기");
+            $(".roomList").css("height", "230px");
+            $("#menu-icon").removeClass("glyphicon-menu-down");
+            $("#menu-icon").addClass("glyphicon-menu-up");
+          }
+        }); 
 
       }); //검색버튼 누르기 효과 끝
       
@@ -1808,11 +1824,20 @@
         </div>   
     </div> <!--검색 박스 끝 -->
     
+    <div class="folderbox" style="padding-left:15px; padding-right:15px">
+      <button id="fold" style="width:100%" type="button" class="btn btn-default" aria-label="Center">
+        <span id="menu-icon" class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><br/>
+        <span id="open">접어두기</span>
+      </button>
+    </div><!--접기 박스 -->  
+
+
+
     <!--방 리스트 박스-->
     <div class="listbox col-md-12 col-sm-12 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading col-md-12 col-xs-12 col-sm-12" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
-        <div class="panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:310px">
+        <div class="roomList panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:230px">
       
       <% @all.each do |c| %>
         <% if (c.univ || '').include? @univ %>

@@ -527,11 +527,17 @@
                          title:data[i].kind,
                          map: map
                      });
+                    marker.metadata = {type: "point", id: i};
                       google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
                           return function() {
                             infoWindow.setContent(contentString);
                             infoWindow.open(map,marker);
-                           };
+                            for (var k=0; k < data[i].length; k++) {
+
+                            }
+
+
+                           }; // function end
                       })(marker,contentString,infoWindow));  
                     
 

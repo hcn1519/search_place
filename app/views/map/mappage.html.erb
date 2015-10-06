@@ -522,24 +522,52 @@
              '</div>';
                      
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
+                    
                     var marker = new google.maps.Marker({
                          position: latlng,
                          title:data[i].kind,
                          map: map
                      });
-                    marker.metadata = {type: "point", id: i};
-                      google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id); 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
                           return function() {
                             infoWindow.setContent(contentString);
                             infoWindow.open(map,marker);
-                            for (var k=0; k < data[i].length; k++) {
-
-                            }
-
 
                            }; // function end
-                      })(marker,contentString,infoWindow));  
-                    
+                      })(marker,contentString,infoWindow));
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#dddddd");
+                      });
+ 
+                     };
+
+                    })(str_id));
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+
+                       $(document).ready(function() {
+                         $(result_id).css("background-color","#fff");
+                       });
+
+                      };
+
+                     })(str_id));
 
                  marker.setMap(map);
                 }
@@ -787,7 +815,7 @@
         <% if (c.univ || '').include? @univ %>
           <% cnt = 0 %>
           <% if c.kind == "자취" %>
-              <div id='room' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
+              <div class='room' id='a<%=c.id %>' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
                 <div class="row">
                 <div class='col-md-4 col-xs-4 col-sm-4' style="width: 100px; padding-left:5px; padding-right:0px">
                    <img src='<%= c.img%>' height="80px"  width='100px'>
@@ -808,7 +836,7 @@
               </div>
             </div> <!-- 개별 방 박스1 끝-->
           <% elsif c.kind == "하숙" %>
-            <div id='room' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->
+            <div class='room' id='a<%=c.id %>' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->
               <div class="row">
               <div class='col-md-4 col-sm-4 col-xs-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
                   <img src='<%= c.img%>' height="80px" width='100px'>

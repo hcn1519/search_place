@@ -558,12 +558,19 @@
                       //console.log(result_id); 
 
                       $(document).ready(function() {
-                        $(result_id).css("background-color","#a4e2c5");
-                        var list_top = $(".roomList").position().top;
-                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
-                        var list_height = list_top + list_bottom;
-                        var place  = list_top - ( list_height - list_bottom ) / 2
-                      
+                        $(result_id).css("background-color","#cbefde");
+              
+                        var list_height = $(".roomList").height();
+                        var item_offset = $(result_id).offset().top;
+                        var item_height = $(result_id).height();
+                        var place;
+ 
+                        if ( item_height < list_height) {
+                          place = item_offset - ((list_height / 2) - (item_height / 2));
+                        } else {
+                          place = item_offset;
+                        }
+                        
                         $(".roomList").animate({scrollTop: place}, 500);
                       });
  
@@ -574,9 +581,8 @@
 //4. listbox 색 지우기
                      google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
                       return function() {
-                         var result_id = "#" + "a" + str_id;
-                       //console.log(result_id);
-
+                       var result_id = "#" + "a" + str_id;
+                    
                        $(document).ready(function() {
                         $(result_id).css("background-color","#fff");
                         });
@@ -672,6 +678,9 @@
 
         $(".room").mouseover(function(){
           $(this).css("background-color", "#dddddd");
+
+
+
         });
         $(".room").mouseout(function() {
           $(this).css("background-color", "#fff");

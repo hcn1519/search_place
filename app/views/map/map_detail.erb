@@ -299,9 +299,9 @@
 //서강A(서강대 정문)
   var sogang_a = new google.maps.Polygon({
     paths: sogang_a,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#7FE817',
     fillOpacity: 0.3
   });
@@ -316,9 +316,9 @@
   //공통B(서강-이화-연대)
   var sogang_ewha_yonsei_b = new google.maps.Polygon({
     paths: sogang_ewha_yonsei_b,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#8017E8',
     fillOpacity: 0.25
   });
@@ -332,9 +332,9 @@
   //서강이화C(서강대 후문-이대역)
  var sogang_ewha_c = new google.maps.Polygon({
     paths: sogang_ewha_c,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#69FAAA',
     fillOpacity: 0.3
   });
@@ -349,9 +349,9 @@
   //서강D(서강대 후문-대흥역)
   var sogang_d = new google.maps.Polygon({
     paths: sogang_d,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#008080',
     fillOpacity: 0.15
   });
@@ -366,9 +366,9 @@
   //서강E(서강대 남문)
   var sogang_e = new google.maps.Polygon({
     paths: sogang_e,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#F75D59',
     fillOpacity: 0.3
   });
@@ -383,9 +383,9 @@
   //이화A(이대 정문)
    var ewha_a = new google.maps.Polygon({
     paths: ewha_a,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#F87217',
     fillOpacity: 0.3
   });
@@ -400,9 +400,9 @@
   //이화-연세D(이대후문/연대동문)
   var ewha_yonsei_d = new google.maps.Polygon({
     paths: ewha_yonsei_d,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#7FE817',
     fillOpacity: 0.3
   });
@@ -417,9 +417,9 @@
   //연세A(연대 정문)
    var yonsei_a = new google.maps.Polygon({
     paths: yonsei_a,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#B51414',
     fillOpacity: 0.2
    });
@@ -434,9 +434,9 @@
   //연세C(연대 남문) 
  var yonsei_c = new google.maps.Polygon({
     paths: yonsei_c,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#FFFF00',
     fillOpacity: 0.2
   });
@@ -451,9 +451,9 @@
   //연세E(연대 서문) 
  var yonsei_e = new google.maps.Polygon({
     paths: yonsei_e,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#1414B4',
     fillOpacity: 0.2
   });
@@ -467,21 +467,6 @@
  <% end %>
  
  
-    $.get("/map/from_hasuk", function(data, status) {
-       for(var i=0; i<data.length; i++) {
-          var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-         if(google.maps.geometry.poly.containsLocation(latlng, sogang_a)==true){
-            map.setCenter({ lat: 37.548734, lng: 126.944784},true);
-            map.setZoom(17);
-            var marker = new google.maps.Marker({
-              position: latlng,
-              title: data[i].price,
-              map: map
-          });
-          marker.setMap(map);
-          }
-        }
-    }); 
       
       //학교별 마커 띄우기 시작
     if( "<%= @kind %>" == "자취"){
@@ -651,41 +636,7 @@
                       }
                     }
                   }
-                 }  /*else if( univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "B") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.556506, lng:126.940562}, true);
-                      map.setZoom(17);
-                    if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  }*/  /*else if(univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "C") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.554431, lng:126.946720}, true);
-                      map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  } */ else if(("<%= @univ%>" == "이화" || "<%= @univ%>" == "연세") && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "D") {
+                 } else if(("<%= @univ%>" == "이화" || "<%= @univ%>" == "연세") && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "D") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                       map.setCenter({lat:37.566394, lng:126.946544}, true);
                       map.setZoom(17);
@@ -720,24 +671,7 @@
                        }
                      }
                    }
-                  } /* else if(univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "B") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.556506, lng:126.940562}, true);
-                      map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  } */ else if("<%= @univ %>" == "연세" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "C") {
+                  } else if("<%= @univ %>" == "연세" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "C") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                       map.setCenter({lat:37.560352, lng:126.930377}, true);
                       map.setZoom(17);
@@ -754,24 +688,7 @@
                        }
                      }
                    }
-                  }  /* else if(univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "D") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.566394, lng:126.946544}, true);
-                      map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  } */  else if("<%= @univ %>" == "연세" &&univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "E") {
+                  } else if("<%= @univ %>" == "연세" &&univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "E") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                       map.setCenter({lat:37.566025, lng:126.932722}, true);
                       map.setZoom(17);
@@ -801,6 +718,28 @@
           }
           
           var univs = data[i].univ;
+          var infowindow = null;
+          var infoWindow = new google.maps.InfoWindow();
+          var contentString =
+            '<div id="infoWindow" style="margin-bottom:5px">'+
+               '<div class="row" style="max-width:240px">'+
+               '<div class="col-md-4 col-sm-4 col-xs-4" style=" width: 100px; padding-left: 5px; padding-right: 0px;">' +
+                   '<img src="'+ data[i].img + '" height="80px" width="100px">' +
+                 '</div>'+
+               '<div class="col-md-7 col-sm-7 col-xs-7" style="width: 140px;padding-right: 0px;">' +
+                   '<div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">' +
+                     '<div class="col-md-3 col-sm-3 col-xs-3" style="margin-right:-5px; padding-left:0px; padding-right:0px">' +
+                       '<p style="font-size: 20px; margin-top:5px">'+ data[i].price +'</p>' +
+                     '</div>' +
+                     '<div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:6px; margin-bottom:5px; padding-left:0px; padding-right:0px">'+
+                      '(예치금:'+ data[i].deposit + '만원)&nbsp;'+
+                     '</div>'+
+                  '</div>'+
+                 '<p style="margin-bottom:5px; font-size:12px">거리 : 정문에서 10분</p>' +
+                 '<p style="color:#eb9088; margin-bottom:5px; font-size:13px">'+ '#아침,저녁</p>' +
+               '</div>'+
+               '</div>'+
+             '</div>';
           
            //하숙만 선택했을 때
                 if("<%= @univ %>" == "서강" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
@@ -816,11 +755,56 @@
                                         title:data[i].kind,
                                         map: map
                                   });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                                 marker.setMap(map);
                                 }
                             }
-                        
-                     
+                         
                 }    else if("<%= @univ %>" == "이화" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                     map.setCenter({ lat: 37.561803, lng: 126.946909}, true);
@@ -834,6 +818,52 @@
                                         title:data[i].kind,
                                         map: map
                                   });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                                 marker.setMap(map);
                                 }
                             }
@@ -852,6 +882,52 @@
                                         title:data[i].kind,
                                         map: map
                                   });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                                 marker.setMap(map);
                                 }
                             }
@@ -871,6 +947,52 @@
                         title:data[i].kind,
                         map: map
                       });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                     marker.setMap(map);
                     }
                   }
@@ -888,6 +1010,52 @@
                          title:data[i].kind,
                          map: map
                        });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                      marker.setMap(map);
                      }
                    }
@@ -905,6 +1073,52 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                       marker.setMap(map);
                       }
                     }
@@ -922,6 +1136,52 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                       marker.setMap(map);
                       }
                     }
@@ -939,6 +1199,52 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                       marker.setMap(map);
                       }
                     }
@@ -957,45 +1263,57 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                       marker.setMap(map);
                       }
                     }
                   }
-                 }  /*else if( univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "B") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.556506, lng:126.940562}, true);
-                      map.setZoom(17);
-                    if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  }*/  /*else if(univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "C") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.554431, lng:126.946720}, true);
-                      map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_c) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  } */ else if(("<%= @univ%>" == "이화" || "<%= @univ%>" == "연세") && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "D") {
+                 } else if(("<%= @univ%>" == "이화" || "<%= @univ%>" == "연세") && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "D") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                       map.setCenter({lat:37.566394, lng:126.946544}, true);
                       map.setZoom(17);
@@ -1008,6 +1326,52 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                        marker.setMap(map);
                        }
                      }
@@ -1026,28 +1390,58 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
+
                        marker.setMap(map);
                        }
                      }
                    }
-                  } /* else if(univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "B") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.556506, lng:126.940562}, true);
-                      map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, sogang_ewha_yonsei_b) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  } */ else if("<%= @univ %>" == "연세" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "C") {
+                  }  else if("<%= @univ %>" == "연세" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "C") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                       map.setCenter({lat:37.560352, lng:126.930377}, true);
                       map.setZoom(17);
@@ -1060,28 +1454,57 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                        marker.setMap(map);
                        }
                      }
                    }
-                  }  /* else if(univs.indexOf("<%#= @univ %>") !== -1 && "<%#= @section %>" == "D") {
-                    var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                      map.setCenter({lat:37.566394, lng:126.946544}, true);
-                      map.setZoom(17);
-                     if(google.maps.geometry.poly.containsLocation(latlng, ewha_yonsei_d) == true){
-                      if(data[i].deposit >= <%#= @deposit_min %> && data[i].deposit <= <%#= @deposit_max %>) {
-                       if(data[i].price >= <%#= @price_min %> && data[i].price <= <%#= @price_max %>) {
-                         var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
-                         var marker = new google.maps.Marker({
-                           position: latlng,
-                           title:data[i].kind,
-                           map: map
-                         });
-                       marker.setMap(map);
-                       }
-                     }
-                   }
-                  } */  else if("<%= @univ %>" == "연세" &&univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "E") {
+                  }  else if("<%= @univ %>" == "연세" &&univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "E") {
                     var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                       map.setCenter({lat:37.566025, lng:126.932722}, true);
                       map.setZoom(17);
@@ -1094,6 +1517,52 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
+
                        marker.setMap(map);
                        }
                      }
@@ -1360,7 +1829,29 @@
       $.get("/map/from_hasuk", function(data, status){
         for (var i = 0; i < data.length; i++){
             var univs = data[i].univ;
-            
+            var infowindow = null;
+            var infoWindow = new google.maps.InfoWindow();
+             var contentString =
+            '<div id="infoWindow" style="margin-bottom:5px">'+
+               '<div class="row" style="max-width:240px">'+
+               '<div class="col-md-4 col-sm-4 col-xs-4" style=" width: 100px; padding-left: 5px; padding-right: 0px;">' +
+                   '<img src="'+ data[i].img + '" height="80px" width="100px">' +
+                 '</div>'+
+               '<div class="col-md-7 col-sm-7 col-xs-7" style="width: 140px;padding-right: 0px;">' +
+                   '<div class="row" style="margin-left:1px; padding-left:0px; padding-right:0px">' +
+                     '<div class="col-md-3 col-sm-3 col-xs-3" style="margin-right:-5px; padding-left:0px; padding-right:0px">' +
+                       '<p style="font-size: 20px; margin-top:5px">'+ data[i].price +'</p>' +
+                     '</div>' +
+                     '<div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:6px; margin-bottom:5px; padding-left:0px; padding-right:0px">'+
+                      '(예치금:'+ data[i].deposit + '만원)&nbsp;'+
+                     '</div>'+
+                  '</div>'+
+                 '<p style="margin-bottom:5px; font-size:12px">거리 : 정문에서 10분</p>' +
+                 '<p style="color:#eb9088; margin-bottom:5px; font-size:13px">'+ '#아침,저녁</p>' +
+               '</div>'+
+               '</div>'+
+             '</div>';
+
              if( "<%= @univ %>" == "서강" && univs.indexOf("<%= @univ %>") !== -1 && "<%= @section %>" == "A") {
                 var latlng = new google.maps.LatLng(data[i].lat, data[i].lng);
                   map.setCenter({lat:37.551987, lng:126.936129}, true);
@@ -1374,6 +1865,51 @@
                         title:data[i].kind,
                         map: map
                       });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                     marker.setMap(map);
                     }
                   }
@@ -1391,6 +1927,51 @@
                          title:data[i].kind,
                          map: map
                        });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                      marker.setMap(map);
                      }
                    }
@@ -1408,6 +1989,51 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                       marker.setMap(map);
                       }
                     }
@@ -1425,6 +2051,51 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                       marker.setMap(map);
                       }
                     }
@@ -1442,6 +2113,51 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                       marker.setMap(map);
                       }
                     }
@@ -1460,6 +2176,51 @@
                           title:data[i].kind,
                           map: map
                         });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                       marker.setMap(map);
                       }
                     }
@@ -1511,6 +2272,51 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                        marker.setMap(map);
                        }
                      }
@@ -1529,6 +2335,51 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                        marker.setMap(map);
                        }
                      }
@@ -1563,6 +2414,51 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                        marker.setMap(map);
                        }
                      }
@@ -1597,6 +2493,51 @@
                            title:data[i].kind,
                            map: map
                          });
+                    marker.setValues({type: "point", id: i});
+                    var data_id = data[i].id;
+                    var str_id = data_id.toString();
+                    //console.log(str_id);
+//event 구간
+//1.말풍선 출력 
+                    google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
+                          return function() {
+                            infoWindow.setContent(contentString);
+                            infoWindow.open(map,marker);
+                           }; // function end
+                      })(marker,contentString,infoWindow));
+//2.말풍선 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
+                       return function()  {
+                        infoWindow.close();
+                        };
+                     })(infoWindow));
+//3. listbox 색 입히기
+                    google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
+                     return function() { 
+                        var result_id = "#" + "a" + str_id;
+                      //console.log(result_id); 
+                      $(document).ready(function() {
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
+                      });
+ 
+                     };
+                    })(str_id));
+//4. listbox 색 지우기
+                     google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
+                      return function() {
+                         var result_id = "#" + "a" + str_id;
+                       //console.log(result_id);
+                       $(document).ready(function() {
+                        $(result_id).css("background-color","#fff");
+                        });
+                      };
+                     })(str_id));
                        marker.setMap(map);
                        }
                      }
@@ -1668,7 +2609,7 @@
           $(this).addClass("active");
           $("#bt8").removeClass("active");
           $("#bt9").removeClass("active");
-        });
+        }); //검색버튼 누르기 버튼 끝
         
         $("#fold").click(function(){
           $(".searchbox").slideToggle("slow"); //접기
@@ -1686,8 +2627,13 @@
             $("#menu-icon").addClass("glyphicon-menu-up");
           }
         }); 
-
-      }); //검색버튼 누르기 효과 끝
+        $(".room").mouseover(function(){
+          $(this).css("background-color", "#dddddd");
+        });
+        $(".room").mouseout(function() {
+          $(this).css("background-color", "#fff");
+        }); 
+      }); 
       
         
         
@@ -1816,7 +2762,7 @@
                 </label>   
               </div>
               
-              <input id="search" type="submit" value="검색하기" class="btn btn-primary col-md-3 col-sm-3 col-xs-3">
+              <input id="search" type="submit" value="검색하기" style="background-color:#0072bc; border-color:#0072bc" class="btn btn-primary col-md-3 col-sm-3 col-xs-3">
              
             </form>
                   
@@ -1836,7 +2782,7 @@
     <!--방 리스트 박스-->
     <div class="listbox col-md-12 col-sm-12 col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-heading col-md-12 col-xs-12 col-sm-12" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
+        <div class="panel-heading col-md-12 col-xs-12 col-sm-12" style="background-color:#00a178; color:#fff"><strong>검색에 맞는 방 목록</strong></div>
         <div class="roomList panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:230px">
       
       <% @all.each do |c| %>
@@ -1864,7 +2810,8 @@
               </div>
             </div> <!-- 개별 방 박스1 끝-->
           <% elsif c.kind == "하숙" %>
-            <div id='room' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->
+            <a style="color:#262626;" href="/map/detail" target="_blank">
+            <div class='room' id='a<%=c.id %>' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->
             <div class="row">
               <div class='col-md-4 col-sm-4 col-xs-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
                   <img src='<%= c.img%>' height="80px" width='100px'>
@@ -1884,7 +2831,8 @@
                 <p style='color:#eb9088; margin-bottom:5px; font-size:15px'>#<%= c.univ %> #아침,저녁</p>
               </div>
               </div>
-            </div> <!-- 개별 방 박스1 끝-->
+            </div><!-- 개별 방 박스1 끝-->
+          </a>
         <% end %>
         
         <% cnt+=1 %>

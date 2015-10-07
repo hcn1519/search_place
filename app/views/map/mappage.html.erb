@@ -297,9 +297,9 @@
   //서강A(서강대 정문)
   var sogang_a = new google.maps.Polygon({
     paths: sogang_a,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#7FE817',
     fillOpacity: 0.3
   });
@@ -314,9 +314,9 @@
   //공통B(서강-이화-연대)
   var sogang_ewha_yonsei_b = new google.maps.Polygon({
     paths: sogang_ewha_yonsei_b,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#8017E8',
     fillOpacity: 0.25
   });
@@ -330,9 +330,9 @@
   //서강이화C(서강대 후문-이대역)
  var sogang_ewha_c = new google.maps.Polygon({
     paths: sogang_ewha_c,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#69FAAA',
     fillOpacity: 0.3
   });
@@ -347,9 +347,9 @@
   //서강D(서강대 후문-대흥역)
   var sogang_d = new google.maps.Polygon({
     paths: sogang_d,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#008080',
     fillOpacity: 0.15
   });
@@ -364,9 +364,9 @@
   //서강E(서강대 남문)
   var sogang_e = new google.maps.Polygon({
     paths: sogang_e,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#F75D59',
     fillOpacity: 0.3
   });
@@ -381,9 +381,9 @@
   //이화A(이대 정문)
    var ewha_a = new google.maps.Polygon({
     paths: ewha_a,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#F87217',
     fillOpacity: 0.3
   });
@@ -398,9 +398,9 @@
   //이화-연세D(이대후문/연대동문)
   var ewha_yonsei_d = new google.maps.Polygon({
     paths: ewha_yonsei_d,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#7FE817',
     fillOpacity: 0.3
   });
@@ -415,9 +415,9 @@
   //연세A(연대 정문)
    var yonsei_a = new google.maps.Polygon({
     paths: yonsei_a,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#B51414',
     fillOpacity: 0.2
    });
@@ -432,9 +432,9 @@
   //연세C(연대 남문) 
  var yonsei_c = new google.maps.Polygon({
     paths: yonsei_c,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#FFFF00',
     fillOpacity: 0.2
   });
@@ -449,9 +449,9 @@
   //연세E(연대 서문) 
  var yonsei_e = new google.maps.Polygon({
     paths: yonsei_e,
-    strokeColor: '#594F4F',
-    strokeOpacity: 1,
-    strokeWeight: 3,
+    //strokeColor: '#594F4F',
+    strokeOpacity: 0.3,
+    strokeWeight: 1,
     fillColor: '#1414B4',
     fillOpacity: 0.2
   });
@@ -531,7 +531,11 @@
                     marker.setValues({type: "point", id: i});
                     var data_id = data[i].id;
                     var str_id = data_id.toString();
-                    //console.log(str_id); 
+                    //console.log(str_id);
+
+
+//event 구간
+//1.말풍선 출력 
                     google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
                           return function() {
                             infoWindow.setContent(contentString);
@@ -539,31 +543,43 @@
 
                            }; // function end
                       })(marker,contentString,infoWindow));
+
+//2.말풍선 지우기
                      google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
                        return function()  {
                         infoWindow.close();
                         };
                      })(infoWindow));
+
+//3. listbox 색 입히기
                     google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
                      return function() { 
                         var result_id = "#" + "a" + str_id;
                       //console.log(result_id); 
 
                       $(document).ready(function() {
-                        $(result_id).css("background-color","#dddddd");
+                        $(result_id).css("background-color","#a4e2c5");
+                        var list_top = $(".roomList").position().top;
+                        var list_bottom = $('.roomList').position().top+$('.roomList').outerHeight(true);
+                        var list_height = list_top + list_bottom;
+                        var place  = list_top - ( list_height - list_bottom ) / 2
+                      
+                        $(".roomList").animate({scrollTop: place}, 500);
                       });
  
                      };
 
                     })(str_id));
+
+//4. listbox 색 지우기
                      google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
                       return function() {
                          var result_id = "#" + "a" + str_id;
                        //console.log(result_id);
 
                        $(document).ready(function() {
-                         $(result_id).css("background-color","#fff");
-                       });
+                        $(result_id).css("background-color","#fff");
+                        });
 
                       };
 
@@ -653,6 +669,13 @@
 
           }
         });
+
+        $(".room").mouseover(function(){
+          $(this).css("background-color", "#dddddd");
+        });
+        $(".room").mouseout(function() {
+          $(this).css("background-color", "#fff");
+        }); 
       });
  
         
@@ -663,6 +686,10 @@
     #infoWindow {
         width:240px;
     }
+    a:hover{
+      background-color:#dddddd;
+      color:blue;
+    }
     </style> 
 </head>
 <body>
@@ -670,16 +697,17 @@
   <div class="col-md-8 col-sm-12 col-xs-12 map_container" style="padding-left:0px; padding-right:0px;">         
     <!-- head에서 설정한 id로 map이 들어온다. -->
     <div id="map-canvas">
-    </div>  
+    </div>
+
   </div><!--지도부분 끝-->
   
   
-  
   <!--오른쪽 박스 시작-->
-  <div class="col-md-4 col-sm-12 col-xs-12 mainbox" style="padding-left: 0px; padding-right: 0px;">
-   
+    
+ <div class="col-md-4 col-sm-12 col-xs-12 mainbox" style="padding-left: 0px; padding-right: 0px;"> 
+
     <!--검색박스 부분 시작-->
-    <div class="searchbox col-md-12 col-sm-12 col-xs-12">
+    <div class="searchbox col-md-12 col-sm-12 col-xs-12" >
         <div class="panel panel-default col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 0px;padding-left: 0px;padding-right: 0px;">
           <div class="panel-body">
             <form action="/map/map_detail" method="POST">
@@ -785,7 +813,7 @@
                 </label>   
               </div>
               
-              <input id="search" type="submit" value="검색하기" class="btn btn-primary col-md-3 col-sm-3 col-xs-3">
+              <input id="search" type="submit" value="검색하기" class="btn btn-primary col-md-3 col-sm-3 col-xs-3" style="background-color:#0072bc; border-color:#0072bc">
               
             </form>
           </div>
@@ -808,12 +836,12 @@
     <!--방 리스트 박스-->
     <div class="listbox col-md-12 col-sm-12 col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-heading col-md-12 col-xs-12 col-sm-12" style="background-color:#337ab7; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
+        <div class="panel-heading col-md-12 col-xs-12 col-sm-12" style="background-color:#00a178; color:#fff"><strong>최근에 올라온 방 목록</strong></div>
         <div class="roomList panel-body" style="padding-left: 5px; padding-top: 5px; padding-left: 0px; overflow:auto; height:230px">
       
       <% @all.each do |c| %>
         <% if (c.univ || '').include? @univ %>
-          <% cnt = 0 %>
+          
           <% if c.kind == "자취" %>
               <div class='room' id='a<%=c.id %>' style='margin-top:3px; margin-bottom:3px;'><!--개별 방 박스1 시작-->
                 <div class="row">
@@ -827,7 +855,7 @@
                        <p style="font-size: 24px; margin-top:5px"><%= c.deposit %>/<%= c.price %></p>
                      </div>
                      <div class="col-md-7 col-sm-7 col-xs-7" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
-                       <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
+                       <button class="btn btn-default"  style="padding-left: 5px; padding-right: 5px; padding-top: 3px; padding-bottom: 3px;"><%= c.room_floor %>층</button>&nbsp;&nbsp;<button class="btn btn-default"  style="padding-left: 5px; padding-right: 5px; padding-top: 3px; padding-bottom: 3px;"><%= c.kind %></button>
                     </div>
                 <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
                 <p style='color:#eb9088; margin-bottom:5px; font-size:14px'>#<%= c.univ %> #관리비: <%= c.admin_fee %>만원 #<%= c.size%>평</p>
@@ -836,6 +864,7 @@
               </div>
             </div> <!-- 개별 방 박스1 끝-->
           <% elsif c.kind == "하숙" %>
+            <a style="color:#262626;" href="/map/detail" target="_blank">
             <div class='room' id='a<%=c.id %>' style='margin-bottom:5px'><!--개별 방 박스 1 시작-->
               <div class="row">
               <div class='col-md-4 col-sm-4 col-xs-4' style=" width: 100px; padding-left: 5px; padding-right: 0px;">
@@ -849,20 +878,19 @@
                     </div>
                     <div class="col-md-10 col-sm-10 col-xs-10" style="margin-top:3px; margin-bottom:5px; padding-left:0px; padding-right:0px">
                      (예치금: <%= c.deposit%>만원)&nbsp;
-                      <button><%= c.room_floor %>층</button>&nbsp;&nbsp;<button><%= c.kind %></button>
+                      <button class="btn btn-default" style="padding-left: 5px; padding-right: 5px; padding-top: 3px; padding-bottom: 3px;"><%= c.room_floor %>층</button>&nbsp;&nbsp;<button class="btn btn-default"  style="padding-left: 5px; padding-right: 5px; padding-top: 3px; padding-bottom: 3px;"><%= c.kind %></button>
                     </div>
                  </div>
                 <p style='margin-bottom:5px; font-size:16px'>거리 : 정문에서 10분(500m)</p>
                 <p style='color:#eb9088; margin-bottom:5px; font-size:15px'>#<%= c.univ %> #아침,저녁</p>
               </div>
               </div>
-            </div> <!-- 개별 방 박스1 끝-->
+            </div><!-- 개별 방 박스1 끝-->
+          </a>
         <% end %>
         
-        <% cnt+=1 %>
-          <% if cnt == 5 %>
-            <% break %>
-          <% end %>
+        
+        
       <% else %>
           
       <% end %>

@@ -144,7 +144,7 @@ u.room_title = "사랑의 집"
 u.room_floor =2
 u.size = 4
 u.private_option ="주방 사용 가능"
-u.img = "/images/bang9.jpg"
+u.img = "/images/bang10.jpg"
 u.save
 
 s=HasukRoom.new
@@ -159,7 +159,7 @@ s.room_title = "사랑의 집"
 s.room_floor =2
 s.size = 4
 s.private_option ="주방 사용 가능"
-s.img = "/images/bang10.jpg"
+s.img = "/images/bang11.jpg"
 s.save
 
 k=HasukRoom.new
@@ -174,7 +174,7 @@ k.room_title = "사랑의 집"
 k.room_floor =2
 k.size = 4
 k.private_option ="주방 사용 가능"
-k.img ="/images/bang11.jpg"
+k.img ="/images/bang12.jpg"
 k.save
 
 l=HasukRoom.new
@@ -189,7 +189,7 @@ l.room_title = "사랑의 집"
 l.room_floor =2
 l.size = 4
 l.private_option ="주방 사용 가능"
-l.img = "/images/bang12.jpg"
+l.img = "/images/bang13.jpg"
 l.save
 
 m=HasukRoom.new
@@ -204,7 +204,7 @@ m.room_title = "사랑의 집"
 m.room_floor =2
 m.size = 4
 m.private_option ="주방 사용 가능"
-m.img ="/images/bang13.jpg"
+m.img ="/images/bang14.jpg"
 m.save
 
 
@@ -215,7 +215,7 @@ n.address = "서울특별시 서대문구 4-126"
 n.lat = 37.567922
 n.lng = 126.946109
 n.univ = "이화 연세"
-n.img ="/images/bang14.jpg"
+n.img ="/images/bang15.jpg"
 n.deposit = 100
 n.size =4
 n.price = 45

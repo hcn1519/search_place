@@ -1,2 +1,13 @@
-<h1>Map#detail</h1>
-<p>Find me in app/views/map/detail.html.erb</p>
+<style type="text/css">
+  body {
+  padding-top:70px;
+  }
+</style>
+
+<div class="container">
+    <div class="col-md-12">
+    <% detailsam = ["/images/detail1.jpg", "/images/detail2.jpg", "/images/detail3.jpg"] %>
+    <% imgurl = detailsam.sample %>
+    <img style="width:100%" src=<%=imgurl%> >
+  </div>
+</div>

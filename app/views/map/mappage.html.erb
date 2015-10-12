@@ -532,10 +532,11 @@
                     var data_id = data[i].id;
                     var str_id = data_id.toString();
                     //console.log(str_id);
-
+                     var hash_id = "a" +str_id;
+                     markerObj = document.getElementById(hash_id);
 
 //event 구간
-//1.말풍선 출력 
+//말풍선 출력 
                     google.maps.event.addListener(marker,'mouseover', (function(marker,contentString,infoWindow){ 
                           return function() {
                             infoWindow.setContent(contentString);
@@ -544,14 +545,28 @@
                            }; // function end
                       })(marker,contentString,infoWindow));
 
-//2.말풍선 지우기
+//말풍선 지우기
                      google.maps.event.addListener(marker, 'mouseout', (function(infoWindow) {
                        return function()  {
                         infoWindow.close();
                         };
                      })(infoWindow));
+// listbox로 말풍선 띄우기
+                     google.maps.event.addDomListener(markerObj, 'mouseover', (function(marker, contentString, infoWindow) {
+                       return function() {
+                         infoWindow.setContent(contentString);
+                         infoWindow.open(map,marker);
+                       }; // function end
+                     })(marker,contentString,infoWindow));
 
-//3. listbox 색 입히기
+ // listbox로 말풍선 띄운 것 지우기
+                      google.maps.event.addDomListener(markerObj, 'mouseout', (function(infoWindow) {
+                        return function() {
+                          infoWindow.close();
+                        }; // function end
+                      })(infoWindow));
+
+//listbox 색 입히기
                     google.maps.event.addListener(marker, 'mouseover', (function(str_id) {
                      return function() { 
                         var result_id = "#" + "a" + str_id;
@@ -578,7 +593,7 @@
 
                     })(str_id));
 
-//4. listbox 색 지우기
+//listbox 색 지우기
                      google.maps.event.addListener(marker, 'mouseout', (function(str_id) {
                       return function() {
                        var result_id = "#" + "a" + str_id;
